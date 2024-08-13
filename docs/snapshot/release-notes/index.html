@@ -515,7 +515,7 @@ authors as well as build tool and IDE vendors.</p>
 <h2 id="release-notes-5.11.0"><a class="anchor" href="#release-notes-5.11.0"></a>5.11.0</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Date of Release:</strong> ❓</p>
+<p><strong>Date of Release:</strong> August 14, 2024</p>
 </div>
 <div class="paragraph">
 <p><strong>Scope:</strong></p>
@@ -659,7 +659,7 @@ selector type individually.</p>
 <code>foo.Bar</code> class.</p>
 </li>
 <li>
-<p>Similarly, the JUnit Platform Suite engine provides a new <code>@Select("&lt;identifier&gt;)</code>
+<p>Similarly, the JUnit Platform Suite engine provides a new <code>@Select("&lt;identifier&gt;")</code>
 annotation.</p>
 </li>
 </ul>
@@ -694,7 +694,7 @@ exception&#8217;s <em>root</em> cause matches all supplied conditions, for use w
 <p><code>ReflectionSupport</code> now supports scanning for classpath resources.</p>
 </li>
 <li>
-<p>Introduce <code>@BeforeSuite</code> and <code>@AfterSuite</code> annotations.</p>
+<p>Introduce <code>@BeforeSuite</code> and <code>@AfterSuite</code> lifecycle methods for <code>@Suite</code> classes.</p>
 </li>
 </ul>
 </div>
@@ -790,11 +790,8 @@ close the annotated resource after test execution. See the
 details.</p>
 </li>
 <li>
-<p><code>@TempDir</code> now suppresses <code>NoSuchFileException</code> when attempting to delete files that may
-have been already deleted by another thread or process.</p>
-</li>
-<li>
-<p><code>JAVA_23</code> has been added to the <code>JRE</code> enum for use with JRE-based execution conditions.</p>
+<p><code>JAVA_23</code> and <code>JAVA_24</code> have been added to the <code>JRE</code> enum for use with JRE-based
+execution conditions.</p>
 </li>
 <li>
 <p>New <a href="../user-guide/index.html#writing-tests-exceptions">Exception Handling</a>
@@ -824,9 +821,6 @@ arguments for a <code>@ParameterizedTest</code>. See the
 for details.</p>
 </li>
 <li>
-<p><code>JAVA_24</code> has been added to the <code>JRE</code> enum for use with JRE-based execution conditions.</p>
-</li>
-<li>
 <p>New <code>assertInstanceOf</code> methods added for Kotlin following up with similar Java
 <code>assertInstanceOf</code> methods introduced in <code>5.8</code> version.</p>
 </li>
@@ -834,6 +828,10 @@ for details.</p>
 <p>New generators in <code>DynamicTest</code> that take a <code>Stream</code>/<code>Iterator</code> of <code>Named&lt;Executable&gt;</code>
 along with a convenient <code>NamedExecutable</code> interface that can simplify writing dynamic
 tests, in particular in recent versions of Java that support records.</p>
+</li>
+<li>
+<p><code>@TempDir</code> now suppresses <code>NoSuchFileException</code> when attempting to delete files that may
+have been already deleted by another thread or process.</p>
 </li>
 <li>
 <p><code>@TempDir</code> now fails fast in case <code>TempDirFactory::createTempDirectory</code> returns

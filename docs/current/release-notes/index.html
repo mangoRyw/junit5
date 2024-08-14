@@ -480,6 +480,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#release-notes-5.11.0-junit-vintage">JUnit Vintage</a></li>
 </ul>
 </li>
+<li><a href="#release-notes-5.10.3">5.10.3</a>
+<ul class="sectlevel2">
+<li><a href="#release-notes-5.10.3-junit-platform">JUnit Platform</a></li>
+<li><a href="#release-notes-5.10.3-junit-jupiter">JUnit Jupiter</a></li>
+<li><a href="#release-notes-5.10.3-junit-vintage">JUnit Vintage</a></li>
+</ul>
+</li>
 <li><a href="#release-notes-5.10.2">5.10.2</a>
 <ul class="sectlevel2">
 <li><a href="#release-notes-5.10.2-junit-platform">JUnit Platform</a></li>
@@ -859,6 +866,69 @@ by specifying <code>maxCharsPerColumn = -1</code>.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="release-notes-5.10.3"><a class="anchor" href="#release-notes-5.10.3"></a>5.10.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> June 27, 2024</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.10.2</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit5/milestone/78?closed=1">5.10.3</a> milestone page in the JUnit repository
+on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.10.3-junit-platform"><a class="anchor" href="#release-notes-5.10.3-junit-platform"></a>JUnit Platform</h3>
+<div class="sect3">
+<h4 id="bug-fixes"><a class="anchor" href="#bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>junit-platform-suite-engine</code> now includes configuration provided via
+<code>@ConfigurationParameter</code> when selecting tests by <code>UniqueId</code>.</p>
+</li>
+<li>
+<p>In order to support using <code>@EnabledInNativeImage</code> on test classes,
+<code>UniqueIdTrackingListener</code> now tracks descendants of skipped test containers.</p>
+</li>
+<li>
+<p>Attempting to deserialize a <code>TestIdentifier</code> no longer causes a <code>NullPointerException</code>
+when there is no parent identifier. See
+<a href="https://github.com/junit-team/junit5/issues/3819">issue 3819</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.10.3-junit-jupiter"><a class="anchor" href="#release-notes-5.10.3-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="bug-fixes-2"><a class="anchor" href="#bug-fixes-2"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>TempDir</code> suppresses <code>NoSuchFileException</code> when deleting files that may have been deleted
+by another thread or process.</p>
+</li>
+<li>
+<p><code>MethodOrderer.Random</code> and <code>ClassOrderer.Random</code> now use the same default seed that is
+generated during class initialization.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.10.3-junit-vintage"><a class="anchor" href="#release-notes-5.10.3-junit-vintage"></a>JUnit Vintage</h3>
+<div class="paragraph">
+<p>No changes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="release-notes-5.10.2"><a class="anchor" href="#release-notes-5.10.2"></a>5.10.2</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -875,7 +945,7 @@ on GitHub.</p>
 <div class="sect2">
 <h3 id="release-notes-5.10.2-junit-platform"><a class="anchor" href="#release-notes-5.10.2-junit-platform"></a>JUnit Platform</h3>
 <div class="sect3">
-<h4 id="bug-fixes"><a class="anchor" href="#bug-fixes"></a>Bug Fixes</h4>
+<h4 id="bug-fixes-3"><a class="anchor" href="#bug-fixes-3"></a>Bug Fixes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -933,7 +1003,7 @@ on GitHub.</p>
 <div class="sect2">
 <h3 id="release-notes-5.10.2-junit-jupiter"><a class="anchor" href="#release-notes-5.10.2-junit-jupiter"></a>JUnit Jupiter</h3>
 <div class="sect3">
-<h4 id="bug-fixes-2"><a class="anchor" href="#bug-fixes-2"></a>Bug Fixes</h4>
+<h4 id="bug-fixes-4"><a class="anchor" href="#bug-fixes-4"></a>Bug Fixes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1014,7 +1084,7 @@ JUnit repository on GitHub.</p>
 <div class="sect2">
 <h3 id="release-notes-5.10.1-junit-platform"><a class="anchor" href="#release-notes-5.10.1-junit-platform"></a>JUnit Platform</h3>
 <div class="sect3">
-<h4 id="bug-fixes-3"><a class="anchor" href="#bug-fixes-3"></a>Bug Fixes</h4>
+<h4 id="bug-fixes-5"><a class="anchor" href="#bug-fixes-5"></a>Bug Fixes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1048,7 +1118,7 @@ in <code>findMethods(&#8230;&#8203;)</code> and <code>streamMethods(&#8230;&#820
 <div class="sect2">
 <h3 id="release-notes-5.10.1-junit-jupiter"><a class="anchor" href="#release-notes-5.10.1-junit-jupiter"></a>JUnit Jupiter</h3>
 <div class="sect3">
-<h4 id="bug-fixes-4"><a class="anchor" href="#bug-fixes-4"></a>Bug Fixes</h4>
+<h4 id="bug-fixes-6"><a class="anchor" href="#bug-fixes-6"></a>Bug Fixes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1106,7 +1176,7 @@ such annotations are not inherited by subclasses.</p>
 <div class="sect2">
 <h3 id="release-notes-5.10.1-junit-vintage"><a class="anchor" href="#release-notes-5.10.1-junit-vintage"></a>JUnit Vintage</h3>
 <div class="sect3">
-<h4 id="bug-fixes-5"><a class="anchor" href="#bug-fixes-5"></a>Bug Fixes</h4>
+<h4 id="bug-fixes-7"><a class="anchor" href="#bug-fixes-7"></a>Bug Fixes</h4>
 <div class="ulist">
 <ul>
 <li>

@@ -284,15 +284,19 @@ implements <a href="../DiscoverySelector.html" title="interface in org.junit.pla
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="../DiscoverySelector.html#toIdentifier()">DiscoverySelector</a></code></span></div>
 <div class="block">Return the <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">identifier</a> of this
  selector.
- <p>
- The returned identifier has to be parsable by a corresponding
- <a href="DiscoverySelectorIdentifierParser.html" title="interface in org.junit.platform.engine.discovery"><code>DiscoverySelectorIdentifierParser</code></a>.</div>
+
+ <p>The returned identifier must be parsable by a corresponding
+ <a href="DiscoverySelectorIdentifierParser.html" title="interface in org.junit.platform.engine.discovery"><code>DiscoverySelectorIdentifierParser</code></a>.
+
+ <p>The default implementation returns <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html#empty()" title="class or interface in java.util" class="external-link"><code>Optional.empty()</code></a>. Can be
+ overridden by concrete implementations.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../DiscoverySelector.html#toIdentifier()">toIdentifier</a></code>&nbsp;in interface&nbsp;<code><a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a></code></dd>
 <dt>Returns:</dt>
-<dd>the identifier of this selector or empty if it is not supported;
- never <code>null</code></dd>
+<dd>an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> containing the identifier of this selector;
+ never <code>null</code> but potentially empty if the selector does not support
+ identifiers</dd>
 </dl>
 </section>
 </li>

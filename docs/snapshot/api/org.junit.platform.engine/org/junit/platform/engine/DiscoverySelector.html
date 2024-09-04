@@ -155,13 +155,17 @@ loadScripts(document, 'script');</script>
 </span><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">DiscoverySelectorIdentifier</a>&gt;</span>&nbsp;<span class="element-name">toIdentifier</span>()</div>
 <div class="block">Return the <a href="DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">identifier</a> of this
  selector.
- <p>
- The returned identifier has to be parsable by a corresponding
- <a href="discovery/DiscoverySelectorIdentifierParser.html" title="interface in org.junit.platform.engine.discovery"><code>DiscoverySelectorIdentifierParser</code></a>.</div>
+
+ <p>The returned identifier must be parsable by a corresponding
+ <a href="discovery/DiscoverySelectorIdentifierParser.html" title="interface in org.junit.platform.engine.discovery"><code>DiscoverySelectorIdentifierParser</code></a>.
+
+ <p>The default implementation returns <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html#empty()" title="class or interface in java.util" class="external-link"><code>Optional.empty()</code></a>. Can be
+ overridden by concrete implementations.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the identifier of this selector or empty if it is not supported;
- never <code>null</code></dd>
+<dd>an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> containing the identifier of this selector;
+ never <code>null</code> but potentially empty if the selector does not support
+ identifiers</dd>
 <dt>Since:</dt>
 <dd>1.11</dd>
 </dl>

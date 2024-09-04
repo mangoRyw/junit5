@@ -149,7 +149,7 @@ implements <a href="DiscoverySelectorIdentifierParser.html" title="interface in 
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPrefix()" class="member-name-link">getPrefix</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Get the prefix that this parser can handle.</div>
+<div class="block">Get the prefix that this parser supports.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="ClasspathRootSelector.html" title="class in org.junit.platform.engine.discovery">ClasspathRootSelector</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(org.junit.platform.engine.DiscoverySelectorIdentifier,org.junit.platform.engine.discovery.DiscoverySelectorIdentifierParser.Context)" class="member-name-link">parse</a><wbr>(<a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">DiscoverySelectorIdentifier</a>&nbsp;identifier,
@@ -193,12 +193,12 @@ implements <a href="DiscoverySelectorIdentifierParser.html" title="interface in 
 <h3>getPrefix</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getPrefix</span>()</div>
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="DiscoverySelectorIdentifierParser.html#getPrefix()">DiscoverySelectorIdentifierParser</a></code></span></div>
-<div class="block">Get the prefix that this parser can handle.</div>
+<div class="block">Get the prefix that this parser supports.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="DiscoverySelectorIdentifierParser.html#getPrefix()">getPrefix</a></code>&nbsp;in interface&nbsp;<code><a href="DiscoverySelectorIdentifierParser.html" title="interface in org.junit.platform.engine.discovery">DiscoverySelectorIdentifierParser</a></code></dd>
 <dt>Returns:</dt>
-<dd>the prefix that this parser can handle; never <code>null</code></dd>
+<dd>the prefix that this parser supports; never <code>null</code> or blank</dd>
 </dl>
 </section>
 </li>
@@ -209,8 +209,8 @@ implements <a href="DiscoverySelectorIdentifierParser.html" title="interface in 
  <a href="DiscoverySelectorIdentifierParser.Context.html" title="interface in org.junit.platform.engine.discovery">DiscoverySelectorIdentifierParser.Context</a>&nbsp;context)</span></div>
 <div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="DiscoverySelectorIdentifierParser.html#parse(org.junit.platform.engine.DiscoverySelectorIdentifier,org.junit.platform.engine.discovery.DiscoverySelectorIdentifierParser.Context)">DiscoverySelectorIdentifierParser</a></code></span></div>
 <div class="block">Parse the supplied <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a>.
- <p>
- The JUnit Platform will only invoke this method if the supplied
+
+ <p>The JUnit Platform will only invoke this method if the supplied
  <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a> has a prefix that matches the value
  returned by <a href="DiscoverySelectorIdentifierParser.html#getPrefix()"><code>DiscoverySelectorIdentifierParser.getPrefix()</code></a>.</div>
 <dl class="notes">
@@ -220,7 +220,8 @@ implements <a href="DiscoverySelectorIdentifierParser.html" title="interface in 
 <dd><code>identifier</code> - the <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a> to parse</dd>
 <dd><code>context</code> - the <a href="DiscoverySelectorIdentifierParser.Context.html" title="interface in org.junit.platform.engine.discovery"><code>DiscoverySelectorIdentifierParser.Context</code></a> to use for parsing</dd>
 <dt>Returns:</dt>
-<dd>an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> containing the parsed <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelector</code></a>; never <code>null</code></dd>
+<dd>an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> containing the parsed <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelector</code></a>;
+ never <code>null</code> but potentially empty</dd>
 </dl>
 </section>
 </li>

@@ -99,10 +99,9 @@ loadScripts(document, 'script');</script>
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.11")
 </span><span class="modifiers">public final class </span><span class="element-name type-name-label">DiscoverySelectorIdentifier</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Identifier for <a href="DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelectors</code></a> with a specific
- prefix.
- <p>
- The <a href="#toString()">string representation</a> of an identifier is
+<div class="block">Identifier for a <a href="DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelector</code></a> with a specific prefix.
+
+ <p>The <a href="#toString()">string representation</a> of an identifier is
  intended to be human-readable and is formatted as <code>prefix:value</code>.</div>
 <dl class="notes">
 <dt>Since:</dt>
@@ -133,7 +132,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(java.lang.String,java.lang.String)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;prefix,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Create a new <a href="DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a> with the supplied prefix and
+<div class="block">Create a new <code>DiscoverySelectorIdentifier</code> with the supplied prefix and
  value.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
@@ -186,7 +185,7 @@ loadScripts(document, 'script');</script>
 <h3>create</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">DiscoverySelectorIdentifier</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;prefix,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value)</span></div>
-<div class="block">Create a new <a href="DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a> with the supplied prefix and
+<div class="block">Create a new <code>DiscoverySelectorIdentifier</code> with the supplied prefix and
  value.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -203,9 +202,9 @@ loadScripts(document, 'script');</script>
  <a href="DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a> in the format <code>prefix:value</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>string</code> - the string representation of a <a href="DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a></dd>
+<dd><code>string</code> - the string representation of a <code>DiscoverySelectorIdentifier</code></dd>
 <dt>Returns:</dt>
-<dd>the parsed <a href="DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a></dd>
+<dd>the parsed <code>DiscoverySelectorIdentifier</code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../../org.junit.platform.commons/org/junit/platform/commons/PreconditionViolationException.html" title="class in org.junit.platform.commons">PreconditionViolationException</a></code> - if the supplied string does not
  conform to the expected format</dd>

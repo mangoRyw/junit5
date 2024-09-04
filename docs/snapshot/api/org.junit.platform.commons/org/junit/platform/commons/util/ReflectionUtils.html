@@ -263,7 +263,7 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;parameterTypeNames)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Build the <em>fully qualified method name</em> for the method described by the
- supplied class, method name, and parameter types.</div>
+ supplied class name, method name, and parameter types.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getInterfaceMethodIfPossible(java.lang.reflect.Method,java.lang.Class)" class="member-name-link">getInterfaceMethodIfPossible</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link">Method</a>&nbsp;method,
@@ -1317,15 +1317,17 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;methodName,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;parameterTypeNames)</span></div>
 <div class="block">Build the <em>fully qualified method name</em> for the method described by the
- supplied class, method name, and parameter types.
+ supplied class name, method name, and parameter types.
 
  <p>Note that the class is not necessarily the class in which the method is
  declared.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>className</code> - the name of the class from which the method should be referenced; never <code>null</code></dd>
+<dd><code>className</code> - the name of the class from which the method should be referenced;
+ never <code>null</code></dd>
 <dd><code>methodName</code> - the name of the method; never <code>null</code> or blank</dd>
-<dd><code>parameterTypeNames</code> - the parameter type names of the method; may be empty but not <code>null</code></dd>
+<dd><code>parameterTypeNames</code> - the parameter type names of the method; may be
+ empty but not <code>null</code></dd>
 <dt>Returns:</dt>
 <dd>fully qualified method name; never <code>null</code></dd>
 <dt>Since:</dt>

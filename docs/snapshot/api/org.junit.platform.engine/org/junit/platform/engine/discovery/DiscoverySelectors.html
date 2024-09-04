@@ -140,8 +140,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;? extends <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parse(java.lang.String)" class="member-name-link">parse</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;identifier)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Parse the supplied string representation of a
- <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a>.</div>
+<div class="block">Parse the supplied string representation of a <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;? extends <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parse(org.junit.platform.engine.DiscoverySelectorIdentifier)" class="member-name-link">parse</a><wbr>(<a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">DiscoverySelectorIdentifier</a>&nbsp;identifier)</code></div>
@@ -1614,8 +1613,8 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>parentSelector</code> - the parent selector to select iterations for; never
  <code>null</code></dd>
-<dd><code>iterationIndices</code> - the iteration indices to select; never
- <code>null</code> or empty</dd>
+<dd><code>iterationIndices</code> - the iteration indices to select; never <code>null</code>
+ or empty</dd>
 <dt>Since:</dt>
 <dd>1.9</dd>
 <dt>See Also:</dt>
@@ -1633,12 +1632,14 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.11")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;? extends <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>&gt;</span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;identifier)</span></div>
-<div class="block">Parse the supplied string representation of a
- <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a>.</div>
+<div class="block">Parse the supplied string representation of a <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine"><code>DiscoverySelectorIdentifier</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>identifier</code> - the string representation of a <code>DiscoverySelectorIdentifier</code>;
  never <code>null</code> or blank</dd>
+<dt>Returns:</dt>
+<dd>an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> containing the corresponding <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelector</code></a>;
+ never <code>null</code> but potentially empty</dd>
 <dt>Since:</dt>
 <dd>1.11</dd>
 <dt>See Also:</dt>
@@ -1661,6 +1662,9 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>identifier</code> - the <code>DiscoverySelectorIdentifier</code> to parse;
  never <code>null</code></dd>
+<dt>Returns:</dt>
+<dd>an <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> containing the corresponding <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelector</code></a>;
+ never <code>null</code> but potentially empty</dd>
 <dt>Since:</dt>
 <dd>1.11</dd>
 <dt>See Also:</dt>
@@ -1684,6 +1688,9 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>identifiers</code> - the string representations of
  <code>DiscoverySelectorIdentifiers</code> to parse; never <code>null</code></dd>
+<dt>Returns:</dt>
+<dd>a stream of the corresponding <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelectors</code></a>;
+ never <code>null</code> but potentially empty</dd>
 <dt>Since:</dt>
 <dd>1.11</dd>
 <dt>See Also:</dt>
@@ -1706,6 +1713,9 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>identifiers</code> - the <code>DiscoverySelectorIdentifiers</code> to parse;
  never <code>null</code></dd>
+<dt>Returns:</dt>
+<dd>a stream of the corresponding <a href="../DiscoverySelector.html" title="interface in org.junit.platform.engine"><code>DiscoverySelectors</code></a>;
+ never <code>null</code> but potentially empty</dd>
 <dt>Since:</dt>
 <dd>1.11</dd>
 <dt>See Also:</dt>

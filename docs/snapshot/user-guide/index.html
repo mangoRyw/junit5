@@ -1761,6 +1761,15 @@ parameter, if present</p>
 that lend themselves well to being used with Java 8 lambdas. All JUnit Jupiter assertions
 are <code>static</code> methods in the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/Assertions.html">org.junit.jupiter.api.Assertions</a></code> class.</p>
 </div>
+<div class="paragraph">
+<p>Assertion methods optionally accept the assertion message as their third parameter, which
+can be either a <code>String</code> or a <code>Supplier&lt;String&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>When using a <code>Supplier&lt;String&gt;</code> (e.g., a lambda expression), the message is evaluated
+lazily. This can provide a performance benefit, especially if message construction is
+complex or time-consuming, as it is only evaluated when the assertion fails.</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="java"><span class="kn">import</span> <span class="nn">static</span> <span class="n">java</span><span class="o">.</span><span class="na">time</span><span class="o">.</span><span class="na">Duration</span><span class="o">.</span><span class="na">ofMillis</span><span class="o">;</span>
@@ -1792,8 +1801,9 @@ are <code>static</code> methods in the <code><a href="../api/org.junit.jupiter.a
         <span class="n">assertEquals</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">calculator</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>
         <span class="n">assertEquals</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="n">calculator</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">2</span><span class="o">),</span>
                 <span class="s">"The optional failure message is now the last parameter"</span><span class="o">);</span>
-        <span class="n">assertTrue</span><span class="o">(</span><span class="sc">'a'</span> <span class="o">&lt;</span> <span class="sc">'b'</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="s">"Assertion messages can be lazily evaluated -- "</span>
-                <span class="o">+</span> <span class="s">"to avoid constructing complex messages unnecessarily."</span><span class="o">);</span>
+
+        <span class="c1">// Lazily evaluates generateFailureMessage('a','b').</span>
+        <span class="n">assertTrue</span><span class="o">(</span><span class="sc">'a'</span> <span class="o">&lt;</span> <span class="sc">'b'</span><span class="o">,</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">generateFailureMessage</span><span class="o">(</span><span class="sc">'a'</span><span class="o">,</span><span class="sc">'b'</span><span class="o">));</span>
     <span class="o">}</span>
 
     <span class="nd">@Test</span>
@@ -1891,6 +1901,10 @@ are <code>static</code> methods in the <code><a href="../api/org.junit.jupiter.a
         <span class="k">return</span> <span class="s">"Hello, World!"</span><span class="o">;</span>
     <span class="o">}</span>
 
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">generateFailureMessage</span><span class="o">(</span><span class="kt">char</span> <span class="n">a</span><span class="o">,</span> <span class="kt">char</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"Assertion messages can be lazily evaluated -- "</span>
+                <span class="o">+</span> <span class="s">"to avoid constructing complex messages unnecessarily."</span> <span class="o">+</span> <span class="o">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">);</span>
+    <span class="o">}</span>
 <span class="o">}</span></code></pre>
 </div>
 </div>

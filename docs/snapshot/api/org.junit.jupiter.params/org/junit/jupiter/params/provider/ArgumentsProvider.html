@@ -105,7 +105,8 @@ loadScripts(document, 'script');</script>
  <p>An <code>ArgumentsProvider</code> can be registered via the
  <a href="ArgumentsSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>@ArgumentsSource</code></a> annotation.
 
- <p>Implementations must provide a no-args constructor.</div>
+ <p>Implementations must provide a no-args constructor or a single unambiguous
+ constructor to use <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" title="interface in org.junit.jupiter.api.extension">parameter resolution</a>.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.0</dd>

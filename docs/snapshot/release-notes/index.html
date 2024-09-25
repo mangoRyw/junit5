@@ -583,6 +583,12 @@ calling the internal <code>ReflectionUtils.makeAccessible(Field)</code> method d
 types such as <code>LocalDate</code> if the new <code>nullable</code> attribute in
 <code>@JavaTimeConversionPattern</code> is set to <code>true</code>.</p>
 </li>
+<li>
+<p><code>ArgumentsProvider</code> (declared via <code>@ArgumentsSource</code>), <code>ArgumentConverter</code> (declared via
+<code>@ConvertWith</code>), and <code>ArgumentsAggregator</code> (declared via <code>@AggregateWith</code>)
+implementations can now use constructor injection from registered <code>ParameterResolver</code>
+extensions.</p>
+</li>
 </ul>
 </div>
 </div>

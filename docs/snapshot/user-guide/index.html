@@ -5199,6 +5199,28 @@ class or as a <code>static</code> nested class.</p>
 (like built-in providers such as <code><a href="https://github.com/junit-team/junit5/blob/main/junit-jupiter-params/src/main/java/org/junit/jupiter/params/provider/ValueArgumentsProvider.java">ValueArgumentsProvider</a></code> or <code><a href="https://github.com/junit-team/junit5/blob/main/junit-jupiter-params/src/main/java/org/junit/jupiter/params/provider/CsvArgumentsProvider.java">CsvArgumentsProvider</a></code>),
 you have the possibility to extend the <code><a href="../api/org.junit.jupiter.params/org/junit/jupiter/params/provider/AnnotationBasedArgumentsProvider.html">AnnotationBasedArgumentsProvider</a></code> class.</p>
 </div>
+<div class="paragraph">
+<p>Moreover, <code>ArgumentsProvider</code> implementations may declare constructor parameters in case
+they need to be resolved by a registered <code>ParameterResolver</code> as demonstrated in the
+following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyArgumentsProviderWithConstructorInjection</span> <span class="kd">implements</span> <span class="nc">ArgumentsProvider</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">TestInfo</span> <span class="n">testInfo</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyArgumentsProviderWithConstructorInjection</span><span class="o">(</span><span class="nc">TestInfo</span> <span class="n">testInfo</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">testInfo</span> <span class="o">=</span> <span class="n">testInfo</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Stream</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="nc">Arguments</span><span class="o">&gt;</span> <span class="nf">provideArguments</span><span class="o">(</span><span class="nc">ExtensionContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="nc">Arguments</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">testInfo</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">()));</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="writing-tests-parameterized-repeatable-sources"><a class="anchor" href="#writing-tests-parameterized-repeatable-sources"></a>Multiple sources using repeatable annotations</h5>

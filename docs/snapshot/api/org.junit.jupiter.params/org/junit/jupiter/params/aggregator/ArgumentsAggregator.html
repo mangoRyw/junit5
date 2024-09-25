@@ -111,10 +111,11 @@ loadScripts(document, 'script');</script>
  in a CSV file into a domain object such as a <code>Person</code>, <code>Address</code>,
  <code>Order</code>, etc.
 
- <p>Implementations must provide a no-args constructor and should not make any
- assumptions regarding when they are instantiated or how often they are called.
- Since instances may potentially be cached and called from different threads,
- they should be thread-safe and designed to be used as singletons.</div>
+ <p>Implementations must provide a no-args constructor or a single unambiguous
+ constructor to use <a href="../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ParameterResolver.html" title="interface in org.junit.jupiter.api.extension">parameter resolution</a>. They
+ should not make any assumptions regarding when they are instantiated or how
+ often they are called. Since instances may potentially be cached and called
+ from different threads, they should be thread-safe.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.2</dd>

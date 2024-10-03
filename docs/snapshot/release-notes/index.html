@@ -656,7 +656,9 @@ on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>Fix regression in parallel execution that was introduced in 5.10.4/5.11.1 regarding
+global read-write locks. When such a lock was declared on descendants of top-level nodes
+in the test tree, such as Cucumber scenarios, test execution failed.</p>
 </li>
 </ul>
 </div>

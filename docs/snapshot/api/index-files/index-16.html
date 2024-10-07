@@ -410,6 +410,22 @@ loadScripts(document, 'script');</script>
 <div class="block">Provide a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link"><code>Stream</code></a> of <a href="../org.junit.jupiter.params/org/junit/jupiter/params/provider/Arguments.html" title="interface in org.junit.jupiter.params.provider"><code>Arguments</code></a> &mdash; based on metadata in the
  provided annotation &mdash; to be passed to a <code>@ParameterizedTest</code> method.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html#provideForClass(java.lang.Class)" class="member-name-link">provideForClass(Class&lt;?&gt;)</a> - Method in interface org.junit.jupiter.api.parallel.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel">ResourceLocksProvider</a></dt>
+<dd>
+<div class="block">Add shared resources to a test class.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html#provideForMethod(java.lang.Class,java.lang.reflect.Method)" class="member-name-link">provideForMethod(Class&lt;?&gt;, Method)</a> - Method in interface org.junit.jupiter.api.parallel.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel">ResourceLocksProvider</a></dt>
+<dd>
+<div class="block">Add shared resources to a test method.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html#provideForNestedClass(java.lang.Class)" class="member-name-link">provideForNestedClass(Class&lt;?&gt;)</a> - Method in interface org.junit.jupiter.api.parallel.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel">ResourceLocksProvider</a></dt>
+<dd>
+<div class="block">Add shared resources to a <a href="../org.junit.jupiter.api/org/junit/jupiter/api/Nested.html" title="annotation interface in org.junit.jupiter.api">nested</a> test class.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html#providers()" class="member-name-link">providers()</a> - Element in annotation interface org.junit.jupiter.api.parallel.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html" title="annotation interface in org.junit.jupiter.api.parallel">ResourceLock</a></dt>
+<dd>
+<div class="block">An array of one or more classes implementing <a href="../org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel"><code>ResourceLocksProvider</code></a>.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContextProvider.html#provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)" class="member-name-link">provideTestTemplateInvocationContexts(ExtensionContext)</a> - Method in interface org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContextProvider.html" title="interface in org.junit.jupiter.api.extension">TestTemplateInvocationContextProvider</a></dt>
 <dd>
 <div class="block">Provide <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">invocation contexts</a>

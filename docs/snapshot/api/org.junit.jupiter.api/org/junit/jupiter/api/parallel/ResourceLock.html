@@ -43,7 +43,7 @@ loadScripts(document, 'script');</script>
 <p>Summary:</p>
 <ul>
 <li>Field</li>
-<li><a href="#annotation-interface-required-element-summary">Required</a></li>
+<li>Required</li>
 <li><a href="#annotation-interface-optional-element-summary">Optional</a></li>
 </ul>
 </li>
@@ -61,7 +61,7 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#annotation-interface-required-element-summary">Required</a>&nbsp;|&nbsp;</li>
+<li>Required&nbsp;|&nbsp;</li>
 <li><a href="#annotation-interface-optional-element-summary">Optional</a></li>
 </ul>
 <ul class="sub-nav-list">
@@ -117,7 +117,16 @@ loadScripts(document, 'script');</script>
  <p>This annotation can be repeated to declare the use of multiple shared resources.
 
  <p>Since JUnit Jupiter 5.4, this annotation is <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/annotation/Inherited.html" title="class or interface in java.lang.annotation" class="external-link">inherited</a>
- within class hierarchies.</div>
+ within class hierarchies.
+
+ <p>Since JUnit Jupiter 5.12, this annotation supports adding shared resources
+ dynamically at runtime via <a href="#providers()"><code>providers()</code></a>.
+
+ <p>Resources declared "statically" using <a href="#value()"><code>value()</code></a> and <a href="#mode()"><code>mode()</code></a>
+ are combined with "dynamic" resources added via <a href="#providers()"><code>providers()</code></a>.
+ For example, declaring resource "A" via <code>@ResourceLock("A")</code>
+ and resource "B" via a provider returning <code>new Lock("B")</code> will result
+ in two shared resources "A" and "B".</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.3</dd>
@@ -128,29 +137,13 @@ loadScripts(document, 'script');</script>
 <li><a href="Resources.html" title="class in org.junit.jupiter.api.parallel"><code>Resources</code></a></li>
 <li><a href="ResourceAccessMode.html" title="enum class in org.junit.jupiter.api.parallel"><code>ResourceAccessMode</code></a></li>
 <li><a href="ResourceLocks.html" title="annotation interface in org.junit.jupiter.api.parallel"><code>ResourceLocks</code></a></li>
+<li><a href="ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel"><code>ResourceLocksProvider</code></a></li>
 </ul>
 </dd>
 </dl>
 </section>
 <section class="summary">
 <ul class="summary-list">
-<!-- =========== ANNOTATION INTERFACE REQUIRED MEMBER SUMMARY =========== -->
-<li>
-<section class="member-summary" id="annotation-interface-required-element-summary">
-<h2>Required Element Summary</h2>
-<div class="caption"><span>Required Elements</span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Required Element</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#value()" class="member-name-link">value</a></code></div>
-<div class="col-last even-row-color">
-<div class="block">The resource key.</div>
-</div>
-</div>
-</section>
-</li>
 <!-- =========== ANNOTATION INTERFACE OPTIONAL MEMBER SUMMARY =========== -->
 <li>
 <section class="member-summary" id="annotation-interface-optional-element-summary">
@@ -164,6 +157,16 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><code><a href="#mode()" class="member-name-link">mode</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">The resource access mode.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel">ResourceLocksProvider</a>&gt;[]</code></div>
+<div class="col-second odd-row-color"><code><a href="#providers()" class="member-name-link">providers</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">An array of one or more classes implementing <a href="ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel"><code>ResourceLocksProvider</code></a>.</div>
+</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#value()" class="member-name-link">value</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">The resource key.</div>
 </div>
 </div>
 </section>
@@ -181,14 +184,21 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="value()">
 <h3>value</h3>
 <div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">value</span></div>
-<div class="block">The resource key.</div>
+<div class="block">The resource key.
+
+ <p>Defaults to an empty string.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
 <li><a href="Resources.html" title="class in org.junit.jupiter.api.parallel"><code>Resources</code></a></li>
+<li><a href="ResourceLocksProvider.Lock.html#getKey()"><code>ResourceLocksProvider.Lock.getKey()</code></a></li>
 </ul>
 </dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd><code>""</code></dd>
 </dl>
 </section>
 </li>
@@ -202,14 +212,40 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
 <li><a href="ResourceAccessMode.html" title="enum class in org.junit.jupiter.api.parallel"><code>ResourceAccessMode</code></a></li>
+<li><a href="ResourceLocksProvider.Lock.html#getAccessMode()"><code>ResourceLocksProvider.Lock.getAccessMode()</code></a></li>
 </ul>
 </dd>
 </dl>
 <dl class="notes">
 <dt>Default:</dt>
 <dd><code>READ_WRITE</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="providers()">
+<h3>providers</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.12")
+</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel">ResourceLocksProvider</a>&gt;[]</span>&nbsp;<span class="element-name">providers</span></div>
+<div class="block">An array of one or more classes implementing <a href="ResourceLocksProvider.html" title="interface in org.junit.jupiter.api.parallel"><code>ResourceLocksProvider</code></a>.
+
+ <p>Defaults to an empty array.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>5.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="ResourceLocksProvider.Lock.html" title="class in org.junit.jupiter.api.parallel"><code>ResourceLocksProvider.Lock</code></a></li>
+</ul>
+</dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd><code>{}</code></dd>
 </dl>
 </section>
 </li>

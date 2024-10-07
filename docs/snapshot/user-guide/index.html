@@ -7032,6 +7032,13 @@ name can be user-defined or one of the predefined constants in <code><a href="..
 <code>SYSTEM_PROPERTIES</code>, <code>SYSTEM_OUT</code>, <code>SYSTEM_ERR</code>, <code>LOCALE</code>, or <code>TIME_ZONE</code>.</p>
 </div>
 <div class="paragraph">
+<p>In addition to declaring these shared resources statically, the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code>
+annotation has a <code>providers</code> attribute that allows registering implementations of the
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html">ResourceLocksProvider</a></code> interface that can add shared resources dynamically at runtime.
+Note that resources declared statically with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code> annotation are combined with
+resources added dynamically by <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html">ResourceLocksProvider</a></code> implementations.</p>
+</div>
+<div class="paragraph">
 <p>If the tests in the following example were run in parallel <em>without</em> the use of
 <a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a>, they would be <em>flaky</em>. Sometimes they would pass, and at other times they
 would fail due to the inherent race condition of writing and then reading the same JVM
@@ -7070,9 +7077,10 @@ parallel with each other but not while any other test that requires <code>READ_W
 to the same shared resource is running.</p>
 </div>
 <div class="listingblock">
+<div class="title">Declaring shared resources "statically" with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code> annotation</div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="java"><span class="nd">@Execution</span><span class="o">(</span><span class="no">CONCURRENT</span><span class="o">)</span>
-<span class="kd">class</span> <span class="nc">SharedResourcesDemo</span> <span class="o">{</span>
+<span class="kd">class</span> <span class="nc">StaticSharedResourcesDemo</span> <span class="o">{</span>
 
     <span class="kd">private</span> <span class="nc">Properties</span> <span class="n">backup</span><span class="o">;</span>
 
@@ -7105,6 +7113,55 @@ to the same shared resource is running.</p>
     <span class="kt">void</span> <span class="nf">canSetCustomPropertyToBanana</span><span class="o">()</span> <span class="o">{</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">,</span> <span class="s">"banana"</span><span class="o">);</span>
         <span class="n">assertEquals</span><span class="o">(</span><span class="s">"banana"</span><span class="o">,</span> <span class="nc">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Adding shared resources "dynamically" with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLocksProvider.html">ResourceLocksProvider</a></code> implementation</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nd">@Execution</span><span class="o">(</span><span class="no">CONCURRENT</span><span class="o">)</span>
+<span class="nd">@ResourceLock</span><span class="o">(</span><span class="n">providers</span> <span class="o">=</span> <span class="nc">DynamicSharedResourcesDemo</span><span class="o">.</span><span class="na">Provider</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">DynamicSharedResourcesDemo</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Properties</span> <span class="n">backup</span><span class="o">;</span>
+
+    <span class="nd">@BeforeEach</span>
+    <span class="kt">void</span> <span class="nf">backup</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">backup</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Properties</span><span class="o">();</span>
+        <span class="n">backup</span><span class="o">.</span><span class="na">putAll</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">getProperties</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@AfterEach</span>
+    <span class="kt">void</span> <span class="nf">restore</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">setProperties</span><span class="o">(</span><span class="n">backup</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">customPropertyIsNotSetByDefault</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertNull</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">canSetCustomPropertyToApple</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">,</span> <span class="s">"apple"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">"apple"</span><span class="o">,</span> <span class="nc">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">canSetCustomPropertyToBanana</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">,</span> <span class="s">"banana"</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">"banana"</span><span class="o">,</span> <span class="nc">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"my.prop"</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Provider</span> <span class="kd">implements</span> <span class="nc">ResourceLocksProvider</span> <span class="o">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">Lock</span><span class="o">&gt;</span> <span class="nf">provideForMethod</span><span class="o">(</span><span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">testClass</span><span class="o">,</span> <span class="nc">Method</span> <span class="n">testMethod</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">ResourceAccessMode</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">testMethod</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"canSet"</span><span class="o">)</span> <span class="o">?</span> <span class="no">READ_WRITE</span> <span class="o">:</span> <span class="no">READ</span><span class="o">;</span>
+            <span class="k">return</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="k">new</span> <span class="nc">Lock</span><span class="o">(</span><span class="no">SYSTEM_PROPERTIES</span><span class="o">,</span> <span class="n">mode</span><span class="o">));</span>
+        <span class="o">}</span>
     <span class="o">}</span>
 
 <span class="o">}</span></code></pre>
@@ -8159,11 +8216,11 @@ following.</p>
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/plugin&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/plugin&gt;</span>
     <span class="nt">&lt;/plugins&gt;</span>
 <span class="nt">&lt;/build&gt;</span>
@@ -8199,11 +8256,11 @@ long as you configure <code>test</code> scoped dependencies on JUnit 4 and the J
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/plugin&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/plugin&gt;</span>
     <span class="nt">&lt;/plugins&gt;</span>
 <span class="nt">&lt;/build&gt;</span>
@@ -8249,7 +8306,7 @@ from excluding static member classes, you can override its exclude rules as foll
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;configuration&gt;</span>
                 <span class="nt">&lt;excludes&gt;</span>
                     <span class="nt">&lt;exclude/&gt;</span>
@@ -8291,7 +8348,7 @@ properties.</p>
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;configuration&gt;</span>
                 <span class="nt">&lt;groups&gt;</span>acceptance | !feature-a<span class="nt">&lt;/groups&gt;</span>
                 <span class="nt">&lt;excludedGroups&gt;</span>integration, regression<span class="nt">&lt;/excludedGroups&gt;</span>
@@ -8318,7 +8375,7 @@ below) or via the <code>junit-platform.properties</code> file.</p>
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;configuration&gt;</span>
                 <span class="nt">&lt;properties&gt;</span>
                     <span class="nt">&lt;configurationParameters&gt;</span>
@@ -12249,7 +12306,7 @@ XML reports as follows:</p>
         <span class="nt">&lt;plugins&gt;</span>
             <span class="nt">&lt;plugin&gt;</span>
                 <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
                 <span class="nt">&lt;configuration&gt;</span>
                     <span class="nt">&lt;properties&gt;</span>
                         <span class="nt">&lt;configurationParameters&gt;</span>
@@ -13871,6 +13928,16 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.io</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TempDirFactory</code> <em>(interface)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.parallel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceLock.providers()</code> <em>(annotation attribute)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.parallel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceLocksProvider</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.params.converter</code></p></td>

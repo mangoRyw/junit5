@@ -555,6 +555,10 @@ variable is available.</p>
 <p>Introduce <code>ReflectionSupport.makeAccessible(Field)</code> for third-party use rather than
 calling the internal <code>ReflectionUtils.makeAccessible(Field)</code> method directly.</p>
 </li>
+<li>
+<p>Support both the primitive type <code>void</code> and the wrapper type <code>Void</code> in the internal
+<code>ReflectionUtils</code> to allow <code>String</code> to <code>Class</code> conversion in parameterized tests.</p>
+</li>
 </ul>
 </div>
 </div>

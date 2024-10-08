@@ -7184,7 +7184,8 @@ dependency.</p>
 directory for an individual test or all tests in a test class. It is registered by
 default. To use it, annotate a non-final, unassigned field of type <code>java.nio.file.Path</code> or
 <code>java.io.File</code> with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/io/TempDir.html">@TempDir</a></code> or add a parameter of type <code>java.nio.file.Path</code> or
-<code>java.io.File</code> annotated with <code>@TempDir</code> to a lifecycle method or test method.</p>
+<code>java.io.File</code> annotated with <code>@TempDir</code> to a test class constructor, lifecycle method, or
+test method.</p>
 </div>
 <div class="paragraph">
 <p>For example, the following test declares a parameter annotated with <code>@TempDir</code> for a
@@ -7238,15 +7239,10 @@ please note that this option is deprecated and will be removed in a future relea
 </table>
 </div>
 <div class="paragraph">
-<p><code>@TempDir</code> is not supported on constructor parameters. If you wish to retain a single
-reference to a temp directory across lifecycle methods and the current test method, please
-use field injection by annotating an instance field with <code>@TempDir</code>.</p>
-</div>
-<div class="paragraph">
 <p>The following example stores a <em>shared</em> temporary directory in a <code>static</code> field. This
 allows the same <code>sharedTempDir</code> to be used in all lifecycle methods and test methods of
-the test class. For better isolation, you should use an instance field so that each test
-method uses a separate directory.</p>
+the test class. For better isolation, you should use an instance field or constructor
+injection so that each test method uses a separate directory.</p>
 </div>
 <div class="listingblock">
 <div class="title">A test class that shares a temporary directory across test methods</div>

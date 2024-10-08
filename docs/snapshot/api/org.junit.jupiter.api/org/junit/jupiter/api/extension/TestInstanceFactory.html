@@ -186,6 +186,11 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
                    throws <span class="exceptions"><a href="TestInstantiationException.html" title="class in org.junit.jupiter.api.extension">TestInstantiationException</a></span></div>
 <div class="block">Callback for creating a test instance for the supplied context.
 
+ <p>You may annotate your extension with
+ <a href="EnableTestScopedConstructorContext.html" title="annotation interface in org.junit.jupiter.api.extension"><code>@EnableTestScopedConstructorContext</code></a>
+ for revised handling of <a href="ExtensionContext.Store.CloseableResource.html" title="interface in org.junit.jupiter.api.extension"><code>CloseableResource</code></a> and
+ to make test-specific data available to your implementation.
+
  <p><strong>Note</strong>: the <code>ExtensionContext</code> supplied to a
  <code>TestInstanceFactory</code> will always return an empty
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link"><code>Optional</code></a> value from

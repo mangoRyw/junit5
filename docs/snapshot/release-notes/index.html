@@ -479,6 +479,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#release-notes-5.12.0-M1-junit-vintage">JUnit Vintage</a></li>
 </ul>
 </li>
+<li><a href="#release-notes-5.11.3">5.11.3</a>
+<ul class="sectlevel2">
+<li><a href="#release-notes-5.11.3-junit-platform">JUnit Platform</a></li>
+<li><a href="#release-notes-5.11.3-junit-jupiter">JUnit Jupiter</a></li>
+<li><a href="#release-notes-5.11.3-junit-vintage">JUnit Vintage</a></li>
+</ul>
+</li>
 <li><a href="#release-notes-5.11.2">5.11.2</a>
 <ul class="sectlevel2">
 <li><a href="#release-notes-5.11.2-junit-platform">JUnit Platform</a></li>
@@ -604,6 +611,12 @@ extensions.</p>
 <p>Allow determining "shared resources" at runtime via the new <code>@ResourceLock#providers</code>
 attribute that accepts implementations of <code>ResourceLocksProvider</code>.</p>
 </li>
+<li>
+<p><code>@EnableTestScopedConstructorContext</code> has been added to enable the use of a test-scoped
+<code>ExtensionContext</code> while instantiating the test instance.
+The behavior enabled by the annotation is expected to eventually become the default in
+future versions of JUnit Jupiter.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -632,6 +645,122 @@ attribute that accepts implementations of <code>ResourceLocksProvider</code>.</p
 </div>
 <div class="sect3">
 <h4 id="release-notes-5.12.0-M1-junit-vintage-new-features-and-improvements"><a class="anchor" href="#release-notes-5.12.0-M1-junit-vintage-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-notes-5.11.3"><a class="anchor" href="#release-notes-5.11.3"></a>5.11.3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date of Release:</strong> ❓</p>
+</div>
+<div class="paragraph">
+<p><strong>Scope:</strong> Bug fixes and enhancements since 5.11.2</p>
+</div>
+<div class="paragraph">
+<p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
+<a href="https://github.com/junit-team/junit5/milestone/84?closed=1">5.11.3</a> milestone page in the JUnit repository
+on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.11.3-junit-platform"><a class="anchor" href="#release-notes-5.11.3-junit-platform"></a>JUnit Platform</h3>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-platform-bug-fixes"><a class="anchor" href="#release-notes-5.11.3-junit-platform-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-platform-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.11.3-junit-platform-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-platform-new-features-and-improvements"><a class="anchor" href="#release-notes-5.11.3-junit-platform-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.11.3-junit-jupiter"><a class="anchor" href="#release-notes-5.11.3-junit-jupiter"></a>JUnit Jupiter</h3>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-jupiter-bug-fixes"><a class="anchor" href="#release-notes-5.11.3-junit-jupiter-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Extensions can once again be registered via multiple <code>@ExtendWith</code> meta-annotations on
+the same composed annotation on a field within a test class.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-jupiter-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.11.3-junit-jupiter-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-jupiter-new-features-and-improvements"><a class="anchor" href="#release-notes-5.11.3-junit-jupiter-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.11.3-junit-vintage"><a class="anchor" href="#release-notes-5.11.3-junit-vintage"></a>JUnit Vintage</h3>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-vintage-bug-fixes"><a class="anchor" href="#release-notes-5.11.3-junit-vintage-bug-fixes"></a>Bug Fixes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-vintage-deprecations-and-breaking-changes"><a class="anchor" href="#release-notes-5.11.3-junit-vintage-deprecations-and-breaking-changes"></a>Deprecations and Breaking Changes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>❓</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="release-notes-5.11.3-junit-vintage-new-features-and-improvements"><a class="anchor" href="#release-notes-5.11.3-junit-vintage-new-features-and-improvements"></a>New Features and Improvements</h4>
 <div class="ulist">
 <ul>
 <li>

@@ -176,7 +176,12 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">preConstructTestInstance</span><wbr><span class="parameters">(<a href="TestInstanceFactoryContext.html" title="interface in org.junit.jupiter.api.extension">TestInstanceFactoryContext</a>&nbsp;factoryContext,
  <a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;context)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
-<div class="block">Callback invoked prior to test instances being constructed.</div>
+<div class="block">Callback invoked prior to test instances being constructed.
+
+ <p>You may annotate your extension with
+ <a href="EnableTestScopedConstructorContext.html" title="annotation interface in org.junit.jupiter.api.extension"><code>@EnableTestScopedConstructorContext</code></a>
+ for revised handling of <a href="ExtensionContext.Store.CloseableResource.html" title="interface in org.junit.jupiter.api.extension"><code>CloseableResource</code></a> and
+ to make test-specific data available to your implementation.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>factoryContext</code> - the context for the test instance about to be instantiated;

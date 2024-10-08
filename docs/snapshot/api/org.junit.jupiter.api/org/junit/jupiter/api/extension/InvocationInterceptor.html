@@ -253,7 +253,11 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
 <div class="block">Intercept the invocation of a test class constructor.
 
  <p>Note that the test class may <em>not</em> have been initialized
- (static initialization) when this method is invoked.</div>
+ (static initialization) when this method is invoked.
+
+ <p>You may annotate your extension with <a href="EnableTestScopedConstructorContext.html" title="annotation interface in org.junit.jupiter.api.extension"><code>EnableTestScopedConstructorContext</code></a>
+ to make test-specific data available to your implementation of this method and
+ for a revised scope of the provided `Store` instance.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>T</code> - the result type</dd>

@@ -180,6 +180,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Configure the auto-registration flag for test execution listeners.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/EnableTestScopedConstructorContext.html" class="type-name-link" title="annotation interface in org.junit.jupiter.api.extension">EnableTestScopedConstructorContext</a> - Annotation Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/package-summary.html">org.junit.jupiter.api.extension</a></dt>
+<dd>
+<div class="block"><code>@EnableTestScopedConstructorContext</code> allows
+ <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> to use a test-scoped <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a>
+ during creation of test instances.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvFileSource.html#encoding()" class="member-name-link">encoding()</a> - Element in annotation interface org.junit.jupiter.params.provider.<a href="../org.junit.jupiter.params/org/junit/jupiter/params/provider/CsvFileSource.html" title="annotation interface in org.junit.jupiter.params.provider">CsvFileSource</a></dt>
 <dd>
 <div class="block">The encoding to use when reading the CSV files; must be a valid charset.</div>
@@ -960,6 +966,13 @@ loadScripts(document, 'script');</script>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContextException.html#%3Cinit%3E(java.lang.String)" class="member-name-link">ExtensionContextException(String)</a> - Constructor for exception class org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContextException.html" title="class in org.junit.jupiter.api.extension">ExtensionContextException</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContextException.html#%3Cinit%3E(java.lang.String,java.lang.Throwable)" class="member-name-link">ExtensionContextException(String, Throwable)</a> - Constructor for exception class org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContextException.html" title="class in org.junit.jupiter.api.extension">ExtensionContextException</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/ExtensionContextSupplier.html" class="type-name-link" title="class in org.junit.jupiter.engine.execution">ExtensionContextSupplier</a> - Class in <a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/package-summary.html">org.junit.jupiter.engine.execution</a></dt>
+<dd>
+<div class="block">Container of two instances of <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> to simplify the legacy for
+ <a href="https://github.com/junit-team/junit5/issues/3445">#3445 (Introduction of Test-scoped ExtensionContext)</a>.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/ExtensionContextSupplier.html#%3Cinit%3E(org.junit.jupiter.api.extension.ExtensionContext,org.junit.jupiter.api.extension.ExtensionContext)" class="member-name-link">ExtensionContextSupplier(ExtensionContext, ExtensionContext)</a> - Constructor for class org.junit.jupiter.engine.execution.<a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/ExtensionContextSupplier.html" title="class in org.junit.jupiter.engine.execution">ExtensionContextSupplier</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/ExtensionRegistrar.html" class="type-name-link" title="interface in org.junit.jupiter.engine.extension">ExtensionRegistrar</a> - Interface in <a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/package-summary.html">org.junit.jupiter.engine.extension</a></dt>
 <dd>

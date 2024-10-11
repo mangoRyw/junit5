@@ -176,11 +176,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ConditionEvaluationResult.html" title="class in org.junit.jupiter.api.extension">ConditionEvaluationResult</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ConditionEvaluator.</span><code><a href="../../execution/ConditionEvaluator.html#evaluate(org.junit.jupiter.engine.extension.ExtensionRegistry,org.junit.jupiter.engine.config.JupiterConfiguration,org.junit.jupiter.api.extension.ExtensionContext)" class="member-name-link">evaluate</a><wbr>(<a href="../../extension/ExtensionRegistry.html" title="interface in org.junit.jupiter.engine.extension">ExtensionRegistry</a>&nbsp;extensionRegistry,
+<div class="col-first even-row-color"><code>static <a href="../../execution/ExtensionContextSupplier.html" title="interface in org.junit.jupiter.engine.execution">ExtensionContextSupplier</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ExtensionContextSupplier.</span><code><a href="../../execution/ExtensionContextSupplier.html#create(org.junit.jupiter.api.extension.ExtensionContext,org.junit.jupiter.api.extension.ExtensionContext,org.junit.jupiter.engine.config.JupiterConfiguration)" class="member-name-link">create</a><wbr>(<a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;currentExtensionContext,
+ <a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;legacyExtensionContext,
+ <a href="../JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a>&nbsp;configuration)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ConditionEvaluationResult.html" title="class in org.junit.jupiter.api.extension">ConditionEvaluationResult</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ConditionEvaluator.</span><code><a href="../../execution/ConditionEvaluator.html#evaluate(org.junit.jupiter.engine.extension.ExtensionRegistry,org.junit.jupiter.engine.config.JupiterConfiguration,org.junit.jupiter.api.extension.ExtensionContext)" class="member-name-link">evaluate</a><wbr>(<a href="../../extension/ExtensionRegistry.html" title="interface in org.junit.jupiter.engine.extension">ExtensionRegistry</a>&nbsp;extensionRegistry,
  <a href="../JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a>&nbsp;configuration,
  <a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;context)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Evaluate all <a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExecutionCondition.html" title="interface in org.junit.jupiter.api.extension"><code>ExecutionCondition</code></a> extensions registered for the
  supplied <a href="../../../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a>.</div>
 </div>

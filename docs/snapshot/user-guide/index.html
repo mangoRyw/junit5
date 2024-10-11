@@ -10514,8 +10514,9 @@ instances and their lifecycle.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You may annotate your extension with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/EnableTestScopedConstructorContext.html">@EnableTestScopedConstructorContext</a></code> for revised
-handling of <code>CloseableResource</code> and to make test-specific data available to your implementation.</p>
+<p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
+<code>TEST_SCOPED</code> for revised handling of <code>CloseableResource</code> and to make test-specific data
+available to your implementation.</p>
 </div>
 </td>
 </tr>
@@ -10568,8 +10569,9 @@ registered for any specific test class.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You may annotate your extension with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/EnableTestScopedConstructorContext.html">@EnableTestScopedConstructorContext</a></code> for revised
-handling of <code>CloseableResource</code> and to make test-specific data available to your implementation.</p>
+<p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
+<code>TEST_SCOPED</code> for revised handling of <code>CloseableResource</code> and to make test-specific data
+available to your implementation.</p>
 </div>
 </td>
 </tr>
@@ -10598,8 +10600,9 @@ initialization methods on the test instance, etc.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You may annotate your extension with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/EnableTestScopedConstructorContext.html">@EnableTestScopedConstructorContext</a></code> for revised
-handling of <code>CloseableResource</code> and to make test-specific data available to your implementation.</p>
+<p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
+<code>TEST_SCOPED</code> for revised handling of <code>CloseableResource</code> and to make test-specific data
+available to your implementation.</p>
 </div>
 </td>
 </tr>
@@ -10684,10 +10687,11 @@ those provided in <code>java.lang.reflect.Parameter</code> in order to avoid thi
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You may annotate your extension with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/EnableTestScopedConstructorContext.html">@EnableTestScopedConstructorContext</a></code> to support
-injecting test specific data into constructor parameters of the test instance.
-The annotation makes JUnit use a test-specific <code>ExtensionContext</code> while resolving
-constructor parameters, unless the lifecycle is set to <code>TestInstance.Lifecycle.PER_CLASS</code>.</p>
+<p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
+<code>TEST_SCOPED</code> to support injecting test specific data into constructor parameters of the
+test class instance. Doing so causes a test-specific <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html">ExtensionContext</a></code> to be used while
+resolving constructor parameters, unless the
+<a href="#writing-tests-test-instance-lifecycle">test instance lifecycle</a> is set to <code>PER_CLASS</code>.</p>
 </div>
 </td>
 </tr>
@@ -11318,9 +11322,9 @@ Dispatch Thread.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>You may annotate your extension with <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/EnableTestScopedConstructorContext.html">@EnableTestScopedConstructorContext</a></code> to make
-test-specific data available to your implementation of <code>interceptTestClassConstructor</code> and
-for a revised scope of the provided <code>Store</code> instance.</p>
+<p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
+<code>TEST_SCOPED</code> to make test-specific data available to your implementation of
+<code>interceptTestClassConstructor</code> and for a revised scope of the provided <code>Store</code> instance.</p>
 </div>
 </td>
 </tr>
@@ -13992,6 +13996,16 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ParameterContext.getAnnotatedElement()</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestInstantiationAwareExtension</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestInstantiationAwareExtension$ExtensionContextScope</code> <em>(enum)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.io</code></p></td>

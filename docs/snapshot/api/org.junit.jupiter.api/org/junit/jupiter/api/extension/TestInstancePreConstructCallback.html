@@ -42,7 +42,7 @@ loadScripts(document, 'script');</script>
 <li>
 <p>Summary:</p>
 <ul>
-<li>Nested</li>
+<li><a href="#nested-class-summary">Nested</a></li>
 <li>Field</li>
 <li>Constr</li>
 <li><a href="#method-summary">Method</a></li>
@@ -62,7 +62,7 @@ loadScripts(document, 'script');</script>
 <div id="navbar-sub-list">
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -93,7 +93,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Superinterfaces:</dt>
-<dd><code><a href="Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a></code></dd>
+<dd><code><a href="Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a></code>, <code><a href="TestInstantiationAwareExtension.html" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a></code></dd>
 </dl>
 <dl class="notes">
 <dt>Functional Interface:</dt>
@@ -104,7 +104,7 @@ loadScripts(document, 'script');</script>
 <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.11")
 </span><span class="modifiers">public interface </span><span class="element-name type-name-label">TestInstancePreConstructCallback</span><span class="extends-implements">
-extends <a href="Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a></span></div>
+extends <a href="TestInstantiationAwareExtension.html" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a></span></div>
 <div class="block"><code>TestInstancePreConstructCallback</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to be invoked <em>prior</em> to creation of test instances.
 
  <p>This extension is a symmetric counterpart to <a href="TestInstancePreDestroyCallback.html" title="interface in org.junit.jupiter.api.extension"><code>TestInstancePreDestroyCallback</code></a>.
@@ -139,6 +139,15 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-org.junit.jupiter.api.extension.TestInstantiationAwareExtension">Nested classes/interfaces inherited from interface&nbsp;org.junit.jupiter.api.extension.<a href="TestInstantiationAwareExtension.html" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a></h2>
+<code><a href="TestInstantiationAwareExtension.ExtensionContextScope.html" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></code></div>
+</section>
+</li>
 <!-- ========== METHOD SUMMARY =========== -->
 <li>
 <section class="method-summary" id="method-summary">
@@ -159,6 +168,9 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
 </div>
 </div>
 </div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-org.junit.jupiter.api.extension.TestInstantiationAwareExtension">Methods inherited from interface&nbsp;org.junit.jupiter.api.extension.<a href="TestInstantiationAwareExtension.html" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a></h3>
+<code><a href="TestInstantiationAwareExtension.html#getTestInstantiationExtensionContextScope(org.junit.jupiter.api.extension.ExtensionContext)">getTestInstantiationExtensionContextScope</a></code></div>
 </section>
 </li>
 </ul>
@@ -178,10 +190,11 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <div class="block">Callback invoked prior to test instances being constructed.
 
- <p>You may annotate your extension with
- <a href="EnableTestScopedConstructorContext.html" title="annotation interface in org.junit.jupiter.api.extension"><code>@EnableTestScopedConstructorContext</code></a>
- for revised handling of <a href="ExtensionContext.Store.CloseableResource.html" title="interface in org.junit.jupiter.api.extension"><code>CloseableResource</code></a> and
- to make test-specific data available to your implementation.</div>
+ <p>Extensions may override
+ <a href="TestInstantiationAwareExtension.html#getTestInstantiationExtensionContextScope(org.junit.jupiter.api.extension.ExtensionContext)"><code>TestInstantiationAwareExtension.getTestInstantiationExtensionContextScope(org.junit.jupiter.api.extension.ExtensionContext)</code></a> to
+ make test-specific data available to the implementation of this method
+ and for a revised scope of the provided
+ <a href="ExtensionContext.Store.html" title="interface in org.junit.jupiter.api.extension"><code>Store</code></a> instance.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>factoryContext</code> - the context for the test instance about to be instantiated;

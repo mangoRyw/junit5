@@ -179,6 +179,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Denotes that the <a href="../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> is for a <em>test</em>.</div>
 </dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/TestInstantiationAwareExtension.ExtensionContextScope.html#TEST_METHOD" class="member-name-link">TEST_METHOD</a> - Enum constant in enum class org.junit.jupiter.api.extension.<a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/TestInstantiationAwareExtension.ExtensionContextScope.html" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></dt>
+<dd>
+<div class="block">The extension should receive an <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> scoped to
+ the test method, unless the
+ <a href="../org.junit.jupiter.api/org/junit/jupiter/api/TestInstance.Lifecycle.html#PER_CLASS"><code>PER_CLASS</code></a> lifecycle is used.</div>
+</dd>
 <dt><a href="../org.junit.platform.commons/org/junit/platform/commons/annotation/Testable.html" class="type-name-link" title="annotation interface in org.junit.platform.commons.annotation">Testable</a> - Annotation Interface in <a href="../org.junit.platform.commons/org/junit/platform/commons/annotation/package-summary.html">org.junit.platform.commons.annotation</a></dt>
 <dd>
 <div class="block"><code>@Testable</code> is used to signal to IDEs and tooling vendors that the
@@ -346,6 +352,17 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/TestInstancesProvider.html" class="type-name-link" title="interface in org.junit.jupiter.engine.execution">TestInstancesProvider</a> - Interface in <a href="../org.junit.jupiter.engine/org/junit/jupiter/engine/execution/package-summary.html">org.junit.jupiter.engine.execution</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/TestInstantiationAwareExtension.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a> - Interface in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/package-summary.html">org.junit.jupiter.api.extension</a></dt>
+<dd>
+<div class="block">Interface for <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that are aware and can influence
+ the instantiation of test instances.</div>
+</dd>
+<dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/TestInstantiationAwareExtension.ExtensionContextScope.html" class="type-name-link" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a> - Enum Class in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/package-summary.html">org.junit.jupiter.api.extension</a></dt>
+<dd>
+<div class="block"><code>ExtensionContextScope</code> is used to define the scope of the
+ <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> passed to an extension during the instantiation
+ of test instances.</div>
+</dd>
 <dt><a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/TestInstantiationException.html" class="type-name-link" title="class in org.junit.jupiter.api.extension">TestInstantiationException</a> - Exception Class in <a href="../org.junit.jupiter.api/org/junit/jupiter/api/extension/package-summary.html">org.junit.jupiter.api.extension</a></dt>
 <dd>
 <div class="block">Thrown if an error is encountered during the execution of

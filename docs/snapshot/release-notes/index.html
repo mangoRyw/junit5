@@ -587,7 +587,19 @@ calling the internal <code>ReflectionUtils.makeAccessible(Field)</code> method d
 <div class="ulist">
 <ul>
 <li>
-<p>❓</p>
+<p>When injecting <code>TestInfo</code> into test class constructors it now contains data of the test
+method the test class instance is being created for unless the test instance lifecycle
+is set to <code>PER_CLASS</code> (in which case it continues to contain the data of the test
+class). If you require the <code>TestInfo</code> of the test class, you can implement a class-level
+lifecycle method (e.g., <code>@BeforeAll</code>) and inject <code>TestInfo</code> into that method.</p>
+</li>
+<li>
+<p>When injecting <code>TestReporter</code> into test class constructors the published report entries
+are now associated with the test method rather than the test class unless the test
+instance lifecycle is set to <code>PER_CLASS</code> (in which case they will continue to be
+associated with the test class). If you want to publish report entries for the test
+class, you can implement a class-level lifecycle method (e.g., <code>@BeforeAll</code>) and inject
+<code>TestReporter</code> into that method.</p>
 </li>
 </ul>
 </div>

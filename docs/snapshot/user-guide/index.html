@@ -10520,10 +10520,11 @@ instances and their lifecycle.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+<div class="title">Accessing the test-scoped <code>ExtensionContext</code></div>
 <div class="paragraph">
 <p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
-<code>TEST_SCOPED</code> for revised handling of <code>CloseableResource</code> and to make test-specific data
-available to your implementation.</p>
+<code>TEST_METHOD</code> to make test-specific data available to your extension implementation or if
+you want to <a href="#extensions-keeping-state">keep state</a> on the test method level.</p>
 </div>
 </td>
 </tr>
@@ -10575,10 +10576,11 @@ registered for any specific test class.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+<div class="title">Accessing the test-scoped <code>ExtensionContext</code></div>
 <div class="paragraph">
 <p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
-<code>TEST_SCOPED</code> for revised handling of <code>CloseableResource</code> and to make test-specific data
-available to your implementation.</p>
+<code>TEST_METHOD</code> to make test-specific data available to your extension implementation or if
+you want to <a href="#extensions-keeping-state">keep state</a> on the test method level.</p>
 </div>
 </td>
 </tr>
@@ -10606,10 +10608,11 @@ initialization methods on the test instance, etc.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+<div class="title">Accessing the test-scoped <code>ExtensionContext</code></div>
 <div class="paragraph">
 <p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
-<code>TEST_SCOPED</code> for revised handling of <code>CloseableResource</code> and to make test-specific data
-available to your implementation.</p>
+<code>TEST_METHOD</code> to make test-specific data available to your extension implementation or if
+you want to <a href="#extensions-keeping-state">keep state</a> on the test method level.</p>
 </div>
 </td>
 </tr>
@@ -10693,9 +10696,10 @@ those provided in <code>java.lang.reflect.Parameter</code> in order to avoid thi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+<div class="title">Accessing the test-scoped <code>ExtensionContext</code></div>
 <div class="paragraph">
 <p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
-<code>TEST_SCOPED</code> to support injecting test specific data into constructor parameters of the
+<code>TEST_METHOD</code> to support injecting test specific data into constructor parameters of the
 test class instance. Doing so causes a test-specific <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExtensionContext.html">ExtensionContext</a></code> to be used while
 resolving constructor parameters, unless the
 <a href="#writing-tests-test-instance-lifecycle">test instance lifecycle</a> is set to <code>PER_CLASS</code>.</p>
@@ -10704,13 +10708,14 @@ resolving constructor parameters, unless the
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
+<div class="title">Parameter resolution for methods called from extensions</div>
 <div class="paragraph">
 <p>Other extensions can also leverage registered <code>ParameterResolvers</code> for method and
 constructor invocations, using the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/ExecutableInvoker.html">ExecutableInvoker</a></code> available via the
@@ -11328,10 +11333,12 @@ Dispatch Thread.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+<div class="title">Accessing the test-scoped <code>ExtensionContext</code></div>
 <div class="paragraph">
 <p>You may override the <code>getTestInstantiationExtensionContextScope(&#8230;&#8203;)</code> method to return
-<code>TEST_SCOPED</code> to make test-specific data available to your implementation of
-<code>interceptTestClassConstructor</code> and for a revised scope of the provided <code>Store</code> instance.</p>
+<code>TEST_METHOD</code> to make test-specific data available to your extension implementation of
+<code>interceptTestClassConstructor</code> or if you want to <a href="#extensions-keeping-state">keep state</a>
+on the test method level.</p>
 </div>
 </td>
 </tr>

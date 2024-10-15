@@ -110,7 +110,7 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
  preparing the test class instance differently, or multiple times without
  modifying the context.
 
- <p>This interface defines two methods: <a href="#supportsTestTemplate(org.junit.jupiter.api.extension.ExtensionContext)"><code>supportsTestTemplate(org.junit.jupiter.api.extension.ExtensionContext)</code></a> and
+ <p>This interface defines two main methods: <a href="#supportsTestTemplate(org.junit.jupiter.api.extension.ExtensionContext)"><code>supportsTestTemplate(org.junit.jupiter.api.extension.ExtensionContext)</code></a> and
  <a href="#provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)"><code>provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)</code></a>. The former is called by the
  framework to determine whether this extension wants to act on a test template
  that is about to be executed. If so, the latter is called and must return a
@@ -123,6 +123,10 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
  <a href="#provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)"><code>provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)</code></a> methods will be chained, and
  the test template method will be invoked using the contexts of all active
  providers.
+
+ <p>An active provider may return zero invocation contexts from its
+ <a href="#provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)"><code>provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)</code></a> method if it overrides
+ <a href="#mayReturnZeroTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)"><code>mayReturnZeroTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)</code></a> to return <code>true</code>.
 
  <h2 id="constructor-requirements-heading">Constructor Requirements</h2>
 
@@ -156,9 +160,9 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#mayReturnZeroTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)" class="member-name-link">mayReturnZeroTestTemplateInvocationContexts</a><wbr>(<a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;context)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
-<div class="block">Signal that in the supplied <a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">context</a> the
- provider may return zero
- <a href="TestTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">invocation contexts</a>.</div>
+<div class="block">Signal that this provider may provide zero
+ <a href="TestTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">invocation contexts</a> in the
+ supplied <code>context</code>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="TestTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">TestTemplateInvocationContext</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)" class="member-name-link">provideTestTemplateInvocationContexts</a><wbr>(<a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;context)</code></div>
@@ -245,21 +249,22 @@ extends <a href="Extension.html" title="interface in org.junit.jupiter.api.exten
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.12")
 </span><span class="modifiers">default</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">mayReturnZeroTestTemplateInvocationContexts</span><wbr><span class="parameters">(<a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">ExtensionContext</a>&nbsp;context)</span></div>
-<div class="block">Signal that in the supplied <a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension">context</a> the
- provider may return zero
- <a href="TestTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">invocation contexts</a>.
+<div class="block">Signal that this provider may provide zero
+ <a href="TestTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">invocation contexts</a> in the
+ supplied <code>context</code>.
 
- <p>If this method returns <code>false</code> and the provider returns an empty
- stream from <a href="#provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)"><code>provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)</code></a>, this will be
- considered an execution error. Override this method to ignore the absence
- of invocation contexts for this provider.</div>
+ <p>If this method returns <code>false</code> (which is the default) and the
+ provider returns an empty stream from
+ <a href="#provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)"><code>provideTestTemplateInvocationContexts(org.junit.jupiter.api.extension.ExtensionContext)</code></a>, this will be considered
+ an execution error. Override this method to ignore the absence of
+ invocation contexts for this provider.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>context</code> - the extension context for the test template method about
  to be invoked; never <code>null</code></dd>
 <dt>Returns:</dt>
-<dd><code>true</code> to allow zero contexts, <code>false</code> (default) to
- fail execution in case of zero contexts.</dd>
+<dd><code>true</code> to allow zero contexts, <code>false</code> to fail
+ execution in case of zero contexts.</dd>
 <dt>Since:</dt>
 <dd>5.12</dd>
 </dl>

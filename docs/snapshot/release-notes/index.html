@@ -620,6 +620,15 @@ implementations can now use constructor injection from registered <code>Paramete
 extensions.</p>
 </li>
 <li>
+<p>Extensions based on <code>TestTemplateInvocationContextProvider</code> can now allow returning zero
+invocation contexts by overriding the new <code>mayReturnZeroTestTemplateInvocationContexts</code>
+method.</p>
+</li>
+<li>
+<p>The new <code>@ParameterizedTest(requireArguments = false)</code> attribute allows to specify that
+the absence of arguments is expected in some cases and should not cause a test failure.</p>
+</li>
+<li>
 <p>Allow determining "shared resources" at runtime via the new <code>@ResourceLock#providers</code>
 attribute that accepts implementations of <code>ResourceLocksProvider</code>.</p>
 </li>

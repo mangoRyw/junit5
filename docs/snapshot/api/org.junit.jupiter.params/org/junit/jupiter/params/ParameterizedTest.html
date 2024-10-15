@@ -229,6 +229,12 @@ loadScripts(document, 'script');</script>
 <div class="block">The display name to be used for individual invocations of the
  parameterized test; never blank or consisting solely of whitespace.</div>
 </div>
+<div class="col-first even-row-color"><code>boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#requireArguments()" class="member-name-link">requireArguments</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Configure whether at least one set of arguments is required for this
+ parameterized test.</div>
+</div>
 </div>
 </section>
 </li>
@@ -550,6 +556,29 @@ loadScripts(document, 'script');</script>
 <li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link"><code>AutoCloseable</code></a></li>
 </ul>
 </dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd><code>true</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="requireArguments()">
+<h3>requireArguments</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.12")
+</span><span class="return-type">boolean</span>&nbsp;<span class="element-name">requireArguments</span></div>
+<div class="block">Configure whether at least one set of arguments is required for this
+ parameterized test.
+
+ <p>Set this attribute to <code>false</code> if the absence of arguments is
+ expected in some cases and should not cause a test failure.
+
+ <p>Defaults to <code>true</code>.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>5.12</dd>
 </dl>
 <dl class="notes">
 <dt>Default:</dt>

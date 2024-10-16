@@ -609,6 +609,12 @@ class, you can implement a class-level lifecycle method (e.g., <code>@BeforeAll<
 <div class="ulist">
 <ul>
 <li>
+<p>New <code>--exclude-methodname</code> and <code>--include-methodname</code> options added to the
+<code>ConsoleLauncher</code> to include or exclude methods based on fully qualified method names
+without parameters. For example, <code>--exclude-methodname=^org\.example\..+#methodname</code>
+will exclude all methods called <code>methodName</code> under package <code>org.example</code>.</p>
+</li>
+<li>
 <p>In a <code>@ParameterizedTest</code> method, a <code>null</code> value can now be supplied for Java Date/Time
 types such as <code>LocalDate</code> if the new <code>nullable</code> attribute in
 <code>@JavaTimeConversionPattern</code> is set to <code>true</code>.</p>

@@ -8770,6 +8770,14 @@ FILTERS
                                be repeated.
       --exclude-package=PKG  Provide a package to be excluded from the test run. This option
                                can be repeated.
+      --include-methodname=PATTERN
+                             Provide a regular expression to include only methods whose fully
+                               qualified names without parameters match. When this option is
+                               repeated, all patterns will be combined using OR semantics.
+      --exclude-methodname=PATTERN
+                             Provide a regular expression to exclude those methods whose fully
+                               qualified names without parameters match. When this option is
+                               repeated, all patterns will be combined using OR semantics.
   -t, --include-tag=TAG      Provide a tag or tag expression to include only tests whose tags
                                match. When this option is repeated, all patterns will be
                                combined using OR semantics.
@@ -8873,6 +8881,14 @@ FILTERS
                                be repeated.
       --exclude-package=PKG  Provide a package to be excluded from the test run. This option
                                can be repeated.
+      --include-methodname=PATTERN
+                             Provide a regular expression to include only methods whose fully
+                               qualified names without parameters match. When this option is
+                               repeated, all patterns will be combined using OR semantics.
+      --exclude-methodname=PATTERN
+                             Provide a regular expression to exclude those methods whose fully
+                               qualified names without parameters match. When this option is
+                               repeated, all patterns will be combined using OR semantics.
   -t, --include-tag=TAG      Provide a tag or tag expression to include only tests whose tags
                                match. When this option is repeated, all patterns will be
                                combined using OR semantics.
@@ -14290,6 +14306,11 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.launcher</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>LauncherInterceptor</code> <em>(interface)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.launcher</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MethodFilter</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.launcher</code></p></td>

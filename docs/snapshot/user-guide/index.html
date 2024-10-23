@@ -8730,7 +8730,9 @@ SELECTORS
                                This option can be repeated.
       --scan-modules         Scan all resolved modules for test discovery.
   -u, --select-uri=URI       Select a URI for test discovery. This option can be repeated.
-  -f, --select-file=FILE     Select a file for test discovery. This option can be repeated.
+  -f, --select-file=FILE     Select a file for test discovery. The line and column numbers can
+                               be provided as URI query parameters (e.g. foo.txt?
+                               line=12&amp;column=34). This option can be repeated.
   -d, --select-directory=DIR Select a directory for test discovery. This option can be
                                repeated.
   -o, --select-module=NAME   Select single module for test discovery. This option can be
@@ -8739,8 +8741,9 @@ SELECTORS
   -c, --select-class=CLASS   Select a class for test discovery. This option can be repeated.
   -m, --select-method=NAME   Select a method for test discovery. This option can be repeated.
   -r, --select-resource=RESOURCE
-                             Select a classpath resource for test discovery. This option can
-                               be repeated.
+                             Select a classpath resource for test discovery. The line and
+                               column numbers can be provided as URI query parameters (e.g.
+                               foo.csv?line=12&amp;column=34). This option can be repeated.
   -i, --select-iteration=PREFIX:VALUE[INDEX(..INDEX)?(,INDEX(..INDEX)?)*]
                              Select iterations for test discovery via a prefixed identifier
                                and a list of indexes or index ranges (e.g. method:com.acme.
@@ -8841,7 +8844,9 @@ SELECTORS
                                This option can be repeated.
       --scan-modules         Scan all resolved modules for test discovery.
   -u, --select-uri=URI       Select a URI for test discovery. This option can be repeated.
-  -f, --select-file=FILE     Select a file for test discovery. This option can be repeated.
+  -f, --select-file=FILE     Select a file for test discovery. The line and column numbers can
+                               be provided as URI query parameters (e.g. foo.txt?
+                               line=12&amp;column=34). This option can be repeated.
   -d, --select-directory=DIR Select a directory for test discovery. This option can be
                                repeated.
   -o, --select-module=NAME   Select single module for test discovery. This option can be
@@ -8850,8 +8855,9 @@ SELECTORS
   -c, --select-class=CLASS   Select a class for test discovery. This option can be repeated.
   -m, --select-method=NAME   Select a method for test discovery. This option can be repeated.
   -r, --select-resource=RESOURCE
-                             Select a classpath resource for test discovery. This option can
-                               be repeated.
+                             Select a classpath resource for test discovery. The line and
+                               column numbers can be provided as URI query parameters (e.g.
+                               foo.csv?line=12&amp;column=34). This option can be repeated.
   -i, --select-iteration=PREFIX:VALUE[INDEX(..INDEX)?(,INDEX(..INDEX)?)*]
                              Select iterations for test discovery via a prefixed identifier
                                and a list of indexes or index ranges (e.g. method:com.acme.

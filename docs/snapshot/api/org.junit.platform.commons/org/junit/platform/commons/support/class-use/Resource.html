@@ -66,6 +66,16 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Internal common utilities for JUnit.</div>
 </div>
+<div class="col-first even-row-color"><a href="#org.junit.platform.engine.discovery">org.junit.platform.engine.discovery</a></div>
+<div class="col-last even-row-color">
+<div class="block">Concrete <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">selectors</a> and
+ <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoveryFilter.html" title="interface in org.junit.platform.engine">filters</a> to be used in
+ <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html" title="interface in org.junit.platform.engine">discovery requests</a>.</div>
+</div>
+<div class="col-first odd-row-color"><a href="#org.junit.platform.engine.support.discovery">org.junit.platform.engine.support.discovery</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Configurable test discovery implementation that can be reused by different test engines.</div>
+</div>
 </div>
 <section class="class-uses">
 <ul class="block-list">
@@ -118,6 +128,19 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Find all <a href="../Resource.html" title="interface in org.junit.platform.commons.support">resources</a> in the supplied <code>basePackageName</code>
  that match the specified <code>resourceFilter</code> predicate.</div>
+</div>
+<div class="col-first even-row-color"><code>static <a href="../../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ReflectionSupport.</span><code><a href="../ReflectionSupport.html#tryToGetResources(java.lang.String)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Tries to get the <a href="../Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
+ resource name.</div>
+</div>
+<div class="col-first odd-row-color"><code>static <a href="../../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ReflectionSupport.</span><code><a href="../ReflectionSupport.html#tryToGetResources(java.lang.String,java.lang.ClassLoader)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Tries to load the <a href="../Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
+ resource name, using the supplied <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.</div>
 </div>
 </div>
 <div class="caption"><span>Method parameters in <a href="../package-summary.html">org.junit.platform.commons.support</a> with type arguments of type <a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></span></div>
@@ -208,6 +231,19 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><span class="type-name-label">ReflectionUtils.</span><code><a href="../../util/ReflectionUtils.html#streamAllResourcesInPackage(java.lang.String,java.util.function.Predicate)" class="member-name-link">streamAllResourcesInPackage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;basePackageName,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static <a href="../../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ReflectionUtils.</span><code><a href="../../util/ReflectionUtils.html#tryToGetResources(java.lang.String)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Try to get <a href="../Resource.html" title="interface in org.junit.platform.commons.support">resources</a> by their name, using the
+ <a href="../../util/ClassLoaderUtils.html#getDefaultClassLoader()"><code>ClassLoaderUtils.getDefaultClassLoader()</code></a>.</div>
+</div>
+<div class="col-first even-row-color"><code>static <a href="../../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ReflectionUtils.</span><code><a href="../../util/ReflectionUtils.html#tryToGetResources(java.lang.String,java.lang.ClassLoader)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Try to get <a href="../Resource.html" title="interface in org.junit.platform.commons.support">resources</a> by their name, using the
+ supplied <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.</div>
+</div>
 </div>
 <div class="caption"><span>Method parameters in <a href="../../util/package-summary.html">org.junit.platform.commons.util</a> with type arguments of type <a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></span></div>
 <div class="summary-table three-column-summary">
@@ -244,6 +280,52 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><span class="type-name-label">ReflectionUtils.</span><code><a href="../../util/ReflectionUtils.html#streamAllResourcesInPackage(java.lang.String,java.util.function.Predicate)" class="member-name-link">streamAllResourcesInPackage</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;basePackageName,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.platform.engine.discovery">
+<h2>Uses of <a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a> in <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/package-summary.html">org.junit.platform.engine.discovery</a></h2>
+<div class="caption"><span>Methods in <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/package-summary.html">org.junit.platform.engine.discovery</a> that return types with arguments of type <a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ClasspathResourceSelector.</span><code><a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/ClasspathResourceSelector.html#getClasspathResources()" class="member-name-link">getClasspathResources</a>()</code></div>
+<div class="col-last even-row-color">
+<div class="block">Get the selected <a href="../Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a>.</div>
+</div>
+</div>
+<div class="caption"><span>Method parameters in <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/package-summary.html">org.junit.platform.engine.discovery</a> with type arguments of type <a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery">ClasspathResourceSelector</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">DiscoverySelectors.</span><code><a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/DiscoverySelectors.html#selectClasspathResource(java.util.Set)" class="member-name-link">selectClasspathResource</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;classpathResources)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Create a <code>ClasspathResourceSelector</code> for the supplied classpath
+ resources.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.platform.engine.support.discovery">
+<h2>Uses of <a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a> in <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/discovery/package-summary.html">org.junit.platform.engine.support.discovery</a></h2>
+<div class="caption"><span>Method parameters in <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/discovery/package-summary.html">org.junit.platform.engine.support.discovery</a> with type arguments of type <a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/discovery/EngineDiscoveryRequestResolver.Builder.html" title="class in org.junit.platform.engine.support.discovery">EngineDiscoveryRequestResolver.Builder</a><wbr>&lt;<a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/discovery/EngineDiscoveryRequestResolver.Builder.html" title="type parameter in EngineDiscoveryRequestResolver.Builder">T</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EngineDiscoveryRequestResolver.Builder.</span><code><a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/support/discovery/EngineDiscoveryRequestResolver.Builder.html#addResourceContainerSelectorResolver(java.util.function.Predicate)" class="member-name-link">addResourceContainerSelectorResolver</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&nbsp;resourceFilter)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Add a predefined resolver that resolves <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/ClasspathRootSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClasspathRootSelectors</code></a>, <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/ModuleSelector.html" title="class in org.junit.platform.engine.discovery"><code>ModuleSelectors</code></a>, and
+ <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/PackageSelector.html" title="class in org.junit.platform.engine.discovery"><code>PackageSelectors</code></a> into <a href="../../../../../../../org.junit.platform.engine/org/junit/platform/engine/discovery/ClasspathResourceSelector.html" title="class in org.junit.platform.engine.discovery"><code>ClasspathResourceSelectors</code></a> by scanning for resources that satisfy the supplied
+ predicate in the respective class containers to this builder.</div>
+</div>
 </div>
 </section>
 </li>

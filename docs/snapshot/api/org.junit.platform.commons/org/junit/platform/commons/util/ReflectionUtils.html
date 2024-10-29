@@ -549,6 +549,19 @@ loadScripts(document, 'script');</script>
 <div class="block">Try to get the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Method.html" title="class or interface in java.lang.reflect" class="external-link"><code>Method</code></a> in the specified class with the specified
  name and parameter types.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToGetResources(java.lang.String)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Try to get <a href="../support/Resource.html" title="interface in org.junit.platform.commons.support">resources</a> by their name, using the
+ <a href="ClassLoaderUtils.html#getDefaultClassLoader()"><code>ClassLoaderUtils.getDefaultClassLoader()</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToGetResources(java.lang.String,java.lang.ClassLoader)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Try to get <a href="../support/Resource.html" title="interface in org.junit.platform.commons.support">resources</a> by their name, using the
+ supplied <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToLoadClass(java.lang.String)" class="member-name-link">tryToLoadClass</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
@@ -1257,6 +1270,52 @@ loadScripts(document, 'script');</script>
 <li><a href="#tryToLoadClass(java.lang.String)"><code>tryToLoadClass(String)</code></a></li>
 </ul>
 </dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="tryToGetResources(java.lang.String)">
+<h3>tryToGetResources</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</span>&nbsp;<span class="element-name">tryToGetResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</span></div>
+<div class="block">Try to get <a href="../support/Resource.html" title="interface in org.junit.platform.commons.support">resources</a> by their name, using the
+ <a href="ClassLoaderUtils.html#getDefaultClassLoader()"><code>ClassLoaderUtils.getDefaultClassLoader()</code></a>.
+
+ <p>See <a href="../support/ReflectionSupport.html#tryToGetResources(java.lang.String)"><code>ReflectionSupport.tryToGetResources(String)</code></a>
+ for details.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classpathResourceName</code> - the name of the resources to load; never <code>null</code> or blank</dd>
+<dt>Since:</dt>
+<dd>1.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="../support/ReflectionSupport.html#tryToGetResources(java.lang.String,java.lang.ClassLoader)"><code>ReflectionSupport.tryToGetResources(String, ClassLoader)</code></a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="tryToGetResources(java.lang.String,java.lang.ClassLoader)">
+<h3>tryToGetResources</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</span>&nbsp;<span class="element-name">tryToGetResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader)</span></div>
+<div class="block">Try to get <a href="../support/Resource.html" title="interface in org.junit.platform.commons.support">resources</a> by their name, using the
+ supplied <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.
+
+ <p>See <a href="../support/ReflectionSupport.html#tryToGetResources(java.lang.String,java.lang.ClassLoader)"><code>ReflectionSupport.tryToGetResources(String, ClassLoader)</code></a>
+ for details.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classpathResourceName</code> - the name of the resources to load; never <code>null</code> or blank</dd>
+<dd><code>classLoader</code> - the <code>ClassLoader</code> to use; never <code>null</code></dd>
+<dt>Since:</dt>
+<dd>1.12</dd>
 </dl>
 </section>
 </li>

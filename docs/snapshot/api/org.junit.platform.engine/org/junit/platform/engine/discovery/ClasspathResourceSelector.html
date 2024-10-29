@@ -113,7 +113,11 @@ implements <a href="../DiscoverySelector.html" title="interface in org.junit.pla
  expected to modify the classpath, the classpath resource represented by this
  selector must be on the classpath of the
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html#getContextClassLoader()" title="class or interface in java.lang" class="external-link">context class loader</a> of the
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">thread</a> that uses it.</div>
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">thread</a> that uses it.
+
+ <p>Note: Since Java 9, all resources are on the module path. Either in
+ named or unnamed modules. These resources are also considered to be
+ classpath resources.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.0</dd>
@@ -166,23 +170,28 @@ implements <a href="../DiscoverySelector.html" title="interface in org.junit.pla
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the name of the selected classpath resource.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="FilePosition.html" title="class in org.junit.platform.engine.discovery">FilePosition</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPosition()" class="member-name-link">getPosition</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClasspathResources()" class="member-name-link">getClasspathResources</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the selected <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="FilePosition.html" title="class in org.junit.platform.engine.discovery">FilePosition</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPosition()" class="member-name-link">getPosition</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the selected <code>FilePosition</code> within the classpath resource.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">DiscoverySelectorIdentifier</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toIdentifier()" class="member-name-link">toIdentifier</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">DiscoverySelectorIdentifier</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toIdentifier()" class="member-name-link">toIdentifier</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Return the <a href="../DiscoverySelectorIdentifier.html" title="class in org.junit.platform.engine">identifier</a> of this
  selector.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -217,6 +226,24 @@ implements <a href="../DiscoverySelector.html" title="interface in org.junit.pla
 <li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html#getResources(java.lang.String)" title="class or interface in java.lang" class="external-link"><code>ClassLoader.getResources(String)</code></a></li>
 </ul>
 </dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getClasspathResources()">
+<h3>getClasspathResources</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;</span>&nbsp;<span class="element-name">getClasspathResources</span>()</div>
+<div class="block">Get the selected <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a>.
+
+ <p>If the <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a> were not provided, but only their name,
+ this method attempts to lazily load the <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/support/Resource.html" title="interface in org.junit.platform.commons.support"><code>resources</code></a> based on
+ their name and throws a <a href="../../../../../../org.junit.platform.commons/org/junit/platform/commons/PreconditionViolationException.html" title="class in org.junit.platform.commons"><code>PreconditionViolationException</code></a> if the
+ resource cannot be loaded.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>1.12</dd>
 </dl>
 </section>
 </li>

@@ -323,6 +323,19 @@ loadScripts(document, 'script');</script>
 <div class="block">Find all nested classes within the supplied class, or inherited by the
  supplied class, that conform to the supplied predicate.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToGetResources(java.lang.String)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Tries to get the <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
+ resource name.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToGetResources(java.lang.String,java.lang.ClassLoader)" class="member-name-link">tryToGetResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Tries to load the <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
+ resource name, using the supplied <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryToLoadClass(java.lang.String)" class="member-name-link">tryToLoadClass</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
@@ -446,6 +459,62 @@ loadScripts(document, 'script');</script>
 <li><a href="#tryToLoadClass(java.lang.String)"><code>tryToLoadClass(String)</code></a></li>
 </ul>
 </dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="tryToGetResources(java.lang.String)">
+<h3>tryToGetResources</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</span>&nbsp;<span class="element-name">tryToGetResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName)</span></div>
+<div class="block">Tries to get the <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
+ resource name.
+
+ <p>The name of a <em>classpath resource</em> must follow the semantics
+ for resource paths as defined in <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html#getResource(java.lang.String)" title="class or interface in java.lang" class="external-link"><code>ClassLoader.getResource(String)</code></a>.
+
+ <p>If the supplied classpath resource name is prefixed with a slash
+ (<code>/</code>), the slash will be removed.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classpathResourceName</code> - the name of the resource to load; never
+ <code>null</code> or blank</dd>
+<dt>Returns:</dt>
+<dd>a successful <code>Try</code> containing the loaded resources or a failed
+ <code>Try</code> containing the exception if no such resources could be loaded;
+ never <code>null</code></dd>
+<dt>Since:</dt>
+<dd>1.11</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="tryToGetResources(java.lang.String,java.lang.ClassLoader)">
+<h3>tryToGetResources</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../function/Try.html" title="class in org.junit.platform.commons.function">Try</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="Resource.html" title="interface in org.junit.platform.commons.support">Resource</a>&gt;&gt;</span>&nbsp;<span class="element-name">tryToGetResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;classpathResourceName,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link">ClassLoader</a>&nbsp;classLoader)</span></div>
+<div class="block">Tries to load the <a href="Resource.html" title="interface in org.junit.platform.commons.support">resources</a> for the supplied classpath
+ resource name, using the supplied <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html" title="class or interface in java.lang" class="external-link"><code>ClassLoader</code></a>.
+
+ <p>The name of a <em>classpath resource</em> must follow the semantics
+ for resource paths as defined in <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html#getResource(java.lang.String)" title="class or interface in java.lang" class="external-link"><code>ClassLoader.getResource(String)</code></a>.
+
+ <p>If the supplied classpath resource name is prefixed with a slash
+ (<code>/</code>), the slash will be removed.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>classpathResourceName</code> - the name of the resource to load; never
+ <code>null</code> or blank</dd>
+<dd><code>classLoader</code> - the <code>ClassLoader</code> to use; never <code>null</code></dd>
+<dt>Returns:</dt>
+<dd>a successful <code>Try</code> containing the loaded resources or a failed
+ <code>Try</code> containing the exception if no such resources could be loaded;
+ never <code>null</code></dd>
+<dt>Since:</dt>
+<dd>1.11</dd>
 </dl>
 </section>
 </li>
@@ -622,7 +691,8 @@ loadScripts(document, 'script');</script>
  that match the specified <code>resourceFilter</code> predicate.
 
  <p>The classpath scanning algorithm searches recursively in subpackages
- beginning within the supplied base package.</div>
+ beginning within the supplied base package. The resulting list may include
+ identically named resources from different classpath roots.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>basePackageName</code> - the name of the base package in which to start
@@ -657,7 +727,8 @@ loadScripts(document, 'script');</script>
  predicates.
 
  <p>The classpath scanning algorithm searches recursively in subpackages
- beginning within the supplied base package.</div>
+ beginning within the supplied base package. The resulting stream may
+ include identically named resources from different classpath roots.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>basePackageName</code> - the name of the base package in which to start
@@ -691,7 +762,8 @@ loadScripts(document, 'script');</script>
  that match the specified <code>resourceFilter</code> predicate.
 
  <p>The classpath scanning algorithm searches recursively in subpackages
- beginning within the supplied base package.</div>
+ beginning within the supplied base package. The resulting stream may
+ include identically named resources from different classpath roots.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>basePackageName</code> - the name of the base package in which to start

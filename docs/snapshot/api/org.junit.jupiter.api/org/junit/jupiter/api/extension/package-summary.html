@@ -265,6 +265,17 @@ loadScripts(document, 'script');</script>
  that wish to dynamically resolve arguments for <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link">parameters</a>
  at runtime.</div>
 </div>
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="PreInterruptCallback.html" title="interface in org.junit.jupiter.api.extension">PreInterruptCallback</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="block"><code>PreInterruptCallback</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to be called prior to invocations of
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html#interrupt()" title="class or interface in java.lang" class="external-link"><code>Thread.interrupt()</code></a> by the <a href="../Timeout.html" title="annotation interface in org.junit.jupiter.api"><code>Timeout</code></a>
+ extension.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="PreInterruptContext.html" title="interface in org.junit.jupiter.api.extension">PreInterruptContext</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="block"><code>PreInterruptContext</code> encapsulates the <em>context</em> in which an
+ <a href="PreInterruptCallback.html#beforeThreadInterrupt(org.junit.jupiter.api.extension.PreInterruptContext,org.junit.jupiter.api.extension.ExtensionContext)"><code>beforeThreadInterrupt</code></a> method is called.</div>
+</div>
 <div class="col-first even-row-color class-summary class-summary-tab1"><a href="ReflectiveInvocationContext.html" title="interface in org.junit.jupiter.api.extension">ReflectiveInvocationContext</a>&lt;T extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Executable.html" title="class or interface in java.lang.reflect" class="external-link">Executable</a>&gt;</div>
 <div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block"><code>ReflectiveInvocationContext</code> encapsulates the <em>context</em> of

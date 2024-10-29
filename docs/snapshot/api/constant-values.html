@@ -221,6 +221,17 @@ loadScripts(document, 'script');</script>
 </ul>
 <ul class="block-list">
 <li>
+<div class="caption"><span>org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/PreInterruptCallback.html" title="interface in org.junit.jupiter.api.extension">PreInterruptCallback</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Constant Field</div>
+<div class="table-header col-last">Value</div>
+<div class="col-first even-row-color"><code id="org.junit.jupiter.api.extension.PreInterruptCallback.THREAD_DUMP_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/PreInterruptCallback.html#THREAD_DUMP_ENABLED_PROPERTY_NAME">THREAD_DUMP_ENABLED_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color"><code>"junit.jupiter.execution.timeout.threaddump.enabled"</code></div>
+</div>
+</li>
+<li>
 <div class="caption"><span>org.junit.jupiter.api.extension.<a href="org.junit.jupiter.api/org/junit/jupiter/api/extension/TestInstantiationAwareExtension.ExtensionContextScope.html" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -366,33 +377,36 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME">EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME</a></code></div>
 <div class="col-last odd-row-color"><code>"junit.jupiter.extensions.autodetection.enabled"</code></div>
-<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME">PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color"><code>"junit.jupiter.execution.parallel.config.custom.class"</code></div>
-<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME">PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color"><code>"junit.jupiter.execution.parallel.config.dynamic.factor"</code></div>
-<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME">PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color"><code>"junit.jupiter.execution.parallel.config.fixed.max-pool-size"</code></div>
-<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME">PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color"><code>"junit.jupiter.execution.parallel.config.fixed.parallelism"</code></div>
-<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME">PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color"><code>"junit.jupiter.execution.parallel.config.fixed.saturate"</code></div>
-<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME">PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color"><code>"junit.jupiter.execution.parallel.config.strategy"</code></div>
-<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color"><code>"junit.jupiter.execution.parallel.enabled"</code></div>
-<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.TEMP_DIR_SCOPE_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#TEMP_DIR_SCOPE_PROPERTY_NAME">TEMP_DIR_SCOPE_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color"><code>"junit.jupiter.tempdir.scope"</code></div>
-<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.TIMEOUT_MODE_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#TIMEOUT_MODE_PROPERTY_NAME">TIMEOUT_MODE_PROPERTY_NAME</a></code></div>
-<div class="col-last even-row-color"><code>"junit.jupiter.execution.timeout.mode"</code></div>
+<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME">EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color"><code>"junit.jupiter.execution.timeout.threaddump.enabled"</code></div>
+<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME">PARALLEL_CONFIG_CUSTOM_CLASS_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color"><code>"junit.jupiter.execution.parallel.config.custom.class"</code></div>
+<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME">PARALLEL_CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color"><code>"junit.jupiter.execution.parallel.config.dynamic.factor"</code></div>
+<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME">PARALLEL_CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color"><code>"junit.jupiter.execution.parallel.config.fixed.max-pool-size"</code></div>
+<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME">PARALLEL_CONFIG_FIXED_PARALLELISM_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color"><code>"junit.jupiter.execution.parallel.config.fixed.parallelism"</code></div>
+<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME">PARALLEL_CONFIG_FIXED_SATURATE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color"><code>"junit.jupiter.execution.parallel.config.fixed.saturate"</code></div>
+<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME">PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color"><code>"junit.jupiter.execution.parallel.config.strategy"</code></div>
+<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color"><code>"junit.jupiter.execution.parallel.enabled"</code></div>
+<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.Constants.TEMP_DIR_SCOPE_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#TEMP_DIR_SCOPE_PROPERTY_NAME">TEMP_DIR_SCOPE_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color"><code>"junit.jupiter.tempdir.scope"</code></div>
+<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.Constants.TIMEOUT_MODE_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/Constants.html#TIMEOUT_MODE_PROPERTY_NAME">TIMEOUT_MODE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color"><code>"junit.jupiter.execution.timeout.mode"</code></div>
 </div>
 </li>
 </ul>
@@ -430,9 +444,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code id="org.junit.jupiter.engine.config.JupiterConfiguration.EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME">EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME</a></code></div>
 <div class="col-last even-row-color"><code>"junit.jupiter.extensions.autodetection.enabled"</code></div>
-<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.config.JupiterConfiguration.PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a></code></div>
-<div class="col-last odd-row-color"><code>"junit.jupiter.execution.parallel.enabled"</code></div>
+<div class="col-first odd-row-color"><code id="org.junit.jupiter.engine.config.JupiterConfiguration.EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME">EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color"><code>"junit.jupiter.execution.timeout.threaddump.enabled"</code></div>
+<div class="col-first even-row-color"><code id="org.junit.jupiter.engine.config.JupiterConfiguration.PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color"><code>"junit.jupiter.execution.parallel.enabled"</code></div>
 </div>
 </li>
 </ul>

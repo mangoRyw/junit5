@@ -663,6 +663,16 @@ instantiation. This behavior will become the default in future versions of JUnit
 <li>
 <p><code>@TempDir</code> is now supported on test class constructors.</p>
 </li>
+<li>
+<p>The new <code>PreInterruptCallback</code> extension point defines the API for <code>Extensions</code> that
+wish to be called prior to invocations of <code>Thread#interrupt()</code> by the <code>@Timeout</code>
+extension.</p>
+</li>
+<li>
+<p>When enabled via the <code>junit.jupiter.execution.timeout.threaddump.enabled</code> configuration
+parameter, an implementation of <code>PreInterruptCallback</code> is registered that writes a
+thread dump to <code>System.out</code> prior to interrupting a test thread due to a timeout.</p>
+</li>
 </ul>
 </div>
 </div>

@@ -716,7 +716,12 @@ pre.rouge .gs {
 <li><a href="#writing-tests-declarative-timeouts-thread-mode">2.20.1. Thread mode</a></li>
 <li><a href="#writing-tests-declarative-timeouts-default-timeouts">2.20.2. Default Timeouts</a></li>
 <li><a href="#writing-tests-declarative-timeouts-polling">2.20.3. Using @Timeout for Polling Tests</a></li>
-<li><a href="#writing-tests-declarative-timeouts-mode">2.20.4. Disable @Timeout Globally</a></li>
+<li><a href="#writing-tests-declarative-timeouts-debugging">2.20.4. Debugging Timeouts</a>
+<ul class="sectlevel4">
+<li><a href="#writing-tests-declarative-timeouts-debugging-thread-dump">Thread Dump on Timeout</a></li>
+</ul>
+</li>
+<li><a href="#writing-tests-declarative-timeouts-mode">2.20.5. Disable @Timeout Globally</a></li>
 </ul>
 </li>
 <li><a href="#writing-tests-parallel-execution">2.21. Parallel Execution</a>
@@ -880,23 +885,24 @@ pre.rouge .gs {
 </ul>
 </li>
 <li><a href="#extensions-exception-handling">5.11. Exception Handling</a></li>
-<li><a href="#extensions-intercepting-invocations">5.12. Intercepting Invocations</a></li>
-<li><a href="#extensions-test-templates">5.13. Providing Invocation Contexts for Test Templates</a></li>
-<li><a href="#extensions-keeping-state">5.14. Keeping State in Extensions</a></li>
-<li><a href="#extensions-supported-utilities">5.15. Supported Utilities in Extensions</a>
+<li><a href="#extensions-preinterrupt-callback">5.12. Pre-Interrupt Callback</a></li>
+<li><a href="#extensions-intercepting-invocations">5.13. Intercepting Invocations</a></li>
+<li><a href="#extensions-test-templates">5.14. Providing Invocation Contexts for Test Templates</a></li>
+<li><a href="#extensions-keeping-state">5.15. Keeping State in Extensions</a></li>
+<li><a href="#extensions-supported-utilities">5.16. Supported Utilities in Extensions</a>
 <ul class="sectlevel3">
-<li><a href="#extensions-supported-utilities-annotations">5.15.1. Annotation Support</a></li>
-<li><a href="#extensions-supported-utilities-classes">5.15.2. Class Support</a></li>
-<li><a href="#extensions-supported-utilities-reflection">5.15.3. Reflection Support</a></li>
-<li><a href="#extensions-supported-utilities-modifier">5.15.4. Modifier Support</a></li>
-<li><a href="#extensions-supported-utilities-conversion">5.15.5. Conversion Support</a></li>
-<li><a href="#extensions-supported-utilities-search-semantics">5.15.6. Field and Method Search Semantics</a></li>
+<li><a href="#extensions-supported-utilities-annotations">5.16.1. Annotation Support</a></li>
+<li><a href="#extensions-supported-utilities-classes">5.16.2. Class Support</a></li>
+<li><a href="#extensions-supported-utilities-reflection">5.16.3. Reflection Support</a></li>
+<li><a href="#extensions-supported-utilities-modifier">5.16.4. Modifier Support</a></li>
+<li><a href="#extensions-supported-utilities-conversion">5.16.5. Conversion Support</a></li>
+<li><a href="#extensions-supported-utilities-search-semantics">5.16.6. Field and Method Search Semantics</a></li>
 </ul>
 </li>
-<li><a href="#extensions-execution-order">5.16. Relative Execution Order of User Code and Extensions</a>
+<li><a href="#extensions-execution-order">5.17. Relative Execution Order of User Code and Extensions</a>
 <ul class="sectlevel3">
-<li><a href="#extensions-execution-order-overview">5.16.1. User and Extension Code</a></li>
-<li><a href="#extensions-execution-order-wrapping-behavior">5.16.2. Wrapping Behavior of Callbacks</a></li>
+<li><a href="#extensions-execution-order-overview">5.17.1. User and Extension Code</a></li>
+<li><a href="#extensions-execution-order-wrapping-behavior">5.17.2. Wrapping Behavior of Callbacks</a></li>
 </ul>
 </li>
 </ul>
@@ -6672,7 +6678,24 @@ asynchronous tests, consider using a dedicated library such as
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-tests-declarative-timeouts-mode"><a class="anchor" href="#writing-tests-declarative-timeouts-mode"></a>2.20.4. Disable @Timeout Globally</h4>
+<h4 id="writing-tests-declarative-timeouts-debugging"><a class="anchor" href="#writing-tests-declarative-timeouts-debugging"></a>2.20.4. Debugging Timeouts</h4>
+<div class="paragraph">
+<p>Registered <a href="#extensions-preinterrupt-callback">Pre-Interrupt Callback</a> extensions are called prior to invoking
+<code>Thread.interrupt()</code> on the thread that is executing the timed out method. This allows to
+inspect the application state and output additional information that might be helpful for
+diagnosing the cause of a timeout.</p>
+</div>
+<div class="sect4">
+<h5 id="writing-tests-declarative-timeouts-debugging-thread-dump"><a class="anchor" href="#writing-tests-declarative-timeouts-debugging-thread-dump"></a>Thread Dump on Timeout</h5>
+<div class="paragraph">
+<p>JUnit registers a default implementation of the <a href="#extensions-preinterrupt-callback">Pre-Interrupt Callback</a> extension point that
+dumps the stacks of all threads to <code>System.out</code> if enabled by setting the
+<code>junit.jupiter.execution.timeout.threaddump.enabled</code> configuration parameter to <code>true</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="writing-tests-declarative-timeouts-mode"><a class="anchor" href="#writing-tests-declarative-timeouts-mode"></a>2.20.5. Disable @Timeout Globally</h4>
 <div class="paragraph">
 <p>When stepping through your code in a debug session, a fixed timeout limit may influence
 the result of the test, e.g. mark the test as failed although all assertions were met.</p>
@@ -11327,7 +11350,17 @@ test methods.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="extensions-intercepting-invocations"><a class="anchor" href="#extensions-intercepting-invocations"></a>5.12. Intercepting Invocations</h3>
+<h3 id="extensions-preinterrupt-callback"><a class="anchor" href="#extensions-preinterrupt-callback"></a>5.12. Pre-Interrupt Callback</h3>
+<div class="paragraph">
+<p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/PreInterruptCallback.html">PreInterruptCallback</a></code> defines the API for <code>Extensions</code> that wish to react on
+timeouts before the <code>Thread.interrupt()</code> is called.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to <a href="#writing-tests-declarative-timeouts-debugging">Debugging Timeouts</a> for additional information.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="extensions-intercepting-invocations"><a class="anchor" href="#extensions-intercepting-invocations"></a>5.13. Intercepting Invocations</h3>
 <div class="paragraph">
 <p><code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/InvocationInterceptor.html">InvocationInterceptor</a></code> defines the API for <code>Extensions</code> that wish to intercept calls to
 test code.</p>
@@ -11384,7 +11417,7 @@ on the test method level.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="extensions-test-templates"><a class="anchor" href="#extensions-test-templates"></a>5.13. Providing Invocation Contexts for Test Templates</h3>
+<h3 id="extensions-test-templates"><a class="anchor" href="#extensions-test-templates"></a>5.14. Providing Invocation Contexts for Test Templates</h3>
 <div class="paragraph">
 <p>A <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestTemplate.html">@TestTemplate</a></code> method can only be executed when at least one
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/extension/TestTemplateInvocationContextProvider.html">TestTemplateInvocationContextProvider</a></code> is registered. Each such provider is responsible
@@ -11474,7 +11507,7 @@ functionality.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="extensions-keeping-state"><a class="anchor" href="#extensions-keeping-state"></a>5.14. Keeping State in Extensions</h3>
+<h3 id="extensions-keeping-state"><a class="anchor" href="#extensions-keeping-state"></a>5.15. Keeping State in Extensions</h3>
 <div class="paragraph">
 <p>Usually, an extension is instantiated only once. So the question becomes relevant: How do
 you keep the state from one invocation of an extension to the next? The
@@ -11613,7 +11646,7 @@ classes and methods.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="extensions-supported-utilities"><a class="anchor" href="#extensions-supported-utilities"></a>5.15. Supported Utilities in Extensions</h3>
+<h3 id="extensions-supported-utilities"><a class="anchor" href="#extensions-supported-utilities"></a>5.16. Supported Utilities in Extensions</h3>
 <div class="paragraph">
 <p>The <code>junit-platform-commons</code> artifact provides <em>maintained</em> utilities for working with
 annotations, classes, reflection, classpath scanning, and conversion tasks. These
@@ -11622,7 +11655,7 @@ utilities can be found in the <code><a href="../api/org.junit.platform.commons/o
 order to align with the behavior of the JUnit Platform and JUnit Jupiter.</p>
 </div>
 <div class="sect3">
-<h4 id="extensions-supported-utilities-annotations"><a class="anchor" href="#extensions-supported-utilities-annotations"></a>5.15.1. Annotation Support</h4>
+<h4 id="extensions-supported-utilities-annotations"><a class="anchor" href="#extensions-supported-utilities-annotations"></a>5.16.1. Annotation Support</h4>
 <div class="paragraph">
 <p><code>AnnotationSupport</code> provides static utility methods that operate on annotated elements
 (e.g., packages, annotations, classes, interfaces, constructors, methods, and fields).
@@ -11646,14 +11679,14 @@ See also: <a href="#extensions-supported-utilities-search-semantics">Field and M
 </div>
 </div>
 <div class="sect3">
-<h4 id="extensions-supported-utilities-classes"><a class="anchor" href="#extensions-supported-utilities-classes"></a>5.15.2. Class Support</h4>
+<h4 id="extensions-supported-utilities-classes"><a class="anchor" href="#extensions-supported-utilities-classes"></a>5.16.2. Class Support</h4>
 <div class="paragraph">
 <p><code>ClassSupport</code> provides static utility methods for working with classes (i.e., instances
 of <code>java.lang.Class</code>). Consult the Javadoc for <code><a href="../api/org.junit.platform.commons/org/junit/platform/commons/support/ClassSupport.html">ClassSupport</a></code> for further details.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="extensions-supported-utilities-reflection"><a class="anchor" href="#extensions-supported-utilities-reflection"></a>5.15.3. Reflection Support</h4>
+<h4 id="extensions-supported-utilities-reflection"><a class="anchor" href="#extensions-supported-utilities-reflection"></a>5.16.3. Reflection Support</h4>
 <div class="paragraph">
 <p><code>ReflectionSupport</code> provides static utility methods that augment the standard JDK
 reflection and class-loading mechanisms. These include methods to scan the classpath in
@@ -11676,7 +11709,7 @@ See also: <a href="#extensions-supported-utilities-search-semantics">Field and M
 </div>
 </div>
 <div class="sect3">
-<h4 id="extensions-supported-utilities-modifier"><a class="anchor" href="#extensions-supported-utilities-modifier"></a>5.15.4. Modifier Support</h4>
+<h4 id="extensions-supported-utilities-modifier"><a class="anchor" href="#extensions-supported-utilities-modifier"></a>5.16.4. Modifier Support</h4>
 <div class="paragraph">
 <p><code>ModifierSupport</code> provides static utility methods for working with member and class
 modifiers&#8201;&#8212;&#8201;for example, to determine if a member is declared as <code>public</code>, <code>private</code>,
@@ -11685,7 +11718,7 @@ details.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="extensions-supported-utilities-conversion"><a class="anchor" href="#extensions-supported-utilities-conversion"></a>5.15.5. Conversion Support</h4>
+<h4 id="extensions-supported-utilities-conversion"><a class="anchor" href="#extensions-supported-utilities-conversion"></a>5.16.5. Conversion Support</h4>
 <div class="paragraph">
 <p><code>ConversionSupport</code> (in the <code>org.junit.platform.commons.support.conversion</code> package)
 provides support for converting from strings to primitive types and their corresponding
@@ -11695,7 +11728,7 @@ common Java types such as <code>File</code>, <code>BigDecimal</code>, <code>BigI
 </div>
 </div>
 <div class="sect3">
-<h4 id="extensions-supported-utilities-search-semantics"><a class="anchor" href="#extensions-supported-utilities-search-semantics"></a>5.15.6. Field and Method Search Semantics</h4>
+<h4 id="extensions-supported-utilities-search-semantics"><a class="anchor" href="#extensions-supported-utilities-search-semantics"></a>5.16.6. Field and Method Search Semantics</h4>
 <div class="paragraph">
 <p>Various methods in <code>AnnotationSupport</code> and <code>ReflectionSupport</code> use search algorithms that
 traverse type hierarchies to locate matching fields and methods – for example,
@@ -11744,7 +11777,7 @@ parameter</a>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="extensions-execution-order"><a class="anchor" href="#extensions-execution-order"></a>5.16. Relative Execution Order of User Code and Extensions</h3>
+<h3 id="extensions-execution-order"><a class="anchor" href="#extensions-execution-order"></a>5.17. Relative Execution Order of User Code and Extensions</h3>
 <div class="paragraph">
 <p>When executing a test class that contains one or more test methods, a number of extension
 callbacks are called in addition to the user-supplied test and lifecycle methods.</p>
@@ -11762,7 +11795,7 @@ See also: <a href="#writing-tests-test-execution-order">Test Execution Order</a>
 </table>
 </div>
 <div class="sect3">
-<h4 id="extensions-execution-order-overview"><a class="anchor" href="#extensions-execution-order-overview"></a>5.16.1. User and Extension Code</h4>
+<h4 id="extensions-execution-order-overview"><a class="anchor" href="#extensions-execution-order-overview"></a>5.17.1. User and Extension Code</h4>
 <div class="paragraph">
 <p>The following diagram illustrates the relative order of user-supplied code and extension
 code. User-supplied test and lifecycle methods are shown in orange, with callback code
@@ -11891,7 +11924,7 @@ by implementing <a href="#extensions-intercepting-invocations"><code>InvocationI
 </div>
 </div>
 <div class="sect3">
-<h4 id="extensions-execution-order-wrapping-behavior"><a class="anchor" href="#extensions-execution-order-wrapping-behavior"></a>5.16.2. Wrapping Behavior of Callbacks</h4>
+<h4 id="extensions-execution-order-wrapping-behavior"><a class="anchor" href="#extensions-execution-order-wrapping-behavior"></a>5.17.2. Wrapping Behavior of Callbacks</h4>
 <div class="paragraph">
 <p>JUnit Jupiter always guarantees <em>wrapping</em> behavior for multiple registered extensions
 that implement lifecycle callbacks such as <code>BeforeAllCallback</code>, <code>AfterAllCallback</code>,
@@ -14048,6 +14081,16 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ParameterContext.getAnnotatedElement()</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PreInterruptCallback</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PreInterruptContext</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>

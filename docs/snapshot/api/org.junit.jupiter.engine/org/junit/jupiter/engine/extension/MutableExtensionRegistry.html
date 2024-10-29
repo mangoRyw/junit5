@@ -208,7 +208,12 @@ implements <a href="ExtensionRegistry.html" title="interface in org.junit.jupite
  <p>If the <a href="../Constants.html#EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME"><code>Constants.EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME</code></a>
  configuration parameter has been set to <code>true</code>, extensions will be
  auto-detected using Java's <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ServiceLoader.html" title="class or interface in java.util" class="external-link"><code>ServiceLoader</code></a> mechanism and automatically
- registered after the default extensions.</div>
+ registered after the default extensions.
+
+ <p>If the
+ <a href="../Constants.html#EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME">"junit.jupiter.execution.timeout.threaddump.enabled"</a>
+ configuration parameter has been set to <code>true</code>, the
+ <code>PreInterruptThreadDumpPrinter</code> will be registered.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>configuration</code> - configuration parameters used to retrieve the extension

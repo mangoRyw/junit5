@@ -118,7 +118,7 @@ implements <a href="JupiterConfiguration.html" title="interface in org.junit.jup
 <h2>Field Summary</h2>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-org.junit.jupiter.engine.config.JupiterConfiguration">Fields inherited from interface&nbsp;org.junit.jupiter.engine.config.<a href="JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></h3>
-<code><a href="JupiterConfiguration.html#DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME">DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_CLASSES_EXECUTION_MODE_PROPERTY_NAME">DEFAULT_CLASSES_EXECUTION_MODE_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_DISPLAY_NAME_GENERATOR_PROPERTY_NAME">DEFAULT_DISPLAY_NAME_GENERATOR_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_EXECUTION_MODE_PROPERTY_NAME">DEFAULT_EXECUTION_MODE_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_TEST_CLASS_ORDER_PROPERTY_NAME">DEFAULT_TEST_CLASS_ORDER_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_TEST_INSTANCE_LIFECYCLE_PROPERTY_NAME">DEFAULT_TEST_INSTANCE_LIFECYCLE_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_TEST_INSTANTIATION_EXTENSION_CONTEXT_SCOPE_PROPERTY_NAME">DEFAULT_TEST_INSTANTIATION_EXTENSION_CONTEXT_SCOPE_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_TEST_METHOD_ORDER_PROPERTY_NAME">DEFAULT_TEST_METHOD_ORDER_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME">EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a></code></div>
+<code><a href="JupiterConfiguration.html#DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME">DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_CLASSES_EXECUTION_MODE_PROPERTY_NAME">DEFAULT_CLASSES_EXECUTION_MODE_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_DISPLAY_NAME_GENERATOR_PROPERTY_NAME">DEFAULT_DISPLAY_NAME_GENERATOR_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_EXECUTION_MODE_PROPERTY_NAME">DEFAULT_EXECUTION_MODE_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_TEST_CLASS_ORDER_PROPERTY_NAME">DEFAULT_TEST_CLASS_ORDER_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_TEST_INSTANCE_LIFECYCLE_PROPERTY_NAME">DEFAULT_TEST_INSTANCE_LIFECYCLE_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_TEST_INSTANTIATION_EXTENSION_CONTEXT_SCOPE_PROPERTY_NAME">DEFAULT_TEST_INSTANTIATION_EXTENSION_CONTEXT_SCOPE_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#DEFAULT_TEST_METHOD_ORDER_PROPERTY_NAME">DEFAULT_TEST_METHOD_ORDER_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME">EXTENSIONS_AUTODETECTION_ENABLED_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME">EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME</a>, <a href="JupiterConfiguration.html#PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME">PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -188,6 +188,9 @@ implements <a href="JupiterConfiguration.html" title="interface in org.junit.jup
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isParallelExecutionEnabled()" class="member-name-link">isParallelExecutionEnabled</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isThreadDumpOnTimeoutEnabled()" class="member-name-link">isThreadDumpOnTimeoutEnabled</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -257,6 +260,16 @@ implements <a href="JupiterConfiguration.html" title="interface in org.junit.jup
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="JupiterConfiguration.html#isExtensionAutoDetectionEnabled()">isExtensionAutoDetectionEnabled</a></code>&nbsp;in interface&nbsp;<code><a href="JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isThreadDumpOnTimeoutEnabled()">
+<h3>isThreadDumpOnTimeoutEnabled</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isThreadDumpOnTimeoutEnabled</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JupiterConfiguration.html#isThreadDumpOnTimeoutEnabled()">isThreadDumpOnTimeoutEnabled</a></code>&nbsp;in interface&nbsp;<code><a href="JupiterConfiguration.html" title="interface in org.junit.jupiter.engine.config">JupiterConfiguration</a></code></dd>
 </dl>
 </section>
 </li>

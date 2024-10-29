@@ -172,48 +172,55 @@ loadScripts(document, 'script');</script>
  at runtime.</div>
 </div>
 <div class="col-first even-row-color"><code>interface&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../TestExecutionExceptionHandler.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestExecutionExceptionHandler</a></code></div>
+<div class="col-second even-row-color"><code><a href="../PreInterruptCallback.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">PreInterruptCallback</a></code></div>
 <div class="col-last even-row-color">
+<div class="block"><code>PreInterruptCallback</code> defines the API for <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to be called prior to invocations of
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html#interrupt()" title="class or interface in java.lang" class="external-link"><code>Thread.interrupt()</code></a> by the <a href="../../Timeout.html" title="annotation interface in org.junit.jupiter.api"><code>Timeout</code></a>
+ extension.</div>
+</div>
+<div class="col-first odd-row-color"><code>interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="../TestExecutionExceptionHandler.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestExecutionExceptionHandler</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>TestExecutionExceptionHandler</code> defines the API for <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to handle exceptions thrown during test execution.</div>
 </div>
-<div class="col-first odd-row-color"><code>interface&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../TestInstanceFactory.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstanceFactory</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../TestInstanceFactory.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstanceFactory</a></code></div>
+<div class="col-last even-row-color">
 <div class="block"><code>TestInstanceFactory</code> defines the API for <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to <a href="../TestInstanceFactory.html#createTestInstance(org.junit.jupiter.api.extension.TestInstanceFactoryContext,org.junit.jupiter.api.extension.ExtensionContext)">create</a> test instances.</div>
 </div>
-<div class="col-first even-row-color"><code>interface&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../TestInstancePostProcessor.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstancePostProcessor</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="../TestInstancePostProcessor.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstancePostProcessor</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>TestInstancePostProcessor</code> defines the API for <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to <em>post-process</em> test instances.</div>
 </div>
-<div class="col-first odd-row-color"><code>interface&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../TestInstancePreConstructCallback.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstancePreConstructCallback</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../TestInstancePreConstructCallback.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstancePreConstructCallback</a></code></div>
+<div class="col-last even-row-color">
 <div class="block"><code>TestInstancePreConstructCallback</code> defines the API for <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to be invoked <em>prior</em> to creation of test instances.</div>
 </div>
-<div class="col-first even-row-color"><code>interface&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../TestInstancePreDestroyCallback.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstancePreDestroyCallback</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="../TestInstancePreDestroyCallback.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstancePreDestroyCallback</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>TestInstancePreDestroyCallback</code> defines the API for <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to process test instances <em>after</em> they have been
  used in tests but <em>before</em> they are destroyed.</div>
 </div>
-<div class="col-first odd-row-color"><code>interface&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../TestInstantiationAwareExtension.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../TestInstantiationAwareExtension.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Interface for <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that are aware and can influence
  the instantiation of test instances.</div>
 </div>
-<div class="col-first even-row-color"><code>interface&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../TestTemplateInvocationContextProvider.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestTemplateInvocationContextProvider</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="../TestTemplateInvocationContextProvider.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestTemplateInvocationContextProvider</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>TestTemplateInvocationContextProvider</code> defines the API for
  <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to provide one or multiple contexts
  for the invocation of a
  <a href="../../TestTemplate.html" title="annotation interface in org.junit.jupiter.api"><code>@TestTemplate</code></a> method.</div>
 </div>
-<div class="col-first odd-row-color"><code>interface&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../TestWatcher.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestWatcher</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../TestWatcher.html" class="type-name-link" title="interface in org.junit.jupiter.api.extension">TestWatcher</a></code></div>
+<div class="col-last even-row-color">
 <div class="block"><code>TestWatcher</code> defines the API for <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that
  wish to process test results.</div>
 </div>
@@ -278,21 +285,26 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>default &lt;E extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;E&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ExtensionRegistry.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/ExtensionRegistry.html#getExtensions(java.lang.Class)" class="member-name-link">getExtensions</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;E&gt;&nbsp;extensionType)</code></div>
+<div class="col-first even-row-color"><code>&lt;E extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ExtensionContextInternal.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/ExtensionContextInternal.html#getExtensions(java.lang.Class)" class="member-name-link">getExtensions</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;E&gt;&nbsp;extensionType)</code></div>
 <div class="col-last even-row-color">
+<div class="block">Returns a list of registered extension at this context of the passed <code>extensionType</code>.</div>
+</div>
+<div class="col-first odd-row-color"><code>default &lt;E extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ExtensionRegistry.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/ExtensionRegistry.html#getExtensions(java.lang.Class)" class="member-name-link">getExtensions</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;E&gt;&nbsp;extensionType)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Get all <code>Extensions</code> of the specified type that are present
  in this registry or one of its ancestors.</div>
 </div>
-<div class="col-first odd-row-color"><code>&lt;E extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;E&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ExtensionRegistry.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/ExtensionRegistry.html#stream(java.lang.Class)" class="member-name-link">stream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;E&gt;&nbsp;extensionType)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>&lt;E extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ExtensionRegistry.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/ExtensionRegistry.html#stream(java.lang.Class)" class="member-name-link">stream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;E&gt;&nbsp;extensionType)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Stream all <code>Extensions</code> of the specified type that are present
  in this registry or one of its ancestors.</div>
 </div>
-<div class="col-first even-row-color"><code>&lt;E extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;E&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MutableExtensionRegistry.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/MutableExtensionRegistry.html#stream(java.lang.Class)" class="member-name-link">stream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;E&gt;&nbsp;extensionType)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>&lt;E extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MutableExtensionRegistry.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/MutableExtensionRegistry.html#stream(java.lang.Class)" class="member-name-link">stream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;E&gt;&nbsp;extensionType)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/extension/package-summary.html">org.junit.jupiter.engine.extension</a> with parameters of type <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a></span></div>
 <div class="summary-table three-column-summary">

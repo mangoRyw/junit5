@@ -6688,9 +6688,10 @@ diagnosing the cause of a timeout.</p>
 <div class="sect4">
 <h5 id="writing-tests-declarative-timeouts-debugging-thread-dump"><a class="anchor" href="#writing-tests-declarative-timeouts-debugging-thread-dump"></a>Thread Dump on Timeout</h5>
 <div class="paragraph">
-<p>JUnit registers a default implementation of the <a href="#extensions-preinterrupt-callback">Pre-Interrupt Callback</a> extension point that
-dumps the stacks of all threads to <code>System.out</code> if enabled by setting the
-<code>junit.jupiter.execution.timeout.threaddump.enabled</code> configuration parameter to <code>true</code>.</p>
+<p>JUnit registers a default implementation of the <a href="#extensions-preinterrupt-callback">Pre-Interrupt Callback</a>
+extension point that dumps the stacks of all threads to <code>System.out</code> if enabled by setting
+the <code>junit.jupiter.execution.timeout.threaddump.enabled</code>
+<a href="#running-tests-config-params">configuration parameter</a> to <code>true</code>.</p>
 </div>
 </div>
 </div>
@@ -8242,11 +8243,11 @@ following.</p>
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/plugin&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/plugin&gt;</span>
     <span class="nt">&lt;/plugins&gt;</span>
 <span class="nt">&lt;/build&gt;</span>
@@ -8282,11 +8283,11 @@ long as you configure <code>test</code> scoped dependencies on JUnit 4 and the J
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/plugin&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/plugin&gt;</span>
     <span class="nt">&lt;/plugins&gt;</span>
 <span class="nt">&lt;/build&gt;</span>
@@ -8332,7 +8333,7 @@ from excluding static member classes, you can override its exclude rules as foll
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;configuration&gt;</span>
                 <span class="nt">&lt;excludes&gt;</span>
                     <span class="nt">&lt;exclude/&gt;</span>
@@ -8374,7 +8375,7 @@ properties.</p>
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;configuration&gt;</span>
                 <span class="nt">&lt;groups&gt;</span>acceptance | !feature-a<span class="nt">&lt;/groups&gt;</span>
                 <span class="nt">&lt;excludedGroups&gt;</span>integration, regression<span class="nt">&lt;/excludedGroups&gt;</span>
@@ -8401,7 +8402,7 @@ below) or via the <code>junit-platform.properties</code> file.</p>
     <span class="nt">&lt;plugins&gt;</span>
         <span class="nt">&lt;plugin&gt;</span>
             <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
             <span class="nt">&lt;configuration&gt;</span>
                 <span class="nt">&lt;properties&gt;</span>
                     <span class="nt">&lt;configurationParameters&gt;</span>
@@ -12469,7 +12470,7 @@ XML reports as follows:</p>
         <span class="nt">&lt;plugins&gt;</span>
             <span class="nt">&lt;plugin&gt;</span>
                 <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;version&gt;</span>3.5.1<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
                 <span class="nt">&lt;configuration&gt;</span>
                     <span class="nt">&lt;properties&gt;</span>
                         <span class="nt">&lt;configurationParameters&gt;</span>

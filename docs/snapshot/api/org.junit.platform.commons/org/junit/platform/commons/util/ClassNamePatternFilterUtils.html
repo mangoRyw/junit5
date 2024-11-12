@@ -123,7 +123,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#DEACTIVATE_ALL_PATTERN" class="member-name-link">DEACTIVATE_ALL_PATTERN</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ALL_PATTERN" class="member-name-link">ALL_PATTERN</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -152,6 +152,19 @@ loadScripts(document, 'script');</script>
 <div class="block">Create a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> that can be used to exclude (i.e., filter out)
  fully qualified class names matching any of the supplied patterns.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#includeMatchingClasses(java.lang.String)" class="member-name-link">includeMatchingClasses</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;patterns)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> that can be used to include (i.e., filter in)
+ objects of type <code>T</code> whose fully qualified class names match any of
+ the supplied patterns.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#includeMatchingClassNames(java.lang.String)" class="member-name-link">includeMatchingClassNames</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;patterns)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Create a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> that can be used to include (i.e., filter in)
+ fully qualified class names matching any of the supplied patterns.</div>
+</div>
 </div>
 </div>
 </div>
@@ -170,14 +183,14 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="DEACTIVATE_ALL_PATTERN">
-<h3>DEACTIVATE_ALL_PATTERN</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEACTIVATE_ALL_PATTERN</span></div>
+<section class="detail" id="ALL_PATTERN">
+<h3>ALL_PATTERN</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">ALL_PATTERN</span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
-<li><a href="../../../../../../constant-values.html#org.junit.platform.commons.util.ClassNamePatternFilterUtils.DEACTIVATE_ALL_PATTERN">Constant Field Values</a></li>
+<li><a href="../../../../../../constant-values.html#org.junit.platform.commons.util.ClassNamePatternFilterUtils.ALL_PATTERN">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -209,6 +222,31 @@ loadScripts(document, 'script');</script>
 <h3>excludeMatchingClassNames</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">excludeMatchingClassNames</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;patterns)</span></div>
 <div class="block">Create a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> that can be used to exclude (i.e., filter out)
+ fully qualified class names matching any of the supplied patterns.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>patterns</code> - a comma-separated list of patterns</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="includeMatchingClasses(java.lang.String)">
+<h3>includeMatchingClasses</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;T&gt;</span>&nbsp;<span class="element-name">includeMatchingClasses</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;patterns)</span></div>
+<div class="block">Create a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> that can be used to include (i.e., filter in)
+ objects of type <code>T</code> whose fully qualified class names match any of
+ the supplied patterns.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>patterns</code> - a comma-separated list of patterns</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="includeMatchingClassNames(java.lang.String)">
+<h3>includeMatchingClassNames</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">includeMatchingClassNames</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;patterns)</span></div>
+<div class="block">Create a <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a> that can be used to include (i.e., filter in)
  fully qualified class names matching any of the supplied patterns.</div>
 <dl class="notes">
 <dt>Parameters:</dt>

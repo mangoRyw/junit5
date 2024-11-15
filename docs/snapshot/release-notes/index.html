@@ -582,9 +582,19 @@ calling the internal <code>ReflectionUtils.makeAccessible(Field)</code> method d
 <p>Add <code>--select-unique-id</code> support to ConsoleLauncher.</p>
 </li>
 <li>
-<p>The <code>junit-platform-reporting</code> module now contributes a section containing
-JUnit-specific metadata about each test/container to the HTML report written by
-open-test-reporting when added to the classpath/module path.</p>
+<p>The following improvements have been made to the open-test-reporting XML output:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Information about the Git repository, the current branch, the commit hash, and the
+current worktree status are now included in the XML report, if applicable.</p>
+</li>
+<li>
+<p>A section containing JUnit-specific metadata about each test/container to the HTML
+report is now written by open-test-reporting when added to the classpath/module path</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>

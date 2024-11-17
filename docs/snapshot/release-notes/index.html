@@ -679,6 +679,14 @@ instantiation. This behavior will become the default in future versions of JUnit
 <p><code>@TempDir</code> is now supported on test class constructors.</p>
 </li>
 <li>
+<p>Parameterized tests now support argument count validation.
+If the <code>junit.jupiter.params.argumentCountValidation=strict</code> configuration parameter
+or the <code>@ParameterizedTest(argumentCountValidation = STRICT)</code> attribute is set, any
+mismatch between the declared number of arguments and the number of arguments provided
+by the arguments source will result in an error. By default, it&#8217;s still only an error if
+there are fewer arguments provided than declared.</p>
+</li>
+<li>
 <p>The new <code>PreInterruptCallback</code> extension point defines the API for <code>Extensions</code> that
 wish to be called prior to invocations of <code>Thread#interrupt()</code> by the <code>@Timeout</code>
 extension.</p>

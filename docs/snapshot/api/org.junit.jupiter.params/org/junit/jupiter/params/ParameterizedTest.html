@@ -215,23 +215,28 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Optional Element</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>boolean</code></div>
-<div class="col-second even-row-color"><code><a href="#autoCloseArguments()" class="member-name-link">autoCloseArguments</a></code></div>
+<div class="col-first even-row-color"><code><a href="ArgumentCountValidationMode.html" title="enum class in org.junit.jupiter.params">ArgumentCountValidationMode</a></code></div>
+<div class="col-second even-row-color"><code><a href="#argumentCountValidation()" class="member-name-link">argumentCountValidation</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">Configure how the number of arguments provided by an <a href="provider/ArgumentsSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>ArgumentsSource</code></a> are validated.</div>
+</div>
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#autoCloseArguments()" class="member-name-link">autoCloseArguments</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Configure whether all arguments of the parameterized test that implement <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link"><code>AutoCloseable</code></a>
  will be closed after <a href="../../../../../org.junit.jupiter.api/org/junit/jupiter/api/AfterEach.html" title="annotation interface in org.junit.jupiter.api"><code>@AfterEach</code></a> methods
  and <a href="../../../../../org.junit.jupiter.api/org/junit/jupiter/api/extension/AfterEachCallback.html" title="interface in org.junit.jupiter.api.extension"><code>AfterEachCallback</code></a>
  extensions have been called for the current parameterized test invocation.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#name()" class="member-name-link">name</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The display name to be used for individual invocations of the
  parameterized test; never blank or consisting solely of whitespace.</div>
 </div>
-<div class="col-first even-row-color"><code>boolean</code></div>
-<div class="col-second even-row-color"><code><a href="#requireArguments()" class="member-name-link">requireArguments</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#requireArguments()" class="member-name-link">requireArguments</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Configure whether at least one set of arguments is required for this
  parameterized test.</div>
 </div>
@@ -583,6 +588,38 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Default:</dt>
 <dd><code>true</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="argumentCountValidation()">
+<h3>argumentCountValidation</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.12")
+</span><span class="return-type"><a href="ArgumentCountValidationMode.html" title="enum class in org.junit.jupiter.params">ArgumentCountValidationMode</a></span>&nbsp;<span class="element-name">argumentCountValidation</span></div>
+<div class="block">Configure how the number of arguments provided by an <a href="provider/ArgumentsSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>ArgumentsSource</code></a> are validated.
+
+ <p>Defaults to <a href="ArgumentCountValidationMode.html#DEFAULT"><code>ArgumentCountValidationMode.DEFAULT</code></a>.
+
+ <p>When an <a href="provider/ArgumentsSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>ArgumentsSource</code></a> provides more arguments than declared by the test method,
+ there might be a bug in the test method or the <a href="provider/ArgumentsSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>ArgumentsSource</code></a>.
+ By default, the additional arguments are ignored.
+ <code>argumentCountValidation</code> allows you to control how additional arguments are handled.
+ The default can be configured via the "junit.jupiter.params.argumentCountValidation"
+ configuration parameter (see the User Guide for details on configuration parameters).</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>5.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="ArgumentCountValidationMode.html" title="enum class in org.junit.jupiter.params"><code>ArgumentCountValidationMode</code></a></li>
+</ul>
+</dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd><code>DEFAULT</code></dd>
 </dl>
 </section>
 </li>

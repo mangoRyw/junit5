@@ -687,20 +687,21 @@ pre.rouge .gs {
 <li><a href="#writing-tests-parameterized-repeatable-sources">Multiple sources using repeatable annotations</a></li>
 </ul>
 </li>
-<li><a href="#writing-tests-parameterized-tests-argument-conversion">2.17.4. Argument Conversion</a>
+<li><a href="#writing-tests-parameterized-tests-argument-count-validation">2.17.4. Argument Count Validation</a></li>
+<li><a href="#writing-tests-parameterized-tests-argument-conversion">2.17.5. Argument Conversion</a>
 <ul class="sectlevel4">
 <li><a href="#writing-tests-parameterized-tests-argument-conversion-widening">Widening Conversion</a></li>
 <li><a href="#writing-tests-parameterized-tests-argument-conversion-implicit">Implicit Conversion</a></li>
 <li><a href="#writing-tests-parameterized-tests-argument-conversion-explicit">Explicit Conversion</a></li>
 </ul>
 </li>
-<li><a href="#writing-tests-parameterized-tests-argument-aggregation">2.17.5. Argument Aggregation</a>
+<li><a href="#writing-tests-parameterized-tests-argument-aggregation">2.17.6. Argument Aggregation</a>
 <ul class="sectlevel4">
 <li><a href="#writing-tests-parameterized-tests-argument-aggregation-custom">Custom Aggregators</a></li>
 </ul>
 </li>
-<li><a href="#writing-tests-parameterized-tests-display-names">2.17.6. Customizing Display Names</a></li>
-<li><a href="#writing-tests-parameterized-tests-lifecycle-interop">2.17.7. Lifecycle and Interoperability</a></li>
+<li><a href="#writing-tests-parameterized-tests-display-names">2.17.7. Customizing Display Names</a></li>
+<li><a href="#writing-tests-parameterized-tests-lifecycle-interop">2.17.8. Lifecycle and Interoperability</a></li>
 </ul>
 </li>
 <li><a href="#writing-tests-test-templates">2.18. Test Templates</a></li>
@@ -5300,7 +5301,48 @@ different providers.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-tests-parameterized-tests-argument-conversion"><a class="anchor" href="#writing-tests-parameterized-tests-argument-conversion"></a>2.17.4. Argument Conversion</h4>
+<h4 id="writing-tests-parameterized-tests-argument-count-validation"><a class="anchor" href="#writing-tests-parameterized-tests-argument-count-validation"></a>2.17.4. Argument Count Validation</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Argument count validation is currently an <em>experimental</em> feature. You&#8217;re invited to
+give it a try and provide feedback to the JUnit team so they can improve and eventually
+<a href="#api-evolution">promote</a> this feature.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>By default, when an arguments source provides more arguments than the test method needs,
+those additional arguments are ignored and the test executes as usual.
+This can lead to bugs where arguments are never passed to the parameterized test method.</p>
+</div>
+<div class="paragraph">
+<p>To prevent this, you can set argument count validation to 'strict'.
+Then, any additional arguments will cause an error instead.</p>
+</div>
+<div class="paragraph">
+<p>To change this behavior for all tests, set the <code>junit.jupiter.params.argumentCountValidation</code>
+<a href="#running-tests-config-params">configuration parameter</a> to <code>strict</code>.
+To change this behavior for a single test,
+use the <code>argumentCountValidation</code> attribute of the <code>@ParameterizedTest</code> annotation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nd">@ParameterizedTest</span><span class="o">(</span><span class="n">argumentCountValidation</span> <span class="o">=</span> <span class="nc">ArgumentCountValidationMode</span><span class="o">.</span><span class="na">STRICT</span><span class="o">)</span>
+<span class="nd">@CsvSource</span><span class="o">({</span> <span class="s">"42, -666"</span> <span class="o">})</span>
+<span class="kt">void</span> <span class="nf">testWithArgumentCountValidation</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">);</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="writing-tests-parameterized-tests-argument-conversion"><a class="anchor" href="#writing-tests-parameterized-tests-argument-conversion"></a>2.17.5. Argument Conversion</h4>
 <div class="sect4">
 <h5 id="writing-tests-parameterized-tests-argument-conversion-widening"><a class="anchor" href="#writing-tests-parameterized-tests-argument-conversion-widening"></a>Widening Conversion</h5>
 <div class="paragraph">
@@ -5658,7 +5700,7 @@ composed annotation <code>JavaTimeConversionPattern</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-tests-parameterized-tests-argument-aggregation"><a class="anchor" href="#writing-tests-parameterized-tests-argument-aggregation"></a>2.17.5. Argument Aggregation</h4>
+<h4 id="writing-tests-parameterized-tests-argument-aggregation"><a class="anchor" href="#writing-tests-parameterized-tests-argument-aggregation"></a>2.17.6. Argument Aggregation</h4>
 <div class="paragraph">
 <p>By default, each <em>argument</em> provided to a <code>@ParameterizedTest</code> method corresponds to a
 single method parameter. Consequently, argument sources which are expected to supply a
@@ -5773,7 +5815,7 @@ action with a custom <code>@CsvToPerson</code> annotation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-tests-parameterized-tests-display-names"><a class="anchor" href="#writing-tests-parameterized-tests-display-names"></a>2.17.6. Customizing Display Names</h4>
+<h4 id="writing-tests-parameterized-tests-display-names"><a class="anchor" href="#writing-tests-parameterized-tests-display-names"></a>2.17.7. Customizing Display Names</h4>
 <div class="paragraph">
 <p>By default, the display name of a parameterized test invocation contains the invocation
 index and the <code>String</code> representation of all arguments for that specific invocation. Each
@@ -6022,7 +6064,7 @@ precedence rules:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="writing-tests-parameterized-tests-lifecycle-interop"><a class="anchor" href="#writing-tests-parameterized-tests-lifecycle-interop"></a>2.17.7. Lifecycle and Interoperability</h4>
+<h4 id="writing-tests-parameterized-tests-lifecycle-interop"><a class="anchor" href="#writing-tests-parameterized-tests-lifecycle-interop"></a>2.17.8. Lifecycle and Interoperability</h4>
 <div class="paragraph">
 <p>Each invocation of a parameterized test has the same lifecycle as a regular <code>@Test</code>
 method. For example, <code>@BeforeEach</code> methods will be executed before each invocation.
@@ -14126,6 +14168,16 @@ value of lower stability.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.parallel</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceLocksProvider</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.params</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ArgumentCountValidationMode</code> <em>(enum)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.params</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ParameterizedTest.argumentCountValidation()</code> <em>(annotation attribute)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>

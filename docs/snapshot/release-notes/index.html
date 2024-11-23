@@ -661,8 +661,8 @@ invocation contexts by overriding the new <code>mayReturnZeroTestTemplateInvocat
 method.</p>
 </li>
 <li>
-<p>The new <code>@ParameterizedTest(requireArguments = false)</code> attribute allows to specify that
-the absence of arguments is expected in some cases and should not cause a test failure.</p>
+<p>The new <code>@ParameterizedTest(allowZeroInvocations = true)</code> attribute allows to specify that
+the absence of invocations is expected in some cases and should not cause a test failure.</p>
 </li>
 <li>
 <p>Allow determining "shared resources" at runtime via the new <code>@ResourceLock#providers</code>

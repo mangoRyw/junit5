@@ -157,8 +157,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(boolean,org.junit.platform.engine.ConfigurationParameters)" class="member-name-link">TestPlan</a><wbr>(boolean&nbsp;containsTests,
- <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(boolean,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">TestPlan</a><wbr>(boolean&nbsp;containsTests,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -203,8 +204,9 @@ loadScripts(document, 'script');</script>
  given <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">predicate</a>.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#from(java.util.Collection,org.junit.platform.engine.ConfigurationParameters)" class="member-name-link">from</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&gt;&nbsp;engineDescriptors,
- <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#from(java.util.Collection,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">from</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&gt;&nbsp;engineDescriptors,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Construct a new <code>TestPlan</code> from the supplied collection of
  <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a>.</div>
@@ -237,26 +239,31 @@ loadScripts(document, 'script');</script>
 <div class="block">Get all descendants of the supplied <a href="TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a> (i.e.,
  all of its children and their children, recursively).</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParent(org.junit.platform.launcher.TestIdentifier)" class="member-name-link">getParent</a><wbr>(<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;child)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOutputDirectoryProvider()" class="member-name-link">getOutputDirectoryProvider</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this test plan.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParent(org.junit.platform.launcher.TestIdentifier)" class="member-name-link">getParent</a><wbr>(<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;child)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the parent of the supplied <a href="TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRoots()" class="member-name-link">getRoots</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRoots()" class="member-name-link">getRoots</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the root <a href="TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifiers</code></a> for this test plan.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getTestIdentifier(java.lang.String)" class="member-name-link">getTestIdentifier</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uniqueId)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getTestIdentifier(java.lang.String)" class="member-name-link">getTestIdentifier</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;uniqueId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span>
 <div class="deprecation-comment">Use <a href="#getTestIdentifier(org.junit.platform.engine.UniqueId)"><code>getTestIdentifier(UniqueId)</code></a></div>
 </div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTestIdentifier(org.junit.platform.engine.UniqueId)" class="member-name-link">getTestIdentifier</a><wbr>(<a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/UniqueId.html" title="class in org.junit.platform.engine">UniqueId</a>&nbsp;uniqueId)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTestIdentifier(org.junit.platform.engine.UniqueId)" class="member-name-link">getTestIdentifier</a><wbr>(<a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/UniqueId.html" title="class in org.junit.platform.engine">UniqueId</a>&nbsp;uniqueId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the <a href="TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a> with the supplied unique ID.</div>
 </div>
 </div>
@@ -277,12 +284,13 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(boolean,org.junit.platform.engine.ConfigurationParameters)">
+<section class="detail" id="&lt;init&gt;(boolean,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider)">
 <h3>TestPlan</h3>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.4")
 </span><span class="modifiers">protected</span>&nbsp;<span class="element-name">TestPlan</span><wbr><span class="parameters">(boolean&nbsp;containsTests,
- <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters)</span></div>
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</span></div>
 </section>
 </li>
 </ul>
@@ -294,12 +302,13 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="from(java.util.Collection,org.junit.platform.engine.ConfigurationParameters)">
+<section class="detail" id="from(java.util.Collection,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider)">
 <h3>from</h3>
 <div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#INTERNAL" title="class or interface in org.apiguardian.api" class="external-link">INTERNAL</a>,
-     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.0")
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></span>&nbsp;<span class="element-name">from</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&gt;&nbsp;engineDescriptors,
- <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters)</span></div>
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</span></div>
 <div class="block">Construct a new <code>TestPlan</code> from the supplied collection of
  <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a>.
 
@@ -310,6 +319,8 @@ loadScripts(document, 'script');</script>
 <dd><code>engineDescriptors</code> - the engine test descriptors from which the test
  plan should be created; never <code>null</code></dd>
 <dd><code>configurationParameters</code> - the <code>ConfigurationParameters</code> for
+ this test plan; never <code>null</code></dd>
+<dd><code>outputDirectoryProvider</code> - the <code>OutputDirectoryProvider</code> for
  this test plan; never <code>null</code></dd>
 <dt>Returns:</dt>
 <dd>a new test plan</dd>
@@ -539,6 +550,21 @@ loadScripts(document, 'script');</script>
 <dd>the configuration parameters; never <code>null</code></dd>
 <dt>Since:</dt>
 <dd>1.8</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getOutputDirectoryProvider()">
+<h3>getOutputDirectoryProvider</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a></span>&nbsp;<span class="element-name">getOutputDirectoryProvider</span>()</div>
+<div class="block">Get the <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> for this test plan.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the output directory provider; never <code>null</code></dd>
+<dt>Since:</dt>
+<dd>1.12</dd>
 </dl>
 </section>
 </li>

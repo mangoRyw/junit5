@@ -174,9 +174,22 @@ loadScripts(document, 'script');</script>
  is about to be started.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#reportingEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.ReportEntry)" class="member-name-link">reportingEntryPublished</a><wbr>(<a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
- <a href="reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting">ReportEntry</a>&nbsp;entry)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished</a><wbr>(<a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+ <a href="reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Can be called for any <a href="TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> in order to attach a file to
+ a test or container &mdash; for example:
+
+ 
+     Screenshots
+     Logs
+     Output files written by the code under test
+ </div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#reportingEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.ReportEntry)" class="member-name-link">reportingEntryPublished</a><wbr>(<a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+ <a href="reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting">ReportEntry</a>&nbsp;entry)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Can be called for any <a href="TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> in order to publish additional
  information to the reporting infrastructure &mdash; for example:
 
@@ -333,6 +346,32 @@ loadScripts(document, 'script');</script>
 <dd><code>testDescriptor</code> - the descriptor of the test or container to which
  the reporting entry belongs</dd>
 <dd><code>entry</code> - a <code>ReportEntry</code> instance to be published</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)">
+<h3>fileEntryPublished</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">fileEntryPublished</span><wbr><span class="parameters">(<a href="TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+ <a href="reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</span></div>
+<div class="block">Can be called for any <a href="TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> in order to attach a file to
+ a test or container &mdash; for example:
+
+ <ul>
+     <li>Screenshots</li>
+     <li>Logs</li>
+     <li>Output files written by the code under test</li>
+ </ul>
+
+ <p>The current lifecycle state of the supplied <code>TestDescriptor</code> is
+ not relevant: file events can occur at any time.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>testDescriptor</code> - the descriptor of the test or container to which
+ the file entry belongs</dd>
+<dd><code>file</code> - a <code>FileEntry</code> instance to be attached</dd>
 </dl>
 </section>
 </li>

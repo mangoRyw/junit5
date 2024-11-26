@@ -586,6 +586,12 @@ calling the internal <code>ReflectionUtils.makeAccessible(Field)</code> method d
 <p>Add <code>--select-unique-id</code> support to ConsoleLauncher.</p>
 </li>
 <li>
+<p>Add <code>getOutputDirectoryProvider()</code> method to <code>EngineDiscoveryRequest</code> and <code>TestPlan</code> to
+allow test engines to publish/attach files to containers and tests by calling
+<code>EngineExecutionListener.fileEntryPublished(&#8230;&#8203;)</code>. Registered <code>TestExecutionListeners</code>
+can then access these files by overriding the <code>fileEntryPublished(&#8230;&#8203;)</code> method.</p>
+</li>
+<li>
 <p>The following improvements have been made to the open-test-reporting XML output:</p>
 <div class="ulist">
 <ul>
@@ -596,6 +602,9 @@ current worktree status are now included in the XML report, if applicable.</p>
 <li>
 <p>A section containing JUnit-specific metadata about each test/container to the HTML
 report is now written by open-test-reporting when added to the classpath/module path</p>
+</li>
+<li>
+<p>Information about published files is now included as attachments.</p>
 </li>
 </ul>
 </div>
@@ -704,6 +713,10 @@ extension.</p>
 <p>When enabled via the <code>junit.jupiter.execution.timeout.threaddump.enabled</code> configuration
 parameter, an implementation of <code>PreInterruptCallback</code> is registered that writes a
 thread dump to <code>System.out</code> prior to interrupting a test thread due to a timeout.</p>
+</li>
+<li>
+<p><code>TestReporter</code> now allows publishing files for a test method or test class which can be
+used to include them in test reports, such as the Open Test Reporting format.</p>
 </li>
 </ul>
 </div>

@@ -180,15 +180,21 @@ implements <a href="../../../../../../org.junit.platform.engine/org/junit/platfo
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Record an <a href="Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a container or test that started.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EngineExecutionResults.html" title="class in org.junit.platform.testkit.engine">EngineExecutionResults</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExecutionResults()" class="member-name-link">getExecutionResults</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+ <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Record an <a href="Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a published <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EngineExecutionResults.html" title="class in org.junit.platform.testkit.engine">EngineExecutionResults</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExecutionResults()" class="member-name-link">getExecutionResults</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the state of the engine's execution in the form of <a href="EngineExecutionResults.html" title="class in org.junit.platform.testkit.engine"><code>EngineExecutionResults</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reportingEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.ReportEntry)" class="member-name-link">reportingEntryPublished</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reportingEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.ReportEntry)" class="member-name-link">reportingEntryPublished</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
  <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting">ReportEntry</a>&nbsp;entry)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Record an <a href="Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a published <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting"><code>ReportEntry</code></a>.</div>
 </div>
 </div>
@@ -302,6 +308,26 @@ implements <a href="../../../../../../org.junit.platform.engine/org/junit/platfo
 <dd><code>testDescriptor</code> - the descriptor of the test or container to which
  the reporting entry belongs</dd>
 <dd><code>entry</code> - a <code>ReportEntry</code> instance to be published</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)">
+<h3>fileEntryPublished</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">fileEntryPublished</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+ <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</span></div>
+<div class="block">Record an <a href="Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a published <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/EngineExecutionListener.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)">fileEntryPublished</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/EngineExecutionListener.html" title="interface in org.junit.platform.engine">EngineExecutionListener</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>testDescriptor</code> - the descriptor of the test or container to which
+ the file entry belongs</dd>
+<dd><code>file</code> - a <code>FileEntry</code> instance to be attached</dd>
+<dt>Since:</dt>
+<dd>1.12</dd>
 </dl>
 </section>
 </li>

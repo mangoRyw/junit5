@@ -171,8 +171,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Add all of the supplied <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/Filter.html" title="interface in org.junit.platform.engine">filters</a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#selectors(org.junit.platform.engine.DiscoverySelector...)" class="member-name-link">selectors</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>...&nbsp;selectors)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">outputDirectoryProvider</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set the <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> to use.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#selectors(org.junit.platform.engine.DiscoverySelector...)" class="member-name-link">selectors</a><wbr>(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">DiscoverySelector</a>...&nbsp;selectors)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Add all of the supplied <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/DiscoverySelector.html" title="interface in org.junit.platform.engine">discovery selectors</a>.</div>
 </div>
 </div>
@@ -354,6 +359,34 @@ loadScripts(document, 'script');</script>
 <ul class="tag-list-long">
 <li><a href="#configurationParameter(java.lang.String,java.lang.String)"><code>configurationParameter(String, String)</code></a></li>
 <li><a href="#configurationParameters(java.util.Map)"><code>configurationParameters(Map)</code></a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="outputDirectoryProvider(org.junit.platform.engine.reporting.OutputDirectoryProvider)">
+<h3>outputDirectoryProvider</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="EngineTestKit.Builder.html" title="class in org.junit.platform.testkit.engine">EngineTestKit.Builder</a></span>&nbsp;<span class="element-name">outputDirectoryProvider</span><wbr><span class="parameters">(<a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</span></div>
+<div class="block">Set the <a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a> to use.
+
+ <p>If not specified, a default provider will be used that throws an
+ exception when attempting to create output directories. This is done
+ to avoid accidentally writing output files to the file system.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>outputDirectoryProvider</code> - the output directory provider to use;
+                                never <code>null</code></dd>
+<dt>Returns:</dt>
+<dd>this builder for method chaining</dd>
+<dt>Since:</dt>
+<dd>1.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a></li>
 </ul>
 </dd>
 </dl>

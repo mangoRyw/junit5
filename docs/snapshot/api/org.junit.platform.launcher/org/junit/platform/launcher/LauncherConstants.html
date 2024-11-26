@@ -174,6 +174,17 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ServiceLoader.html" title="class or interface in java.util" class="external-link"><code>ServiceLoader</code></a> mechanism: "junit.platform.launcher.interceptors.enabled"</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#OUTPUT_DIR_PROPERTY_NAME" class="member-name-link">OUTPUT_DIR_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Property name used to configure the output directory for reporting.</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER" class="member-name-link">OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Placeholder for use in <a href="#OUTPUT_DIR_PROPERTY_NAME"><code>OUTPUT_DIR_PROPERTY_NAME</code></a> that will be
+ replaced with a unique number.</div>
+</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME" class="member-name-link">STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">Property name used to enable or disable stack trace pruning.</div>
@@ -476,6 +487,56 @@ loadScripts(document, 'script');</script>
 <ul class="tag-list">
 <li><a href="core/EngineExecutionOrchestrator.html" title="class in org.junit.platform.launcher.core"><code>EngineExecutionOrchestrator</code></a></li>
 <li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OUTPUT_DIR_PROPERTY_NAME">
+<h3>OUTPUT_DIR_PROPERTY_NAME</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">OUTPUT_DIR_PROPERTY_NAME</span></div>
+<div class="block">Property name used to configure the output directory for reporting.
+
+ <p>If set, value must be a valid path that will be created if it doesn't
+ exist. If not set, the default output directory will be determined by the
+ reporting engine based on the current working directory.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>1.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER"><code>OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</code></a></li>
+<li><a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting"><code>OutputDirectoryProvider</code></a></li>
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.OUTPUT_DIR_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER">
+<h3>OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER</span></div>
+<div class="block">Placeholder for use in <a href="#OUTPUT_DIR_PROPERTY_NAME"><code>OUTPUT_DIR_PROPERTY_NAME</code></a> that will be
+ replaced with a unique number.
+
+ <p>This can be used to create a unique output directory for each test
+ run. For example, if multiple forks are used, each fork can be configured
+ to write its output to a separate directory.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>1.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="#OUTPUT_DIR_PROPERTY_NAME"><code>OUTPUT_DIR_PROPERTY_NAME</code></a></li>
+<li><a href="../../../../../constant-values.html#org.junit.platform.launcher.LauncherConstants.OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>

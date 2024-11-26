@@ -194,21 +194,27 @@ loadScripts(document, 'script');</script>
  is about to be started.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#reportingEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.ReportEntry)" class="member-name-link">reportingEntryPublished</a><wbr>(<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
- <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting">ReportEntry</a>&nbsp;entry)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished</a><wbr>(<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Called when a file has been published for the supplied <a href="TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#reportingEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.ReportEntry)" class="member-name-link">reportingEntryPublished</a><wbr>(<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting">ReportEntry</a>&nbsp;entry)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Called when additional test reporting data has been published for
  the supplied <a href="TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#testPlanExecutionFinished(org.junit.platform.launcher.TestPlan)" class="member-name-link">testPlanExecutionFinished</a><wbr>(<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#testPlanExecutionFinished(org.junit.platform.launcher.TestPlan)" class="member-name-link">testPlanExecutionFinished</a><wbr>(<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Called when the execution of the <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> has finished,
  <em>after</em> all tests have been executed.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#testPlanExecutionStarted(org.junit.platform.launcher.TestPlan)" class="member-name-link">testPlanExecutionStarted</a><wbr>(<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#testPlanExecutionStarted(org.junit.platform.launcher.TestPlan)" class="member-name-link">testPlanExecutionStarted</a><wbr>(<a href="TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a>&nbsp;testPlan)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Called when the execution of the <a href="TestPlan.html" title="class in org.junit.platform.launcher"><code>TestPlan</code></a> has started,
  <em>before</em> any test has been executed.</div>
 </div>
@@ -363,6 +369,23 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>testIdentifier</code> - describes the test or container to which the entry pertains</dd>
 <dd><code>entry</code> - the published <code>ReportEntry</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)">
+<h3>fileEntryPublished</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="1.12")
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">fileEntryPublished</span><wbr><span class="parameters">(<a href="TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
+ <a href="../../../../../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</span></div>
+<div class="block">Called when a file has been published for the supplied <a href="TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a>.
+
+ <p>Can be called at any time during the execution of a test plan.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>testIdentifier</code> - describes the test or container to which the entry pertains</dd>
+<dd><code>file</code> - the published <code>FileEntry</code></dd>
 </dl>
 </section>
 </li>

@@ -58,22 +58,32 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Package</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.engine">org.junit.platform.engine</a></div>
+<div class="col-first even-row-color"><a href="#org.junit.jupiter.engine.config">org.junit.jupiter.engine.config</a></div>
 <div class="col-last even-row-color">
+<div class="block">Configuration specific to the JUnit Jupiter test engine.</div>
+</div>
+<div class="col-first odd-row-color"><a href="#org.junit.platform.engine">org.junit.platform.engine</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Public API for test engines.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.engine.reporting">org.junit.platform.engine.reporting</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.platform.engine.reporting">org.junit.platform.engine.reporting</a></div>
+<div class="col-last even-row-color">
 <div class="block">Classes used by test engines to report additional data to execution
  listeners.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.jfr">org.junit.platform.jfr</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.platform.jfr">org.junit.platform.jfr</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Java Flight Recorder support package.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.launcher">org.junit.platform.launcher</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.platform.launcher">org.junit.platform.launcher</a></div>
+<div class="col-last even-row-color">
 <div class="block">Public API for configuring and launching test plans.</div>
+</div>
+<div class="col-first odd-row-color"><a href="#org.junit.platform.launcher.core">org.junit.platform.launcher.core</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Core support classes for the <a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
+ including the <a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html" title="class in org.junit.platform.launcher.core"><code>LauncherFactory</code></a>
+ and the <a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core"><code>LauncherDiscoveryRequestBuilder</code></a>.</div>
 </div>
 <div class="col-first even-row-color"><a href="#org.junit.platform.reporting.legacy.xml">org.junit.platform.reporting.legacy.xml</a></div>
 <div class="col-last even-row-color">
@@ -85,8 +95,12 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">Support for generating Open Test Reporting compatible XML event reports.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.testkit.engine">org.junit.platform.testkit.engine</a></div>
+<div class="col-first even-row-color"><a href="#org.junit.platform.suite.commons">org.junit.platform.suite.commons</a></div>
 <div class="col-last even-row-color">
+<div class="block">Common support utilities for executing test suites on the JUnit Platform.</div>
+</div>
+<div class="col-first odd-row-color"><a href="#org.junit.platform.testkit.engine">org.junit.platform.testkit.engine</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Test Kit for testing the execution of a <a href="../TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a>
  running on the JUnit Platform.</div>
 </div>
@@ -94,11 +108,35 @@ loadScripts(document, 'script');</script>
 <section class="package-uses">
 <ul class="block-list">
 <li>
+<section class="detail" id="org.junit.jupiter.engine.config">
+<div class="caption"><span>Classes in <a href="package-summary.html">org.junit.platform.engine.reporting</a> used by <a href="../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/package-summary.html">org.junit.jupiter.engine.config</a></span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/OutputDirectoryProvider.html#org.junit.jupiter.engine.config">OutputDirectoryProvider</a></div>
+<div class="col-last even-row-color">
+<div class="block">Provider of output directories for test engines to write reports and other
+ output files to.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="org.junit.platform.engine">
 <div class="caption"><span>Classes in <a href="package-summary.html">org.junit.platform.engine.reporting</a> used by <a href="../package-summary.html">org.junit.platform.engine</a></span></div>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/FileEntry.html#org.junit.platform.engine">FileEntry</a></div>
+<div class="col-last even-row-color">
+<div class="block"><code>FileEntry</code> encapsulates a file to be published to the reporting
+ infrastructure.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/OutputDirectoryProvider.html#org.junit.platform.engine">OutputDirectoryProvider</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Provider of output directories for test engines to write reports and other
+ output files to.</div>
+</div>
 <div class="col-first even-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.engine">ReportEntry</a></div>
 <div class="col-last even-row-color">
 <div class="block"><code>ReportEntry</code> encapsulates a time-stamped map of <code>String</code>-based
@@ -113,8 +151,13 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.engine.reporting">ReportEntry</a></div>
+<div class="col-first even-row-color"><a href="class-use/FileEntry.html#org.junit.platform.engine.reporting">FileEntry</a></div>
 <div class="col-last even-row-color">
+<div class="block"><code>FileEntry</code> encapsulates a file to be published to the reporting
+ infrastructure.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.engine.reporting">ReportEntry</a></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>ReportEntry</code> encapsulates a time-stamped map of <code>String</code>-based
  key-value pairs to be published to the reporting infrastructure.</div>
 </div>
@@ -127,8 +170,13 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.jfr">ReportEntry</a></div>
+<div class="col-first even-row-color"><a href="class-use/FileEntry.html#org.junit.platform.jfr">FileEntry</a></div>
 <div class="col-last even-row-color">
+<div class="block"><code>FileEntry</code> encapsulates a file to be published to the reporting
+ infrastructure.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.jfr">ReportEntry</a></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>ReportEntry</code> encapsulates a time-stamped map of <code>String</code>-based
  key-value pairs to be published to the reporting infrastructure.</div>
 </div>
@@ -141,10 +189,34 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/FileEntry.html#org.junit.platform.launcher">FileEntry</a></div>
+<div class="col-last even-row-color">
+<div class="block"><code>FileEntry</code> encapsulates a file to be published to the reporting
+ infrastructure.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/OutputDirectoryProvider.html#org.junit.platform.launcher">OutputDirectoryProvider</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Provider of output directories for test engines to write reports and other
+ output files to.</div>
+</div>
 <div class="col-first even-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.launcher">ReportEntry</a></div>
 <div class="col-last even-row-color">
 <div class="block"><code>ReportEntry</code> encapsulates a time-stamped map of <code>String</code>-based
  key-value pairs to be published to the reporting infrastructure.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.platform.launcher.core">
+<div class="caption"><span>Classes in <a href="package-summary.html">org.junit.platform.engine.reporting</a> used by <a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/core/package-summary.html">org.junit.platform.launcher.core</a></span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/OutputDirectoryProvider.html#org.junit.platform.launcher.core">OutputDirectoryProvider</a></div>
+<div class="col-last even-row-color">
+<div class="block">Provider of output directories for test engines to write reports and other
+ output files to.</div>
 </div>
 </div>
 </section>
@@ -169,10 +241,29 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.reporting.open.xml">ReportEntry</a></div>
+<div class="col-first even-row-color"><a href="class-use/FileEntry.html#org.junit.platform.reporting.open.xml">FileEntry</a></div>
 <div class="col-last even-row-color">
+<div class="block"><code>FileEntry</code> encapsulates a file to be published to the reporting
+ infrastructure.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.reporting.open.xml">ReportEntry</a></div>
+<div class="col-last odd-row-color">
 <div class="block"><code>ReportEntry</code> encapsulates a time-stamped map of <code>String</code>-based
  key-value pairs to be published to the reporting infrastructure.</div>
+</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.platform.suite.commons">
+<div class="caption"><span>Classes in <a href="package-summary.html">org.junit.platform.engine.reporting</a> used by <a href="../../../../../../org.junit.platform.suite.commons/org/junit/platform/suite/commons/package-summary.html">org.junit.platform.suite.commons</a></span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/OutputDirectoryProvider.html#org.junit.platform.suite.commons">OutputDirectoryProvider</a></div>
+<div class="col-last even-row-color">
+<div class="block">Provider of output directories for test engines to write reports and other
+ output files to.</div>
 </div>
 </div>
 </section>
@@ -183,6 +274,16 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><a href="class-use/FileEntry.html#org.junit.platform.testkit.engine">FileEntry</a></div>
+<div class="col-last even-row-color">
+<div class="block"><code>FileEntry</code> encapsulates a file to be published to the reporting
+ infrastructure.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/OutputDirectoryProvider.html#org.junit.platform.testkit.engine">OutputDirectoryProvider</a></div>
+<div class="col-last odd-row-color">
+<div class="block">Provider of output directories for test engines to write reports and other
+ output files to.</div>
+</div>
 <div class="col-first even-row-color"><a href="class-use/ReportEntry.html#org.junit.platform.testkit.engine">ReportEntry</a></div>
 <div class="col-last even-row-color">
 <div class="block"><code>ReportEntry</code> encapsulates a time-stamped map of <code>String</code>-based

@@ -912,14 +912,15 @@ pre.rouge .gs {
 <ul class="sectlevel2">
 <li><a href="#junit-platform-reporting">6.1. JUnit Platform Reporting</a>
 <ul class="sectlevel3">
-<li><a href="#junit-platform-reporting-legacy-xml">6.1.1. Legacy XML format</a></li>
-<li><a href="#junit-platform-reporting-open-test-reporting">6.1.2. Open Test Reporting XML format</a>
+<li><a href="#junit-platform-reporting-output-directory">6.1.1. Output Directory</a></li>
+<li><a href="#junit-platform-reporting-open-test-reporting">6.1.2. Open Test Reporting</a>
 <ul class="sectlevel4">
 <li><a href="#gradle">Gradle</a></li>
 <li><a href="#maven">Maven</a></li>
 <li><a href="#console-launcher">Console Launcher</a></li>
 </ul>
 </li>
+<li><a href="#junit-platform-reporting-legacy-xml">6.1.3. Legacy XML format</a></li>
 </ul>
 </li>
 <li><a href="#junit-platform-suite-engine">6.2. JUnit Platform Suite Engine</a>
@@ -3617,8 +3618,9 @@ context of a <code>@RepeatedTest</code>. See <a href="#writing-tests-repeated-te
 <p><code><a href="https://github.com/junit-team/junit5/tree/HEAD/junit-jupiter-engine/src/main/java/org/junit/jupiter/engine/extension/TestReporterParameterResolver.java">TestReporterParameterResolver</a></code>: if a constructor or method parameter is of type
 <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/TestReporter.html">TestReporter</a></code>, the <code>TestReporterParameterResolver</code> will supply an instance of
 <code>TestReporter</code>. The <code>TestReporter</code> can be used to publish additional data about the
-current test run. The data can be consumed via the <code>reportingEntryPublished()</code> method in
-a <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html">TestExecutionListener</a></code>, allowing it to be viewed in IDEs or included in reports.</p>
+current test run or attach files to it. The data can be consumed in a
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html">TestExecutionListener</a></code> via the <code>reportingEntryPublished()</code> or <code>fileEntryPublished()</code>
+method, respectively. This allows them to be viewed in IDEs or included in reports.</p>
 <div class="paragraph">
 <p>In JUnit Jupiter you should use <code>TestReporter</code> where you used to print information to
 <code>stdout</code> or <code>stderr</code> in JUnit 4. Using <code>@RunWith(JUnitPlatform.class)</code> will output all
@@ -3651,6 +3653,19 @@ display them in the user interface for test results.</p>
         <span class="n">testReporter</span><span class="o">.</span><span class="na">publishEntry</span><span class="o">(</span><span class="n">values</span><span class="o">);</span>
     <span class="o">}</span>
 
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">reportFiles</span><span class="o">(</span><span class="nc">TestReporter</span> <span class="n">testReporter</span><span class="o">,</span> <span class="nd">@TempDir</span> <span class="nc">Path</span> <span class="n">tempDir</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+
+        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishFile</span><span class="o">(</span><span class="s">"test1.txt"</span><span class="o">,</span> <span class="n">file</span> <span class="o">-&gt;</span> <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Test 1"</span><span class="o">)));</span>
+
+        <span class="nc">Path</span> <span class="n">existingFile</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">tempDir</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="s">"test2.txt"</span><span class="o">),</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Test 2"</span><span class="o">));</span>
+        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishFile</span><span class="o">(</span><span class="n">existingFile</span><span class="o">);</span>
+
+        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishFile</span><span class="o">(</span><span class="s">"test3"</span><span class="o">,</span> <span class="n">dir</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">Path</span> <span class="n">nestedFile</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">createDirectory</span><span class="o">(</span><span class="n">dir</span><span class="o">).</span><span class="na">resolve</span><span class="o">(</span><span class="s">"nested.txt"</span><span class="o">);</span>
+            <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">nestedFile</span><span class="o">,</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Nested content"</span><span class="o">));</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -12431,8 +12446,8 @@ class or test interface unless there are no dependencies between such lifecycle 
 <div class="paragraph">
 <p>The <code>junit-platform-reporting</code> artifact contains <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html">TestExecutionListener</a></code> implementations
 that generate XML test reports in two flavors:
-<a href="#junit-platform-reporting-legacy-xml">legacy</a> and
-<a href="#junit-platform-reporting-open-test-reporting">Open Test Reporting</a>.</p>
+<a href="#junit-platform-reporting-open-test-reporting">Open Test Reporting</a> and
+<a href="#junit-platform-reporting-legacy-xml">legacy</a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -12448,19 +12463,33 @@ used to build custom reporting. See <a href="#running-tests-listeners">Using Lis
 </table>
 </div>
 <div class="sect3">
-<h4 id="junit-platform-reporting-legacy-xml"><a class="anchor" href="#junit-platform-reporting-legacy-xml"></a>6.1.1. Legacy XML format</h4>
+<h4 id="junit-platform-reporting-output-directory"><a class="anchor" href="#junit-platform-reporting-output-directory"></a>6.1.1. Output Directory</h4>
 <div class="paragraph">
-<p><code><a href="../api/org.junit.platform.reporting/org/junit/platform/reporting/legacy/xml/LegacyXmlReportGeneratingListener.html">LegacyXmlReportGeneratingListener</a></code> generates a separate XML report for each root in the
-<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html">TestPlan</a></code>. Note that the generated XML format is compatible with the de facto standard
-for JUnit 4 based test reports that was made popular by the Ant build system.</p>
+<p>The JUnit Platform provides an <code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/reporting/OutputDirectoryProvider.html">OutputDirectoryProvider</a></code> via
+<code><a href="../api/org.junit.platform.engine/org/junit/platform/engine/EngineDiscoveryRequest.html">EngineDiscoveryRequest</a></code> and <code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html">TestPlan</a></code> to registered <a href="#test-engines">test engines</a>
+and <a href="#running-tests-listeners">listeners</a>, respectively. Its root directory can be
+configured via the following <a href="#running-tests-config-params">configuration parameter</a>:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.platform.reporting.output.dir=&lt;path&gt;</code></dt>
+<dd>
+<p>Configure the output directory for reporting. By default, <code>build</code> is used if a Gradle
+build script is found, and <code>target</code> if a Maven POM is found; otherwise, the current
+working directory is used.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
-<p>The <code>LegacyXmlReportGeneratingListener</code> is used by the <a href="#running-tests-console-launcher">Console Launcher</a>
-as well.</p>
+<p>To create a unique output directory per test run, you can use the <code>{uniqueNumber}</code>
+placeholder in the path. For example, <code>reports/junit-{uniqueNumber}</code> will create
+directories like <code>reports/junit-8803697269315188212</code>. This can be useful when using
+Gradle&#8217;s or Maven&#8217;s parallel execution capabilities which create multiple JVM forks
+that run concurrently.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="junit-platform-reporting-open-test-reporting"><a class="anchor" href="#junit-platform-reporting-open-test-reporting"></a>6.1.2. Open Test Reporting XML format</h4>
+<h4 id="junit-platform-reporting-open-test-reporting"><a class="anchor" href="#junit-platform-reporting-open-test-reporting"></a>6.1.2. Open Test Reporting</h4>
 <div class="paragraph">
 <p><code><a href="../api/org.junit.platform.reporting/org/junit/platform/reporting/open/xml/OpenTestReportGeneratingListener.html">OpenTestReportGeneratingListener</a></code> writes an XML report for the entire execution in the
 event-based format specified by <a href="https://github.com/ota4j-team/open-test-reporting">Open Test Reporting</a> which supports all features of the
@@ -12468,7 +12497,7 @@ JUnit Platform such as hierarchical test structures, display names, tags, etc.</
 </div>
 <div class="paragraph">
 <p>The listener is auto-registered and can be configured via the following
-<a href="#running-tests-config-params">Configuration Parameters</a>:</p>
+<a href="#running-tests-config-params">configuration parameter</a>:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -12476,17 +12505,11 @@ JUnit Platform such as hierarchical test structures, display names, tags, etc.</
 <dd>
 <p>Enable/disable writing the report.</p>
 </dd>
-<dt class="hdlist1"><code>junit.platform.reporting.output.dir=&lt;path&gt;</code></dt>
-<dd>
-<p>Configure the output directory for the reports. By default, <code>build</code> is used if a Gradle
-build script is found, and <code>target</code> if a Maven POM is found; otherwise, the current
-working directory is used.</p>
-</dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>If enabled, the listener creates an XML report file named
-<code>junit-platform-events-&lt;random-id&gt;.xml</code> per test run in the configured output directory.</p>
+<p>If enabled, the listener creates an XML report file named <code>open-test-report.xml</code> in the
+configured <a href="#junit-platform-reporting-output-directory">output directory</a>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -12608,6 +12631,18 @@ via the <code>--config-resource</code> option:</p>
 <span class="go">  --config-resource=configuration.properties</span></code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="junit-platform-reporting-legacy-xml"><a class="anchor" href="#junit-platform-reporting-legacy-xml"></a>6.1.3. Legacy XML format</h4>
+<div class="paragraph">
+<p><code><a href="../api/org.junit.platform.reporting/org/junit/platform/reporting/legacy/xml/LegacyXmlReportGeneratingListener.html">LegacyXmlReportGeneratingListener</a></code> generates a separate XML report for each root in the
+<code><a href="../api/org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html">TestPlan</a></code>. Note that the generated XML format is compatible with the de facto standard
+for JUnit 4 based test reports that was made popular by the Ant build system.</p>
+</div>
+<div class="paragraph">
+<p>The <code>LegacyXmlReportGeneratingListener</code> is used by the <a href="#running-tests-console-launcher">Console Launcher</a>
+as well.</p>
 </div>
 </div>
 </div>
@@ -14167,9 +14202,24 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.10</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestReporter.publishFile(Path)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestReporter.publishFile(String, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>AnnotatedElementContext</code> <em>(interface)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContext.publishFile(String, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
@@ -14362,6 +14412,16 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.11</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.engine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineDiscoveryRequest.getOutputDirectoryProvider()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.engine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineExecutionListener.fileEntryPublished(TestDescriptor, FileEntry)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.engine.discovery</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ClassSelector.getClassLoader()</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.10</code></p></td>
@@ -14492,6 +14552,16 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.10</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.engine.reporting</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FileEntry</code> <em>(class)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.engine.reporting</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OutputDirectoryProvider</code> <em>(interface)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.engine.support.discovery</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineDiscoveryRequestResolver$Builder.addResourceContainerSelectorResolver(Predicate&lt;Resource&gt;)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
@@ -14528,6 +14598,11 @@ value of lower stability.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.launcher</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestExecutionListener.fileEntryPublished(TestIdentifier, FileEntry)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.launcher</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestPlan$Visitor</code> <em>(interface)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.10</code></p></td>
 </tr>
@@ -14535,6 +14610,16 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.launcher</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestPlan.accept(Visitor)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.launcher</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestPlan.getOutputDirectoryProvider()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.launcher.core</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LauncherDiscoveryRequestBuilder.outputDirectoryProvider(OutputDirectoryProvider)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.reporting.open.xml</code></p></td>
@@ -14585,6 +14670,36 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.suite.api</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Selects</code> <em>(annotation)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.11</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.testkit.engine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngineTestKit$Builder.outputDirectoryProvider(OutputDirectoryProvider)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.testkit.engine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Event.fileEntryPublished(TestDescriptor, FileEntry)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.testkit.engine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EventConditions.fileEntry(Predicate&lt;Path&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.testkit.engine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EventStatistics.fileEntryPublished(long)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.testkit.engine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Events.fileEntryPublished()</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.testkit.engine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExecutionRecorder.fileEntryPublished(TestDescriptor, FileEntry)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.testkit.engine</code></p></td>

@@ -157,6 +157,59 @@ loadScripts(document, 'script');</script>
 <div class="block"><code>@FieldSources</code> is a simple container for one or more
  <a href="../org.junit.jupiter.params/org/junit/jupiter/params/provider/FieldSource.html" title="annotation interface in org.junit.jupiter.params.provider"><code>FieldSource</code></a> annotations.</div>
 </dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventType.html#FILE_ENTRY_PUBLISHED" class="member-name-link">FILE_ENTRY_PUBLISHED</a> - Enum constant in enum class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventType.html" title="enum class in org.junit.platform.testkit.engine">EventType</a></dt>
+<dd>
+<div class="block">Signals that a <a href="../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> published a file entry.</div>
+</dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventConditions.html#fileEntry(java.util.function.Predicate)" class="member-name-link">fileEntry(Predicate&lt;Path&gt;)</a> - Static method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventConditions.html" title="class in org.junit.platform.testkit.engine">EventConditions</a></dt>
+<dd>
+<div class="block">Create a new <a href="https://javadoc.io/doc/org.assertj/assertj-core/3.26.3/org/assertj/core/api/Condition.html" title="class or interface in org.assertj.core.api" class="external-link"><code>Condition</code></a> that matches if and only if an
+ <a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a>'s <a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html#getPayload()">payload</a> is an instance of
+ <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a> that contains a file that matches the supplied
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" class="type-name-link" title="class in org.junit.platform.engine.reporting">FileEntry</a> - Class in <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/package-summary.html">org.junit.platform.engine.reporting</a></dt>
+<dd>
+<div class="block"><code>FileEntry</code> encapsulates a file to be published to the reporting
+ infrastructure.</div>
+</dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Events.html#fileEntryPublished()" class="member-name-link">fileEntryPublished()</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Events.html" title="class in org.junit.platform.testkit.engine">Events</a></dt>
+<dd>
+<div class="block">Get the file entry publication <a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Events.html" title="class in org.junit.platform.testkit.engine"><code>Events</code></a> contained in this
+ <code>Events</code> object.</div>
+</dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventStatistics.html#fileEntryPublished(long)" class="member-name-link">fileEntryPublished(long)</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventStatistics.html" title="class in org.junit.platform.testkit.engine">EventStatistics</a></dt>
+<dd>
+<div class="block">Specify the number of expected <em>file entry publication</em> events.</div>
+</dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/EngineExecutionListener.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestDescriptor, FileEntry)</a> - Method in interface org.junit.platform.engine.<a href="../org.junit.platform.engine/org/junit/platform/engine/EngineExecutionListener.html" title="interface in org.junit.platform.engine">EngineExecutionListener</a></dt>
+<dd>
+<div class="block">Can be called for any <a href="../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> in order to attach a file to
+ a test or container &mdash; for example:
+
+ 
+     Screenshots
+     Logs
+     Output files written by the code under test
+ </div>
+</dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestDescriptor, FileEntry)</a> - Static method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine">Event</a></dt>
+<dd>
+<div class="block">Create an <code>Event</code> for a published file for the supplied
+ <a href="../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> and <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/ExecutionRecorder.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestDescriptor, FileEntry)</a> - Method in class org.junit.platform.testkit.engine.<a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/ExecutionRecorder.html" title="class in org.junit.platform.testkit.engine">ExecutionRecorder</a></dt>
+<dd>
+<div class="block">Record an <a href="../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a published <a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.platform.jfr/org/junit/platform/jfr/FlightRecordingExecutionListener.html#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestIdentifier, FileEntry)</a> - Method in class org.junit.platform.jfr.<a href="../org.junit.platform.jfr/org/junit/platform/jfr/FlightRecordingExecutionListener.html" title="class in org.junit.platform.jfr">FlightRecordingExecutionListener</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestIdentifier, FileEntry)</a> - Method in interface org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html" title="interface in org.junit.platform.launcher">TestExecutionListener</a></dt>
+<dd>
+<div class="block">Called when a file has been published for the supplied <a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a>.</div>
+</dd>
+<dt><a href="../org.junit.platform.reporting/org/junit/platform/reporting/open/xml/OpenTestReportGeneratingListener.html#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished(TestIdentifier, FileEntry)</a> - Method in class org.junit.platform.reporting.open.xml.<a href="../org.junit.platform.reporting/org/junit/platform/reporting/open/xml/OpenTestReportGeneratingListener.html" title="class in org.junit.platform.reporting.open.xml">OpenTestReportGeneratingListener</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/FilePosition.html" class="type-name-link" title="class in org.junit.platform.engine.discovery">FilePosition</a> - Class in <a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/package-summary.html">org.junit.platform.engine.discovery</a></dt>
 <dd>
 <div class="block">Position inside a file represented by <a href="../org.junit.platform.engine/org/junit/platform/engine/discovery/FilePosition.html#getLine()">line</a> and
@@ -792,12 +845,16 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Create a new <code>UriSource</code> using the supplied <code>URI</code>.</div>
 </dd>
+<dt><a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html#from(java.nio.file.Path)" class="member-name-link">from(Path)</a> - Static method in class org.junit.platform.engine.reporting.<a href="../org.junit.platform.engine/org/junit/platform/engine/reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a></dt>
+<dd>
+<div class="block">Factory for creating a new <code>FileEntry</code> from the supplied file.</div>
+</dd>
 <dt><a href="../org.junit.platform.engine/org/junit/platform/engine/support/descriptor/CompositeTestSource.html#from(java.util.Collection)" class="member-name-link">from(Collection&lt;? extends TestSource&gt;)</a> - Static method in class org.junit.platform.engine.support.descriptor.<a href="../org.junit.platform.engine/org/junit/platform/engine/support/descriptor/CompositeTestSource.html" title="class in org.junit.platform.engine.support.descriptor">CompositeTestSource</a></dt>
 <dd>
 <div class="block">Create a new <code>CompositeTestSource</code> based on the supplied
  collection of <a href="../org.junit.platform.engine/org/junit/platform/engine/TestSource.html" title="interface in org.junit.platform.engine"><code>sources</code></a>.</div>
 </dd>
-<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#from(java.util.Collection,org.junit.platform.engine.ConfigurationParameters)" class="member-name-link">from(Collection&lt;TestDescriptor&gt;, ConfigurationParameters)</a> - Static method in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></dt>
+<dt><a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#from(java.util.Collection,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">from(Collection&lt;TestDescriptor&gt;, ConfigurationParameters, OutputDirectoryProvider)</a> - Static method in class org.junit.platform.launcher.<a href="../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></dt>
 <dd>
 <div class="block">Construct a new <code>TestPlan</code> from the supplied collection of
  <a href="../org.junit.platform.engine/org/junit/platform/engine/TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a>.</div>

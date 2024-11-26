@@ -70,48 +70,53 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Public API for test engines.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.engine.support.descriptor">org.junit.platform.engine.support.descriptor</a></div>
+<div class="col-first odd-row-color"><a href="#org.junit.platform.engine.reporting">org.junit.platform.engine.reporting</a></div>
 <div class="col-last odd-row-color">
+<div class="block">Classes used by test engines to report additional data to execution
+ listeners.</div>
+</div>
+<div class="col-first even-row-color"><a href="#org.junit.platform.engine.support.descriptor">org.junit.platform.engine.support.descriptor</a></div>
+<div class="col-last even-row-color">
 <div class="block"><a href="../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a>-related support classes
  intended to be used by test engine implementations and clients of
  the launcher.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.engine.support.discovery">org.junit.platform.engine.support.discovery</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.platform.engine.support.discovery">org.junit.platform.engine.support.discovery</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Configurable test discovery implementation that can be reused by different test engines.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.engine.support.hierarchical">org.junit.platform.engine.support.hierarchical</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.platform.engine.support.hierarchical">org.junit.platform.engine.support.hierarchical</a></div>
+<div class="col-last even-row-color">
 <div class="block">Support classes and base implementation for any
  <a href="../TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a> that wishes to organize test suites
  hierarchically based on the
  <a href="../support/hierarchical/Node.html" title="interface in org.junit.platform.engine.support.hierarchical"><code>Node</code></a> abstraction.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.launcher">org.junit.platform.launcher</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.platform.launcher">org.junit.platform.launcher</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Public API for configuring and launching test plans.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.launcher.core">org.junit.platform.launcher.core</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.platform.launcher.core">org.junit.platform.launcher.core</a></div>
+<div class="col-last even-row-color">
 <div class="block">Core support classes for the <a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/Launcher.html" title="interface in org.junit.platform.launcher"><code>Launcher</code></a>
  including the <a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherFactory.html" title="class in org.junit.platform.launcher.core"><code>LauncherFactory</code></a>
  and the <a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/core/LauncherDiscoveryRequestBuilder.html" title="class in org.junit.platform.launcher.core"><code>LauncherDiscoveryRequestBuilder</code></a>.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.platform.suite.engine">org.junit.platform.suite.engine</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.platform.suite.engine">org.junit.platform.suite.engine</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Core package for the JUnit Platform Suite test engine.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.platform.testkit.engine">org.junit.platform.testkit.engine</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.platform.testkit.engine">org.junit.platform.testkit.engine</a></div>
+<div class="col-last even-row-color">
 <div class="block">Test Kit for testing the execution of a <a href="../TestEngine.html" title="interface in org.junit.platform.engine"><code>TestEngine</code></a>
  running on the JUnit Platform.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.vintage.engine">org.junit.vintage.engine</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.vintage.engine">org.junit.vintage.engine</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Core package for the JUnit Vintage test engine.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.vintage.engine.descriptor">org.junit.vintage.engine.descriptor</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.vintage.engine.descriptor">org.junit.vintage.engine.descriptor</a></div>
+<div class="col-last even-row-color">
 <div class="block">Test descriptors used within the JUnit Vintage test engine.</div>
 </div>
 </div>
@@ -338,15 +343,28 @@ loadScripts(document, 'script');</script>
 <div class="block">Must be called when the execution of a leaf or subtree of the test tree
  is about to be started.</div>
 </div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">TestDescriptor.</span><code><a href="../TestDescriptor.html#removeChild(org.junit.platform.engine.TestDescriptor)" class="member-name-link">removeChild</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;descriptor)</code></div>
+<div class="col-first odd-row-color"><code>default void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EngineExecutionListener.</span><code><a href="../EngineExecutionListener.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+ <a href="../reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
 <div class="col-last odd-row-color">
+<div class="block">Can be called for any <a href="../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> in order to attach a file to
+ a test or container &mdash; for example:
+
+ 
+     Screenshots
+     Logs
+     Output files written by the code under test
+ </div>
+</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TestDescriptor.</span><code><a href="../TestDescriptor.html#removeChild(org.junit.platform.engine.TestDescriptor)" class="member-name-link">removeChild</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;descriptor)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Remove a <em>child</em> from this descriptor.</div>
 </div>
-<div class="col-first even-row-color"><code>default void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EngineExecutionListener.</span><code><a href="../EngineExecutionListener.html#reportingEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.ReportEntry)" class="member-name-link">reportingEntryPublished</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+<div class="col-first odd-row-color"><code>default void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EngineExecutionListener.</span><code><a href="../EngineExecutionListener.html#reportingEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.ReportEntry)" class="member-name-link">reportingEntryPublished</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
  <a href="../reporting/ReportEntry.html" title="class in org.junit.platform.engine.reporting">ReportEntry</a>&nbsp;entry)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Can be called for any <a href="../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> in order to publish additional
  information to the reporting infrastructure &mdash; for example:
 
@@ -355,14 +373,14 @@ loadScripts(document, 'script');</script>
      Information about test context or test data
  </div>
 </div>
-<div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">TestDescriptor.</span><code><a href="../TestDescriptor.html#setParent(org.junit.platform.engine.TestDescriptor)" class="member-name-link">setParent</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;parent)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TestDescriptor.</span><code><a href="../TestDescriptor.html#setParent(org.junit.platform.engine.TestDescriptor)" class="member-name-link">setParent</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;parent)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Set the <em>parent</em> of this descriptor.</div>
 </div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">TestDescriptor.Visitor.</span><code><a href="../TestDescriptor.Visitor.html#visit(org.junit.platform.engine.TestDescriptor)" class="member-name-link">visit</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;descriptor)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">TestDescriptor.Visitor.</span><code><a href="../TestDescriptor.Visitor.html#visit(org.junit.platform.engine.TestDescriptor)" class="member-name-link">visit</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;descriptor)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Visit a <a href="../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a>.</div>
 </div>
 </div>
@@ -376,6 +394,22 @@ loadScripts(document, 'script');</script>
  <a href="../EngineExecutionListener.html" title="interface in org.junit.platform.engine">EngineExecutionListener</a>&nbsp;engineExecutionListener,
  <a href="../ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.platform.engine.reporting">
+<h2>Uses of <a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a> in <a href="../reporting/package-summary.html">org.junit.platform.engine.reporting</a></h2>
+<div class="caption"><span>Methods in <a href="../reporting/package-summary.html">org.junit.platform.engine.reporting</a> with parameters of type <a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">OutputDirectoryProvider.</span><code><a href="../reporting/OutputDirectoryProvider.html#createOutputDirectory(org.junit.platform.engine.TestDescriptor)" class="member-name-link">createOutputDirectory</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Create an output directory for the supplied test descriptor.</div>
+</div>
 </div>
 </section>
 </li>
@@ -624,8 +658,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html" title="class in org.junit.platform.launcher">TestPlan</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">TestPlan.</span><code><a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#from(java.util.Collection,org.junit.platform.engine.ConfigurationParameters)" class="member-name-link">from</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&gt;&nbsp;engineDescriptors,
- <a href="../ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">TestPlan.</span><code><a href="../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestPlan.html#from(java.util.Collection,org.junit.platform.engine.ConfigurationParameters,org.junit.platform.engine.reporting.OutputDirectoryProvider)" class="member-name-link">from</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&gt;&nbsp;engineDescriptors,
+ <a href="../ConfigurationParameters.html" title="interface in org.junit.platform.engine">ConfigurationParameters</a>&nbsp;configurationParameters,
+ <a href="../reporting/OutputDirectoryProvider.html" title="interface in org.junit.platform.engine.reporting">OutputDirectoryProvider</a>&nbsp;outputDirectoryProvider)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Construct a new <code>TestPlan</code> from the supplied collection of
  <a href="../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptors</code></a>.</div>
@@ -744,6 +779,19 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color"><span class="type-name-label">ExecutionRecorder.</span><code><a href="../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/ExecutionRecorder.html#executionStarted(org.junit.platform.engine.TestDescriptor)" class="member-name-link">executionStarted</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Record an <a href="../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a container or test that started.</div>
+</div>
+<div class="col-first even-row-color"><code>static <a href="../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine">Event</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Event.</span><code><a href="../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+ <a href="../reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Create an <code>Event</code> for a published file for the supplied
+ <a href="../TestDescriptor.html" title="interface in org.junit.platform.engine"><code>TestDescriptor</code></a> and <a href="../reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a>.</div>
+</div>
+<div class="col-first odd-row-color"><code>void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ExecutionRecorder.</span><code><a href="../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/ExecutionRecorder.html#fileEntryPublished(org.junit.platform.engine.TestDescriptor,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,
+ <a href="../reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Record an <a href="../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a published <a href="../reporting/FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a>.</div>
 </div>
 <div class="col-first even-row-color"><code>static <a href="../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Execution.html" title="class in org.junit.platform.testkit.engine">Execution</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">Execution.</span><code><a href="../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Execution.html#finished(org.junit.platform.engine.TestDescriptor,java.time.Instant,java.time.Instant,org.junit.platform.engine.TestExecutionResult)" class="member-name-link">finished</a><wbr>(<a href="../TestDescriptor.html" title="interface in org.junit.platform.engine">TestDescriptor</a>&nbsp;testDescriptor,

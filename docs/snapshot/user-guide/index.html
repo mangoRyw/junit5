@@ -7113,7 +7113,7 @@ resources added dynamically by <code><a href="../api/org.junit.jupiter.api/org/j
 </div>
 <div class="paragraph">
 <p>If the tests in the following example were run in parallel <em>without</em> the use of
-<a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a>, they would be <em>flaky</em>. Sometimes they would pass, and at other times they
+<code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code>, they would be <em>flaky</em>. Sometimes they would pass, and at other times they
 would fail due to the inherent race condition of writing and then reading the same JVM
 System Property.</p>
 </div>
@@ -7235,6 +7235,62 @@ to the same shared resource is running.</p>
             <span class="nc">ResourceAccessMode</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">testMethod</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"canSet"</span><span class="o">)</span> <span class="o">?</span> <span class="no">READ_WRITE</span> <span class="o">:</span> <span class="no">READ</span><span class="o">;</span>
             <span class="k">return</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="k">new</span> <span class="nc">Lock</span><span class="o">(</span><span class="no">SYSTEM_PROPERTIES</span><span class="o">,</span> <span class="n">mode</span><span class="o">));</span>
         <span class="o">}</span>
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also, "static" shared resources can be declared for <em>direct</em> child nodes via the <code>target</code>
+attribute in the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code> annotation, the attribute accepts a value from
+the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLockTarget.html">ResourceLockTarget</a></code> enum.</p>
+</div>
+<div class="paragraph">
+<p>Specifying <code>target = CHILDREN</code> in a class-level <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code> annotation
+has the same semantics as adding an annotation with the same <code>value</code> and <code>mode</code>
+to each test method and nested test class declared in this class.</p>
+</div>
+<div class="paragraph">
+<p>This may improve parallelization when a test class declares a <code>READ</code> lock,
+but only a few methods hold a <code>READ_WRITE</code> lock.</p>
+</div>
+<div class="paragraph">
+<p>Tests in the following example would run in the <code>SAME_THREAD</code> if the <code><a href="../api/org.junit.jupiter.api/org/junit/jupiter/api/parallel/ResourceLock.html">@ResourceLock</a></code>
+didn&#8217;t have <code>target = CHILDREN</code>. This is because the test class declares a <code>READ</code>
+shared resource, but one test method holds a <code>READ_WRITE</code> lock,
+which would force the <code>SAME_THREAD</code> execution mode for all the test methods.</p>
+</div>
+<div class="listingblock">
+<div class="title">Declaring shared resources for child nodes with <code>target</code> attribute</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nd">@Execution</span><span class="o">(</span><span class="no">CONCURRENT</span><span class="o">)</span>
+<span class="nd">@ResourceLock</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="no">READ</span><span class="o">,</span> <span class="n">target</span> <span class="o">=</span> <span class="no">CHILDREN</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ChildrenSharedResourcesDemo</span> <span class="o">{</span>
+
+    <span class="nd">@ResourceLock</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"a"</span><span class="o">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="no">READ_WRITE</span><span class="o">)</span>
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test1</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000L</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test2</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000L</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test3</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000L</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test4</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000L</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">test5</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">2000L</span><span class="o">);</span>
     <span class="o">}</span>
 
 <span class="o">}</span></code></pre>
@@ -14163,6 +14219,16 @@ value of lower stability.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.parallel</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceLock.providers()</code> <em>(annotation attribute)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.parallel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceLock.target()</code> <em>(annotation attribute)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.parallel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ResourceLockTarget</code> <em>(enum)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>

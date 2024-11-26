@@ -673,6 +673,11 @@ the absence of invocations is expected in some cases and should not cause a test
 attribute that accepts implementations of <code>ResourceLocksProvider</code>.</p>
 </li>
 <li>
+<p>Allow declaring "shared resources" for <em>direct</em> child nodes via the new
+<code>@ResourceLock(target = CHILDREN)</code> attribute. This may improve parallelization when
+a test class declares a <code>READ</code> lock, but only a few methods hold a <code>READ_WRITE</code> lock.</p>
+</li>
+<li>
 <p>Extensions that implement <code>TestInstancePreConstructCallback</code>, <code>TestInstanceFactory</code>,
 <code>TestInstancePostProcessor</code>, <code>ParameterResolver</code>, or <code>InvocationInterceptor</code> may
 override the <code>getTestInstantiationExtensionContextScope()</code> method to enable receiving

@@ -538,10 +538,6 @@ JUnit repository on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Fix support for disabling ANSI colors on the console when the <code>NO_COLOR</code> environment
-variable is available.</p>
-</li>
-<li>
 <p>Enable auto-flushing of output in the <code>ConsoleLauncher</code> to fix issues with buffering,
 in particular when using the <code>--details=testfeed</code> option.</p>
 </li>
@@ -836,9 +832,9 @@ on GitHub.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Fix regression in parallel execution that was introduced in 5.10.4/5.11.1 regarding
-global read-write locks. When such a lock was declared on descendants of top-level nodes
-in the test tree, such as Cucumber scenarios, test execution failed.</p>
+<p>Fix regression in parallel execution that was introduced in 5.11.1 regarding global
+read-write locks. When such a lock was declared on descendants of top-level nodes in the
+test tree, such as Cucumber scenarios, test execution failed.</p>
 </li>
 </ul>
 </div>

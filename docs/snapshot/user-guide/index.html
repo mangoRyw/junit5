@@ -1965,6 +1965,8 @@ functions in the <code>org.junit.jupiter.api</code> package.</p>
 <span class="k">import</span> <span class="nn">org.junit.jupiter.api.Test</span>
 <span class="k">import</span> <span class="nn">org.junit.jupiter.api.assertAll</span>
 <span class="k">import</span> <span class="nn">org.junit.jupiter.api.assertDoesNotThrow</span>
+<span class="k">import</span> <span class="nn">org.junit.jupiter.api.assertInstanceOf</span>
+<span class="k">import</span> <span class="nn">org.junit.jupiter.api.assertNotNull</span>
 <span class="k">import</span> <span class="nn">org.junit.jupiter.api.assertThrows</span>
 <span class="k">import</span> <span class="nn">org.junit.jupiter.api.assertTimeout</span>
 <span class="k">import</span> <span class="nn">org.junit.jupiter.api.assertTimeoutPreemptively</span>
@@ -2042,6 +2044,30 @@ functions in the <code>org.junit.jupiter.api</code> package.</p>
             <span class="c1">// Simulate task that takes more than 10 ms.</span>
             <span class="nc">Thread</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
         <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="k">fun</span> <span class="nf">`assertNotNull</span> <span class="n">with</span> <span class="n">a</span> <span class="n">smart</span> <span class="nf">cast`</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">nullablePerson</span><span class="p">:</span> <span class="nc">Person</span><span class="p">?</span> <span class="p">=</span> <span class="n">person</span>
+
+        <span class="nf">assertNotNull</span><span class="p">(</span><span class="n">nullablePerson</span><span class="p">)</span>
+
+        <span class="c1">// The compiler smart casts nullablePerson to a non-nullable object.</span>
+        <span class="c1">// The safe call operator (?.) isn't required.</span>
+        <span class="nf">assertEquals</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span> <span class="n">nullablePerson</span><span class="p">.</span><span class="n">firstName</span><span class="p">)</span>
+        <span class="nf">assertEquals</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">lastName</span><span class="p">,</span> <span class="n">nullablePerson</span><span class="p">.</span><span class="n">lastName</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="k">fun</span> <span class="nf">`assertInstanceOf</span> <span class="n">with</span> <span class="n">a</span> <span class="n">smart</span> <span class="nf">cast`</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">maybePerson</span><span class="p">:</span> <span class="nc">Any</span> <span class="p">=</span> <span class="n">person</span>
+
+        <span class="n">assertInstanceOf</span><span class="p">&lt;</span><span class="nc">Person</span><span class="p">&gt;(</span><span class="n">maybePerson</span><span class="p">)</span>
+
+        <span class="c1">// The compiler smart casts maybePerson to a Person object,</span>
+        <span class="c1">// allowing to access the Person properties.</span>
+        <span class="nf">assertEquals</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span> <span class="n">maybePerson</span><span class="p">.</span><span class="n">firstName</span><span class="p">)</span>
+        <span class="nf">assertEquals</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">lastName</span><span class="p">,</span> <span class="n">maybePerson</span><span class="p">.</span><span class="n">lastName</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre>
 </div>
@@ -14165,6 +14191,41 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionsKt.assertInstanceOf(Object, String)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.11</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionsKt.assertNotNull(Object)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionsKt.assertNotNull(Object, Function0&lt;String&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionsKt.assertNotNull(Object, String)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionsKt.assertNull(Object)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionsKt.assertNull(Object, Function0&lt;String&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionsKt.assertNull(Object, String)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AssertionsKt.fail_nonNullableLambda(Function0&lt;String&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>

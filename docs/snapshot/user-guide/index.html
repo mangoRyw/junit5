@@ -856,6 +856,7 @@ pre.rouge .gs {
 <li><a href="#extensions-registration-automatic">5.2.3. Automatic Extension Registration</a>
 <ul class="sectlevel4">
 <li><a href="#extensions-registration-automatic-enabling">Enabling Automatic Extension Detection</a></li>
+<li><a href="#extensions-registration-automatic-filtering">Filtering Auto-detected Extensions</a></li>
 </ul>
 </li>
 <li><a href="#extensions-registration-inheritance">5.2.4. Extension Inheritance</a></li>
@@ -9645,6 +9646,9 @@ parameters</em> used for the following features.</p>
 <li>
 <p><a href="#stacktrace-pruning">Stack Trace Pruning</a></p>
 </li>
+<li>
+<p><a href="#extensions-registration-automatic-filtering">Filtering Auto-detected Extensions</a></p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -10615,6 +10619,33 @@ following system property.</p>
 <p>When auto-detection is enabled, extensions discovered via the <code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ServiceLoader.html">ServiceLoader</a></code> mechanism
 will be added to the extension registry after JUnit Jupiter&#8217;s global extensions (e.g.,
 support for <code>TestInfo</code>, <code>TestReporter</code>, etc.).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="extensions-registration-automatic-filtering"><a class="anchor" href="#extensions-registration-automatic-filtering"></a>Filtering Auto-detected Extensions</h5>
+<div class="paragraph">
+<p>The list of auto-detected extensions can be filtered using include and exclude patterns
+via the following <a href="#running-tests-config-params">configuration parameters</a>:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.include=&lt;patterns&gt;</code></dt>
+<dd>
+<p>Comma-separated list of <em>include</em> patterns for auto-detected extensions.</p>
+</dd>
+<dt class="hdlist1"><code>junit.jupiter.extensions.autodetection.exclude=&lt;patterns&gt;</code></dt>
+<dd>
+<p>Comma-separated list of <em>exclude</em> patterns for auto-detected extensions.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Include patterns are applied <em>before</em> exclude patterns. If both include and exclude
+patterns are provided, only extensions that match at least one include pattern and do not
+match any exclude pattern will be auto-detected.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#running-tests-config-params-deactivation-pattern">Pattern Matching Syntax</a> for details on the pattern syntax.</p>
 </div>
 </div>
 </div>

@@ -66,22 +66,26 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">JUnit Jupiter API support for writing extensions.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.jupiter.engine.execution">org.junit.jupiter.engine.execution</a></div>
+<div class="col-first even-row-color"><a href="#org.junit.jupiter.engine.config">org.junit.jupiter.engine.config</a></div>
 <div class="col-last even-row-color">
+<div class="block">Configuration specific to the JUnit Jupiter test engine.</div>
+</div>
+<div class="col-first odd-row-color"><a href="#org.junit.jupiter.engine.execution">org.junit.jupiter.engine.execution</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Internal classes for test execution within the JUnit Jupiter test engine.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.jupiter.engine.extension">org.junit.jupiter.engine.extension</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.jupiter.engine.extension">org.junit.jupiter.engine.extension</a></div>
+<div class="col-last even-row-color">
 <div class="block">Test extensions specific to the JUnit Jupiter test engine.</div>
 </div>
-<div class="col-first even-row-color"><a href="#org.junit.jupiter.migrationsupport.conditions">org.junit.jupiter.migrationsupport.conditions</a></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><a href="#org.junit.jupiter.migrationsupport.conditions">org.junit.jupiter.migrationsupport.conditions</a></div>
+<div class="col-last odd-row-color">
 <div class="block">Extensions which provide support for conditional test execution features of
  JUnit 4 (e.g., the <a href="https://junit.org/junit4/javadoc/4.13.2/org/junit/Ignore.html" title="class or interface in org.junit" class="external-link"><code>@Ignore</code></a> annotation) within JUnit
  Jupiter.</div>
 </div>
-<div class="col-first odd-row-color"><a href="#org.junit.jupiter.migrationsupport.rules">org.junit.jupiter.migrationsupport.rules</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><a href="#org.junit.jupiter.migrationsupport.rules">org.junit.jupiter.migrationsupport.rules</a></div>
+<div class="col-last even-row-color">
 <div class="block">Extensions which provide (limited) support for JUnit 4 rules within JUnit Jupiter.</div>
 </div>
 </div>
@@ -251,6 +255,26 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block"><a href="../ParameterResolver.html" title="interface in org.junit.jupiter.api.extension"><code>ParameterResolver</code></a> adapter which resolves a parameter based on its exact type.</div>
 </div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="org.junit.jupiter.engine.config">
+<h2>Uses of <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a> in <a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/package-summary.html">org.junit.jupiter.engine.config</a></h2>
+<div class="caption"><span>Methods in <a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/package-summary.html">org.junit.jupiter.engine.config</a> that return types with arguments of type <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CachingJupiterConfiguration.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/CachingJupiterConfiguration.html#getFilterForAutoDetectedExtensions()" class="member-name-link">getFilterForAutoDetectedExtensions</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">DefaultJupiterConfiguration.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/DefaultJupiterConfiguration.html#getFilterForAutoDetectedExtensions()" class="member-name-link">getFilterForAutoDetectedExtensions</a>()</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../Extension.html" title="interface in org.junit.jupiter.api.extension">Extension</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">JupiterConfiguration.</span><code><a href="../../../../../../../org.junit.jupiter.engine/org/junit/jupiter/engine/config/JupiterConfiguration.html#getFilterForAutoDetectedExtensions()" class="member-name-link">getFilterForAutoDetectedExtensions</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

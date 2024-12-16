@@ -245,6 +245,16 @@ loadScripts(document, 'script');</script>
  Java's <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ServiceLoader.html" title="class or interface in java.util" class="external-link"><code>ServiceLoader</code></a> mechanism: "junit.jupiter.extensions.autodetection.enabled"</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME" class="member-name-link">EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Property name used to exclude patterns for auto-detecting extensions: "junit.jupiter.extensions.autodetection.exclude"</div>
+</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME" class="member-name-link">EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Property name used to include patterns for auto-detecting extensions: "junit.jupiter.extensions.autodetection.include"</div>
+</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME" class="member-name-link">EXTENSIONS_TIMEOUT_THREAD_DUMP_ENABLED_PROPERTY_NAME</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">Property name used to enable dumping the stack of all
@@ -325,12 +335,104 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME">
+<h3>EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME</span></div>
+<div class="block">Property name used to include patterns for auto-detecting extensions: "junit.jupiter.extensions.autodetection.include"
+
+ <h4 id="pattern-matching-syntax-heading">Pattern Matching Syntax</h4>
+
+ <p>If the property value consists solely of an asterisk (<code>*</code>), all
+ extensions will be included. Otherwise, the property value will be treated
+ as a comma-separated list of patterns where each individual pattern will be
+ matched against the fully qualified class name (<em>FQCN</em>) of each extension.
+ Any dot (<code>.</code>) in a pattern will match against a dot (<code>.</code>)
+ or a dollar sign (<code>$</code>) in a FQCN. Any asterisk (<code>*</code>) will match
+ against one or more characters in a FQCN. All other characters in a pattern
+ will be matched one-to-one against a FQCN.
+
+ <h4 id="examples-heading">Examples</h4>
+
+ <ul>
+ <li><code>*</code>: includes all extensions.
+ <li><code>org.junit.*</code>: includes every extension under the <code>org.junit</code>
+ base package and any of its subpackages.
+ <li><code>*.MyExtension</code>: includes every extension whose simple class name is
+ exactly <code>MyExtension</code>.
+ <li><code>*System*</code>: includes every extension whose FQCN contains
+ <code>System</code>.
+ <li><code>*System*, *Dev*</code>: includes every extension whose FQCN contains
+ <code>System</code> or <code>Dev</code>.
+ <li><code>org.example.MyExtension, org.example.TheirExtension</code>: includes
+ extensions whose FQCN is exactly <code>org.example.MyExtension</code> or
+ <code>org.example.TheirExtension</code>.
+ </ul>
+
+ <p>Note: A class that matches both an inclusion and exclusion pattern will be excluded.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="config/JupiterConfiguration.html#EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME"><code>JupiterConfiguration.EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME</code></a></li>
+<li><a href="../../../../../constant-values.html#org.junit.jupiter.engine.Constants.EXTENSIONS_AUTODETECTION_INCLUDE_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME">
+<h3>EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME</span></div>
+<div class="block">Property name used to exclude patterns for auto-detecting extensions: "junit.jupiter.extensions.autodetection.exclude"
+
+ <h4 id="pattern-matching-syntax-heading1">Pattern Matching Syntax</h4>
+
+ <p>If the property value consists solely of an asterisk (<code>*</code>), all
+ extensions will be excluded. Otherwise, the property value will be treated
+ as a comma-separated list of patterns where each individual pattern will be
+ matched against the fully qualified class name (<em>FQCN</em>) of each extension.
+ Any dot (<code>.</code>) in a pattern will match against a dot (<code>.</code>)
+ or a dollar sign (<code>$</code>) in a FQCN. Any asterisk (<code>*</code>) will match
+ against one or more characters in a FQCN. All other characters in a pattern
+ will be matched one-to-one against a FQCN.
+
+ <h4 id="examples-heading1">Examples</h4>
+
+ <ul>
+ <li><code>*</code>: excludes all extensions.
+ <li><code>org.junit.*</code>: excludes every extension under the <code>org.junit</code>
+ base package and any of its subpackages.
+ <li><code>*.MyExtension</code>: excludes every extension whose simple class name is
+ exactly <code>MyExtension</code>.
+ <li><code>*System*</code>: excludes every extension whose FQCN contains
+ <code>System</code>.
+ <li><code>*System*, *Dev*</code>: excludes every extension whose FQCN contains
+ <code>System</code> or <code>Dev</code>.
+ <li><code>org.example.MyExtension, org.example.TheirExtension</code>: excludes
+ extensions whose FQCN is exactly <code>org.example.MyExtension</code> or
+ <code>org.example.TheirExtension</code>.
+ </ul>
+
+ <p>Note: A class that matches both an inclusion and exclusion pattern will be excluded.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="config/JupiterConfiguration.html#EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME"><code>JupiterConfiguration.EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME</code></a></li>
+<li><a href="../../../../../constant-values.html#org.junit.jupiter.engine.Constants.EXTENSIONS_AUTODETECTION_EXCLUDE_PROPERTY_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME">
 <h3>DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME</span></div>
 <div class="block">Property name used to provide patterns for deactivating conditions: "junit.jupiter.conditions.deactivate"
 
- <h4 id="pattern-matching-syntax-heading">Pattern Matching Syntax</h4>
+ <h4 id="pattern-matching-syntax-heading2">Pattern Matching Syntax</h4>
 
  <p>If the property value consists solely of an asterisk (<code>*</code>), all
  conditions will be deactivated. Otherwise, the property value will be treated
@@ -341,7 +443,7 @@ loadScripts(document, 'script');</script>
  against one or more characters in a FQCN. All other characters in a pattern
  will be matched one-to-one against a FQCN.
 
- <h4 id="examples-heading">Examples</h4>
+ <h4 id="examples-heading2">Examples</h4>
 
  <ul>
  <li><code>*</code>: deactivates all conditions.

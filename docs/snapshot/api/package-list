@@ -35,6 +35,7 @@ org.junit.platform.commons.function
 org.junit.platform.commons.logging
 org.junit.platform.commons.support
 org.junit.platform.commons.support.conversion
+org.junit.platform.commons.support.scanning
 org.junit.platform.commons.util
 module:org.junit.platform.console
 org.junit.platform.console

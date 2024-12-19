@@ -248,106 +248,111 @@ loadScripts(document, 'script');</script>
  the execution of <code>@BeforeAll</code>, <code>@BeforeEach</code>, <code>@AfterEach</code>,
  and <code>@AfterAll</code> lifecycle methods.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="ParameterContext.html" title="interface in org.junit.jupiter.api.extension">ParameterContext</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MediaType.html" title="class in org.junit.jupiter.api.extension">MediaType</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">Represents a media type as defined by
+ <a href="https://tools.ietf.org/html/rfc2045">RFC 2045</a>.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="ParameterContext.html" title="interface in org.junit.jupiter.api.extension">ParameterContext</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block"><code>ParameterContext</code> encapsulates the <em>context</em> in which an
  <a href="ParameterContext.html#getDeclaringExecutable()"><code>Executable</code></a> will be invoked for a given
  <a href="ParameterContext.html#getParameter()"><code>Parameter</code></a>.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab5"><a href="ParameterResolutionException.html" title="class in org.junit.jupiter.api.extension">ParameterResolutionException</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab5">
+<div class="col-first odd-row-color class-summary class-summary-tab5"><a href="ParameterResolutionException.html" title="class in org.junit.jupiter.api.extension">ParameterResolutionException</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab5">
 <div class="block">Thrown if an error is encountered in the configuration or execution of a
  <a href="ParameterResolver.html" title="interface in org.junit.jupiter.api.extension"><code>ParameterResolver</code></a>.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="ParameterResolver.html" title="interface in org.junit.jupiter.api.extension">ParameterResolver</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="ParameterResolver.html" title="interface in org.junit.jupiter.api.extension">ParameterResolver</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block"><code>ParameterResolver</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a>
  that wish to dynamically resolve arguments for <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Parameter.html" title="class or interface in java.lang.reflect" class="external-link">parameters</a>
  at runtime.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="PreInterruptCallback.html" title="interface in org.junit.jupiter.api.extension">PreInterruptCallback</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="PreInterruptCallback.html" title="interface in org.junit.jupiter.api.extension">PreInterruptCallback</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>PreInterruptCallback</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to be called prior to invocations of
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html#interrupt()" title="class or interface in java.lang" class="external-link"><code>Thread.interrupt()</code></a> by the <a href="../Timeout.html" title="annotation interface in org.junit.jupiter.api"><code>Timeout</code></a>
  extension.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="PreInterruptContext.html" title="interface in org.junit.jupiter.api.extension">PreInterruptContext</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="PreInterruptContext.html" title="interface in org.junit.jupiter.api.extension">PreInterruptContext</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block"><code>PreInterruptContext</code> encapsulates the <em>context</em> in which an
  <a href="PreInterruptCallback.html#beforeThreadInterrupt(org.junit.jupiter.api.extension.PreInterruptContext,org.junit.jupiter.api.extension.ExtensionContext)"><code>beforeThreadInterrupt</code></a> method is called.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="ReflectiveInvocationContext.html" title="interface in org.junit.jupiter.api.extension">ReflectiveInvocationContext</a>&lt;T extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Executable.html" title="class or interface in java.lang.reflect" class="external-link">Executable</a>&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="ReflectiveInvocationContext.html" title="interface in org.junit.jupiter.api.extension">ReflectiveInvocationContext</a>&lt;T extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/Executable.html" title="class or interface in java.lang.reflect" class="external-link">Executable</a>&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>ReflectiveInvocationContext</code> encapsulates the <em>context</em> of
  a reflective invocation of an executable (method or constructor).</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab6"><a href="RegisterExtension.html" title="annotation interface in org.junit.jupiter.api.extension">RegisterExtension</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab6">
+<div class="col-first even-row-color class-summary class-summary-tab6"><a href="RegisterExtension.html" title="annotation interface in org.junit.jupiter.api.extension">RegisterExtension</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab6">
 <div class="block"><code>@RegisterExtension</code> is used to register an <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extension</code></a> via a
  field in a test class.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestExecutionExceptionHandler.html" title="interface in org.junit.jupiter.api.extension">TestExecutionExceptionHandler</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestExecutionExceptionHandler.html" title="interface in org.junit.jupiter.api.extension">TestExecutionExceptionHandler</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestExecutionExceptionHandler</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to handle exceptions thrown during test execution.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestInstanceFactory.html" title="interface in org.junit.jupiter.api.extension">TestInstanceFactory</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestInstanceFactory.html" title="interface in org.junit.jupiter.api.extension">TestInstanceFactory</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestInstanceFactory</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to <a href="TestInstanceFactory.html#createTestInstance(org.junit.jupiter.api.extension.TestInstanceFactoryContext,org.junit.jupiter.api.extension.ExtensionContext)">create</a> test instances.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestInstanceFactoryContext.html" title="interface in org.junit.jupiter.api.extension">TestInstanceFactoryContext</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestInstanceFactoryContext.html" title="interface in org.junit.jupiter.api.extension">TestInstanceFactoryContext</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestInstanceFactoryContext</code> encapsulates the <em>context</em> in which
  a <a href="TestInstanceFactoryContext.html#getTestClass()">test class</a> is to be instantiated by a
  <a href="TestInstanceFactory.html" title="interface in org.junit.jupiter.api.extension"><code>TestInstanceFactory</code></a>.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestInstancePostProcessor.html" title="interface in org.junit.jupiter.api.extension">TestInstancePostProcessor</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestInstancePostProcessor.html" title="interface in org.junit.jupiter.api.extension">TestInstancePostProcessor</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestInstancePostProcessor</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to <em>post-process</em> test instances.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestInstancePreConstructCallback.html" title="interface in org.junit.jupiter.api.extension">TestInstancePreConstructCallback</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestInstancePreConstructCallback.html" title="interface in org.junit.jupiter.api.extension">TestInstancePreConstructCallback</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestInstancePreConstructCallback</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to be invoked <em>prior</em> to creation of test instances.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestInstancePreDestroyCallback.html" title="interface in org.junit.jupiter.api.extension">TestInstancePreDestroyCallback</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestInstancePreDestroyCallback.html" title="interface in org.junit.jupiter.api.extension">TestInstancePreDestroyCallback</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestInstancePreDestroyCallback</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to process test instances <em>after</em> they have been
  used in tests but <em>before</em> they are destroyed.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestInstances.html" title="interface in org.junit.jupiter.api.extension">TestInstances</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestInstances.html" title="interface in org.junit.jupiter.api.extension">TestInstances</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestInstances</code> encapsulates the <em>test instances</em> of a test.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestInstantiationAwareExtension.html" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestInstantiationAwareExtension.html" title="interface in org.junit.jupiter.api.extension">TestInstantiationAwareExtension</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block">Interface for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that are aware and can influence
  the instantiation of test instances.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab3"><a href="TestInstantiationAwareExtension.ExtensionContextScope.html" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab3">
+<div class="col-first odd-row-color class-summary class-summary-tab3"><a href="TestInstantiationAwareExtension.ExtensionContextScope.html" title="enum class in org.junit.jupiter.api.extension">TestInstantiationAwareExtension.ExtensionContextScope</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab3">
 <div class="block"><code>ExtensionContextScope</code> is used to define the scope of the
  <a href="ExtensionContext.html" title="interface in org.junit.jupiter.api.extension"><code>ExtensionContext</code></a> passed to an extension during the instantiation
  of test instances.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab5"><a href="TestInstantiationException.html" title="class in org.junit.jupiter.api.extension">TestInstantiationException</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab5">
+<div class="col-first even-row-color class-summary class-summary-tab5"><a href="TestInstantiationException.html" title="class in org.junit.jupiter.api.extension">TestInstantiationException</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab5">
 <div class="block">Thrown if an error is encountered during the execution of
  a <a href="TestInstanceFactory.html" title="interface in org.junit.jupiter.api.extension"><code>TestInstanceFactory</code></a>.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">TestTemplateInvocationContext</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestTemplateInvocationContext.html" title="interface in org.junit.jupiter.api.extension">TestTemplateInvocationContext</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestTemplateInvocationContext</code> represents the <em>context</em> of a
  single invocation of a <a href="../TestTemplate.html" title="annotation interface in org.junit.jupiter.api">test
  template</a>.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestTemplateInvocationContextProvider.html" title="interface in org.junit.jupiter.api.extension">TestTemplateInvocationContextProvider</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestTemplateInvocationContextProvider.html" title="interface in org.junit.jupiter.api.extension">TestTemplateInvocationContextProvider</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestTemplateInvocationContextProvider</code> defines the API for
  <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that wish to provide one or multiple contexts
  for the invocation of a
  <a href="../TestTemplate.html" title="annotation interface in org.junit.jupiter.api"><code>@TestTemplate</code></a> method.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="TestWatcher.html" title="interface in org.junit.jupiter.api.extension">TestWatcher</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="TestWatcher.html" title="interface in org.junit.jupiter.api.extension">TestWatcher</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block"><code>TestWatcher</code> defines the API for <a href="Extension.html" title="interface in org.junit.jupiter.api.extension"><code>Extensions</code></a> that
  wish to process test results.</div>
 </div>

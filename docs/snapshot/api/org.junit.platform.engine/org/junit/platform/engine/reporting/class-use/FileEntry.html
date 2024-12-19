@@ -120,9 +120,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">FileEntry.</span><code><a href="../FileEntry.html#from(java.nio.file.Path)" class="member-name-link">from</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;file)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">FileEntry.</span><code><a href="../FileEntry.html#from(java.nio.file.Path,java.lang.String)" class="member-name-link">from</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mediaType)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Factory for creating a new <code>FileEntry</code> from the supplied file.</div>
+<div class="block">Factory for creating a new <code>FileEntry</code> from the supplied path and
+ media type.</div>
 </div>
 </div>
 </section>
@@ -154,7 +156,8 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><span class="type-name-label">TestExecutionListener.</span><code><a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestExecutionListener.html#fileEntryPublished(org.junit.platform.launcher.TestIdentifier,org.junit.platform.engine.reporting.FileEntry)" class="member-name-link">fileEntryPublished</a><wbr>(<a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher">TestIdentifier</a>&nbsp;testIdentifier,
  <a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
 <div class="col-last even-row-color">
-<div class="block">Called when a file has been published for the supplied <a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a>.</div>
+<div class="block">Called when a file or directory has been published for the supplied
+ <a href="../../../../../../../org.junit.platform.launcher/org/junit/platform/launcher/TestIdentifier.html" title="class in org.junit.platform.launcher"><code>TestIdentifier</code></a>.</div>
 </div>
 </div>
 </section>
@@ -194,6 +197,20 @@ loadScripts(document, 'script');</script>
  <a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&nbsp;file)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Record an <a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a> for a published <a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a>.</div>
+</div>
+</div>
+<div class="caption"><span>Method parameters in <a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/package-summary.html">org.junit.platform.testkit.engine</a> with type arguments of type <a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static <a href="https://javadoc.io/doc/org.assertj/assertj-core/3.26.3/org/assertj/core/api/Condition.html" title="class or interface in org.assertj.core.api" class="external-link">Condition</a><wbr>&lt;<a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine">Event</a>&gt;</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EventConditions.</span><code><a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/EventConditions.html#fileEntry(java.util.function.Predicate)" class="member-name-link">fileEntry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting">FileEntry</a>&gt;&nbsp;predicate)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Create a new <a href="https://javadoc.io/doc/org.assertj/assertj-core/3.26.3/org/assertj/core/api/Condition.html" title="class or interface in org.assertj.core.api" class="external-link"><code>Condition</code></a> that matches if and only if an
+ <a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html" title="class in org.junit.platform.testkit.engine"><code>Event</code></a>'s <a href="../../../../../../../org.junit.platform.testkit/org/junit/platform/testkit/engine/Event.html#getPayload()">payload</a> is an instance of
+ <a href="../FileEntry.html" title="class in org.junit.platform.engine.reporting"><code>FileEntry</code></a> that contains a file that matches the supplied
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link"><code>Predicate</code></a>.</div>
 </div>
 </div>
 </section>

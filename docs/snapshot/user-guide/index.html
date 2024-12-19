@@ -3683,15 +3683,21 @@ display them in the user interface for test results.</p>
     <span class="nd">@Test</span>
     <span class="kt">void</span> <span class="nf">reportFiles</span><span class="o">(</span><span class="nc">TestReporter</span> <span class="n">testReporter</span><span class="o">,</span> <span class="nd">@TempDir</span> <span class="nc">Path</span> <span class="n">tempDir</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
 
-        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishFile</span><span class="o">(</span><span class="s">"test1.txt"</span><span class="o">,</span> <span class="n">file</span> <span class="o">-&gt;</span> <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Test 1"</span><span class="o">)));</span>
+        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishFile</span><span class="o">(</span><span class="s">"test1.txt"</span><span class="o">,</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">TEXT_PLAIN_UTF_8</span><span class="o">,</span>
+            <span class="n">file</span> <span class="o">-&gt;</span> <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Test 1"</span><span class="o">)));</span>
 
         <span class="nc">Path</span> <span class="n">existingFile</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">tempDir</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="s">"test2.txt"</span><span class="o">),</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Test 2"</span><span class="o">));</span>
-        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishFile</span><span class="o">(</span><span class="n">existingFile</span><span class="o">);</span>
+        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishFile</span><span class="o">(</span><span class="n">existingFile</span><span class="o">,</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">TEXT_PLAIN_UTF_8</span><span class="o">);</span>
 
-        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishFile</span><span class="o">(</span><span class="s">"test3"</span><span class="o">,</span> <span class="n">dir</span> <span class="o">-&gt;</span> <span class="o">{</span>
-            <span class="nc">Path</span> <span class="n">nestedFile</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">createDirectory</span><span class="o">(</span><span class="n">dir</span><span class="o">).</span><span class="na">resolve</span><span class="o">(</span><span class="s">"nested.txt"</span><span class="o">);</span>
-            <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">nestedFile</span><span class="o">,</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Nested content"</span><span class="o">));</span>
+        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishDirectory</span><span class="o">(</span><span class="s">"test3"</span><span class="o">,</span> <span class="n">dir</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">dir</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="s">"nested1.txt"</span><span class="o">),</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Nested content 1"</span><span class="o">));</span>
+            <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">dir</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="s">"nested2.txt"</span><span class="o">),</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Nested content 2"</span><span class="o">));</span>
         <span class="o">});</span>
+
+        <span class="nc">Path</span> <span class="n">existingDir</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">createDirectory</span><span class="o">(</span><span class="n">tempDir</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="s">"test4"</span><span class="o">));</span>
+        <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">existingDir</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="s">"nested1.txt"</span><span class="o">),</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Nested content 1"</span><span class="o">));</span>
+        <span class="nc">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">existingDir</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="s">"nested2.txt"</span><span class="o">),</span> <span class="n">singletonList</span><span class="o">(</span><span class="s">"Nested content 2"</span><span class="o">));</span>
+        <span class="n">testReporter</span><span class="o">.</span><span class="na">publishDirectory</span><span class="o">(</span><span class="n">existingDir</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span></code></pre>
 </div>
@@ -14299,12 +14305,22 @@ value of lower stability.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestReporter.publishFile(Path)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestReporter.publishDirectory(Path)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestReporter.publishFile(String, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestReporter.publishDirectory(String, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestReporter.publishFile(Path, MediaType)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TestReporter.publishFile(String, MediaType, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
@@ -14314,13 +14330,23 @@ value of lower stability.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContext.publishFile(String, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContext.publishDirectory(String, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContext.publishFile(String, MediaType, ThrowingConsumer&lt;Path&gt;)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ExtensionContextException.&lt;init&gt;(String, Throwable)</code> <em>(constructor)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MediaType</code> <em>(class)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.api.extension</code></p></td>
@@ -15034,7 +15060,7 @@ value of lower stability.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.platform.testkit.engine</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EventConditions.fileEntry(Predicate&lt;Path&gt;)</code> <em>(method)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EventConditions.fileEntry(Predicate&lt;FileEntry&gt;)</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.12</code></p></td>
 </tr>
 <tr>

@@ -474,6 +474,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#release-notes-5.12.0-M1">5.12.0-M1</a>
 <ul class="sectlevel2">
+<li><a href="#release-notes-5.12.0-M1-overall-improvements">Overall Improvements</a></li>
 <li><a href="#release-notes-5.12.0-M1-junit-platform">JUnit Platform</a></li>
 <li><a href="#release-notes-5.12.0-M1-junit-jupiter">JUnit Jupiter</a></li>
 <li><a href="#release-notes-5.12.0-M1-junit-vintage">JUnit Vintage</a></li>
@@ -537,6 +538,21 @@ authors as well as build tool and IDE vendors.</p>
 <p>For a complete list of all <em>closed</em> issues and pull requests for this release, consult the
 <a href="https://github.com/junit-team/junit5/milestone/75?closed=1">5.12.0-M1</a> milestone page in the
 JUnit repository on GitHub.</p>
+</div>
+<div class="sect2">
+<h3 id="release-notes-5.12.0-M1-overall-improvements"><a class="anchor" href="#release-notes-5.12.0-M1-overall-improvements"></a>Overall Improvements</h3>
+<div class="sect3">
+<h4 id="release-notes-5.12.0-M1-overall-new-features-and-improvements"><a class="anchor" href="#release-notes-5.12.0-M1-overall-new-features-and-improvements"></a>New Features and Improvements</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>All affected JAR files now include <code>native-image.properties</code> files that contain the
+<code>--initialize-at-build-time</code> option to avoid breakages in GraalVM projects when updating
+to newer versions of JUnit.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="release-notes-5.12.0-M1-junit-platform"><a class="anchor" href="#release-notes-5.12.0-M1-junit-platform"></a>JUnit Platform</h3>

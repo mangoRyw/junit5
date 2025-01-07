@@ -594,6 +594,12 @@ calling the internal <code>ReflectionUtils.makeAccessible(Field)</code> method d
 <code>ReflectionUtils</code> to allow <code>String</code> to <code>Class</code> conversion in parameterized tests.</p>
 </li>
 <li>
+<p>New <code>--exclude-methodname</code> and <code>--include-methodname</code> options added to the
+<code>ConsoleLauncher</code> to include or exclude methods based on fully qualified method names
+without parameters. For example, <code>--exclude-methodname=^org\.example\..+#methodname</code>
+will exclude all methods called <code>methodName</code> under package <code>org.example</code>.</p>
+</li>
+<li>
 <p>Add support for passing line and column number to <code>ConsoleLauncher</code> via
 <code>--select-file</code> and <code>--select-resource</code>.</p>
 </li>
@@ -688,12 +694,6 @@ class, you can implement a class-level lifecycle method (e.g., <code>@BeforeAll<
 <div class="ulist">
 <ul>
 <li>
-<p>New <code>--exclude-methodname</code> and <code>--include-methodname</code> options added to the
-<code>ConsoleLauncher</code> to include or exclude methods based on fully qualified method names
-without parameters. For example, <code>--exclude-methodname=^org\.example\..+#methodname</code>
-will exclude all methods called <code>methodName</code> under package <code>org.example</code>.</p>
-</li>
-<li>
 <p>In a <code>@ParameterizedTest</code> method, a <code>null</code> value can now be supplied for Java Date/Time
 types such as <code>LocalDate</code> if the new <code>nullable</code> attribute in
 <code>@JavaTimeConversionPattern</code> is set to <code>true</code>.</p>
@@ -753,6 +753,11 @@ thread dump to <code>System.out</code> prior to interrupting a test thread due t
 <li>
 <p><code>TestReporter</code> now allows publishing files for a test method or test class which can be
 used to include them in test reports, such as the Open Test Reporting format.</p>
+</li>
+<li>
+<p>Auto-registered extensions can now be
+<a href="../user-guide/index.html#extensions-registration-automatic-filtering">filtered</a> using
+include and exclude patterns that can be specified as configuration parameters.</p>
 </li>
 </ul>
 </div>

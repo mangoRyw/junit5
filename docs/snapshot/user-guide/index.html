@@ -750,10 +750,11 @@ pre.rouge .gs {
 <li><a href="#migrating-from-junit4-categories-support">3.1.1. Categories Support</a></li>
 </ul>
 </li>
-<li><a href="#migrating-from-junit4-tips">3.2. Migration Tips</a></li>
-<li><a href="#migrating-from-junit4-rule-support">3.3. Limited JUnit 4 Rule Support</a></li>
-<li><a href="#migrating-from-junit4-ignore-annotation-support">3.4. JUnit 4 @Ignore Support</a></li>
-<li><a href="#migrating-from-junit4-failure-message-arguments">3.5. Failure Message Arguments</a></li>
+<li><a href="#migrating-from-junit4-parallel-execution">3.2. Parallel Execution</a></li>
+<li><a href="#migrating-from-junit4-tips">3.3. Migration Tips</a></li>
+<li><a href="#migrating-from-junit4-rule-support">3.4. Limited JUnit 4 Rule Support</a></li>
+<li><a href="#migrating-from-junit4-ignore-annotation-support">3.5. JUnit 4 @Ignore Support</a></li>
+<li><a href="#migrating-from-junit4-failure-message-arguments">3.6. Failure Message Arguments</a></li>
 </ul>
 </li>
 <li><a href="#running-tests">4. Running Tests</a>
@@ -7774,7 +7775,42 @@ discovered tests before executing them (see <a href="#running-tests">Running Tes
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-junit4-tips"><a class="anchor" href="#migrating-from-junit4-tips"></a>3.2. Migration Tips</h3>
+<h3 id="migrating-from-junit4-parallel-execution"><a class="anchor" href="#migrating-from-junit4-parallel-execution"></a>3.2. Parallel Execution</h3>
+<div class="paragraph">
+<p>The JUnit Vintage test engine supports parallel execution of top-level test classes,
+allowing existing JUnit 3 and JUnit 4 tests to benefit from improved performance through
+concurrent test execution. It can be enabled and configured using the following
+<a href="#running-tests-config-params">configuration parameters</a>:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.enabled=true|false</code></dt>
+<dd>
+<p>Enable/disable parallel execution (defaults to <code>false</code>).</p>
+</dd>
+<dt class="hdlist1"><code>junit.vintage.execution.parallel.pool-size=&lt;number&gt;</code></dt>
+<dd>
+<p>Specifies the size of the thread pool to be used for parallel execution. By default, the
+number of available processors is used.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Example configuration in <code>junit-platform.properties</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="properties"><span class="py">junit.vintage.execution.parallel.enabled</span><span class="p">=</span><span class="s">true</span>
+<span class="py">junit.vintage.execution.parallel.pool-size</span><span class="p">=</span><span class="s">4</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With these properties set, the <code>VintageTestEngine</code> will execute tests in parallel,
+potentially significantly reducing the overall test suite execution time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="migrating-from-junit4-tips"><a class="anchor" href="#migrating-from-junit4-tips"></a>3.3. Migration Tips</h3>
 <div class="paragraph">
 <p>The following are topics that you should be aware of when migrating existing JUnit 4
 tests to JUnit Jupiter.</p>
@@ -7870,7 +7906,7 @@ argument instead of the first one.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-junit4-rule-support"><a class="anchor" href="#migrating-from-junit4-rule-support"></a>3.3. Limited JUnit 4 Rule Support</h3>
+<h3 id="migrating-from-junit4-rule-support"><a class="anchor" href="#migrating-from-junit4-rule-support"></a>3.4. Limited JUnit 4 Rule Support</h3>
 <div class="paragraph">
 <p>As stated above, JUnit Jupiter does not and will not support JUnit 4 rules natively. The
 JUnit team realizes, however, that many organizations, especially large ones, are likely
@@ -7917,7 +7953,7 @@ extension model of JUnit Jupiter instead of the rule-based model of JUnit 4.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-junit4-ignore-annotation-support"><a class="anchor" href="#migrating-from-junit4-ignore-annotation-support"></a>3.4. JUnit 4 @Ignore Support</h3>
+<h3 id="migrating-from-junit4-ignore-annotation-support"><a class="anchor" href="#migrating-from-junit4-ignore-annotation-support"></a>3.5. JUnit 4 @Ignore Support</h3>
 <div class="paragraph">
 <p>In order to provide a smooth migration path from JUnit 4 to JUnit Jupiter, the
 <code>junit-jupiter-migrationsupport</code> module provides support for JUnit 4&#8217;s <code>@Ignore</code>
@@ -7955,7 +7991,7 @@ automatically registers the <code>IgnoreCondition</code> along with
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-junit4-failure-message-arguments"><a class="anchor" href="#migrating-from-junit4-failure-message-arguments"></a>3.5. Failure Message Arguments</h3>
+<h3 id="migrating-from-junit4-failure-message-arguments"><a class="anchor" href="#migrating-from-junit4-failure-message-arguments"></a>3.6. Failure Message Arguments</h3>
 <div class="paragraph">
 <p>The <code>Assumptions</code> and <code>Assertions</code> classes in JUnit Jupiter declare arguments in a
 different order than in JUnit 4. In JUnit 4 assertion and assumption methods accept the

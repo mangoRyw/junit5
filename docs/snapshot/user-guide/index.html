@@ -4518,8 +4518,7 @@ explicit enum type from the annotation as follows.</p>
 </div>
 <div class="paragraph">
 <p>The annotation provides an optional <code>names</code> attribute that lets you specify which
-constants shall be used, like in the following example. If omitted, all constants will be
-used.</p>
+constants shall be used, like in the following example.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4527,6 +4526,27 @@ used.</p>
 <span class="nd">@EnumSource</span><span class="o">(</span><span class="n">names</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"DAYS"</span><span class="o">,</span> <span class="s">"HOURS"</span> <span class="o">})</span>
 <span class="kt">void</span> <span class="nf">testWithEnumSourceInclude</span><span class="o">(</span><span class="nc">ChronoUnit</span> <span class="n">unit</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">assertTrue</span><span class="o">(</span><span class="nc">EnumSet</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">DAYS</span><span class="o">,</span> <span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">HOURS</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="n">unit</span><span class="o">));</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition to <code>names</code>, you can use the <code>from</code> and <code>to</code> attributes to specify a range of
+constants. The range starts from the constant specified in the <code>from</code> attribute and
+includes all subsequent constants up to and including the one specified in the <code>to</code>
+attribute, based on the natural order of the enum constants.</p>
+</div>
+<div class="paragraph">
+<p>If <code>from</code> and <code>to</code> attributes are omitted, they default to the first and last constants
+in the enum type, respectively. If all <code>names</code>, <code>from</code>, and <code>to</code> attributes are omitted,
+all constants will be used. The following example demonstrates how to specify a range of
+constants.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nd">@ParameterizedTest</span>
+<span class="nd">@EnumSource</span><span class="o">(</span><span class="n">from</span> <span class="o">=</span> <span class="s">"HOURS"</span><span class="o">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s">"DAYS"</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">testWithEnumSourceRange</span><span class="o">(</span><span class="nc">ChronoUnit</span> <span class="n">unit</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="nc">EnumSet</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">HOURS</span><span class="o">,</span> <span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">HALF_DAYS</span><span class="o">,</span> <span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">DAYS</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="n">unit</span><span class="o">));</span>
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -4551,6 +4571,20 @@ following examples.</p>
 <span class="nd">@EnumSource</span><span class="o">(</span><span class="n">mode</span> <span class="o">=</span> <span class="no">MATCH_ALL</span><span class="o">,</span> <span class="n">names</span> <span class="o">=</span> <span class="s">"^.*DAYS$"</span><span class="o">)</span>
 <span class="kt">void</span> <span class="nf">testWithEnumSourceRegex</span><span class="o">(</span><span class="nc">ChronoUnit</span> <span class="n">unit</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">assertTrue</span><span class="o">(</span><span class="n">unit</span><span class="o">.</span><span class="na">name</span><span class="o">().</span><span class="na">endsWith</span><span class="o">(</span><span class="s">"DAYS"</span><span class="o">));</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also combine <code>mode</code> with the <code>from</code>, <code>to</code> and <code>names</code> attributes to define a
+range of constants while excluding specific values from that range as shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="nd">@ParameterizedTest</span>
+<span class="nd">@EnumSource</span><span class="o">(</span><span class="n">from</span> <span class="o">=</span> <span class="s">"HOURS"</span><span class="o">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s">"DAYS"</span><span class="o">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="no">EXCLUDE</span><span class="o">,</span> <span class="n">names</span> <span class="o">=</span> <span class="o">{</span> <span class="s">"HALF_DAYS"</span> <span class="o">})</span>
+<span class="kt">void</span> <span class="nf">testWithEnumSourceRangeExclude</span><span class="o">(</span><span class="nc">ChronoUnit</span> <span class="n">unit</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="nc">EnumSet</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">HOURS</span><span class="o">,</span> <span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">DAYS</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="n">unit</span><span class="o">));</span>
+    <span class="n">assertFalse</span><span class="o">(</span><span class="nc">EnumSet</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="nc">ChronoUnit</span><span class="o">.</span><span class="na">HALF_DAYS</span><span class="o">).</span><span class="na">contains</span><span class="o">(</span><span class="n">unit</span><span class="o">));</span>
 <span class="o">}</span></code></pre>
 </div>
 </div>
@@ -14447,6 +14481,16 @@ value of lower stability.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.params.provider</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Arguments.argumentSet(String, Object[])</code> <em>(method)</em></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.11</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.params.provider</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EnumSource.from()</code> <em>(annotation attribute)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.params.provider</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EnumSource.to()</code> <em>(annotation attribute)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>5.12</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.junit.jupiter.params.provider</code></p></td>

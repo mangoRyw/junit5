@@ -106,8 +106,8 @@ loadScripts(document, 'script');</script>
  attribute. Otherwise, the declared type of the first parameter of the
  <code>@ParameterizedTest</code> method is used.
 
- <p>The set of enum constants can be restricted via the <a href="#names()"><code>names()</code></a> and
- <a href="#mode()"><code>mode()</code></a> attributes.</div>
+ <p>The set of enum constants can be restricted via the <a href="#names()"><code>names()</code></a>,
+ <a href="#from()"><code>from()</code></a>, <a href="#to()"><code>to()</code></a> and <a href="#mode()"><code>mode()</code></a> attributes.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>5.0</dd>
@@ -148,16 +148,26 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Optional Element</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="EnumSource.Mode.html" title="enum class in org.junit.jupiter.params.provider">EnumSource.Mode</a></code></div>
-<div class="col-second even-row-color"><code><a href="#mode()" class="member-name-link">mode</a></code></div>
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#from()" class="member-name-link">from</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">The starting enum constant of the range to be included.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="EnumSource.Mode.html" title="enum class in org.junit.jupiter.params.provider">EnumSource.Mode</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#mode()" class="member-name-link">mode</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The enum constant selection mode.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
-<div class="col-second odd-row-color"><code><a href="#names()" class="member-name-link">names</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]</code></div>
+<div class="col-second even-row-color"><code><a href="#names()" class="member-name-link">names</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The names of enum constants to provide, or regular expressions to select
  the names of enum constants to provide.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#to()" class="member-name-link">to</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">The ending enum constant of the range to be included.</div>
 </div>
 <div class="col-first even-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a><wbr>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Enum.html" title="class or interface in java.lang" class="external-link">Enum</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#value()" class="member-name-link">value</a></code></div>
@@ -189,6 +199,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="tag-list">
 <li><a href="#names()"><code>names()</code></a></li>
+<li><a href="#from()"><code>from()</code></a></li>
+<li><a href="#to()"><code>to()</code></a></li>
 <li><a href="#mode()"><code>mode()</code></a></li>
 </ul>
 </dd>
@@ -206,8 +218,12 @@ loadScripts(document, 'script');</script>
 <div class="block">The names of enum constants to provide, or regular expressions to select
  the names of enum constants to provide.
 
- <p>If no names or regular expressions are specified, all enum constants
- declared in the specified <a href="#value()">enum type</a> will be provided.
+ <p>If no names or regular expressions are specified, and neither <a href="#from()"><code>from()</code></a>
+ nor <a href="#to()"><code>to()</code></a> are specified, all enum constants declared in the specified
+ <a href="#value()">enum type</a> will be provided.
+
+ <p>If <a href="#from()"><code>from()</code></a> or <a href="#to()"><code>to()</code></a> are specified, the elements in names must
+ fall within the range defined by <a href="#from()"><code>from()</code></a> and <a href="#to()"><code>to()</code></a>.
 
  <p>The <a href="#mode()"><code>mode()</code></a> determines how the names are interpreted.</div>
 <dl class="notes">
@@ -215,6 +231,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <ul class="tag-list">
 <li><a href="#value()"><code>value()</code></a></li>
+<li><a href="#from()"><code>from()</code></a></li>
+<li><a href="#to()"><code>to()</code></a></li>
 <li><a href="#mode()"><code>mode()</code></a></li>
 </ul>
 </dd>
@@ -226,10 +244,72 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="from()">
+<h3>from</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.12")
+</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">from</span></div>
+<div class="block">The starting enum constant of the range to be included.
+
+ <p>Defaults to an empty string, where the range starts from the first enum
+ constant of the specified <a href="#value()">enum type</a>.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>5.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="#value()"><code>value()</code></a></li>
+<li><a href="#names()"><code>names()</code></a></li>
+<li><a href="#to()"><code>to()</code></a></li>
+<li><a href="#mode()"><code>mode()</code></a></li>
+</ul>
+</dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd><code>""</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="to()">
+<h3>to</h3>
+<div class="member-signature"><span class="annotations"><a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.Status.html#EXPERIMENTAL" title="class or interface in org.apiguardian.api" class="external-link">EXPERIMENTAL</a>,
+     <a href="https://apiguardian-team.github.io/apiguardian/docs/1.1.2/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="5.12")
+</span><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">to</span></div>
+<div class="block">The ending enum constant of the range to be included.
+
+ <p>Defaults to an empty string, where the range ends at the last enum
+ constant of the specified <a href="#value()">enum type</a>.</div>
+<dl class="notes">
+<dt>Since:</dt>
+<dd>5.12</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="#value()"><code>value()</code></a></li>
+<li><a href="#names()"><code>names()</code></a></li>
+<li><a href="#from()"><code>from()</code></a></li>
+<li><a href="#mode()"><code>mode()</code></a></li>
+</ul>
+</dd>
+</dl>
+<dl class="notes">
+<dt>Default:</dt>
+<dd><code>""</code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="mode()">
 <h3>mode</h3>
 <div class="member-signature"><span class="return-type"><a href="EnumSource.Mode.html" title="enum class in org.junit.jupiter.params.provider">EnumSource.Mode</a></span>&nbsp;<span class="element-name">mode</span></div>
 <div class="block">The enum constant selection mode.
+
+ <p>The mode only applies to the <a href="#names()"><code>names()</code></a> attribute and does not change
+ the behavior of <a href="#from()"><code>from()</code></a> and <a href="#to()"><code>to()</code></a>, which always define a range
+ based on the natural order of the enum constants.
 
  <p>Defaults to <a href="EnumSource.Mode.html#INCLUDE"><code>INCLUDE</code></a>.</div>
 <dl class="notes">
@@ -242,6 +322,8 @@ loadScripts(document, 'script');</script>
 <li><a href="EnumSource.Mode.html#MATCH_ANY"><code>EnumSource.Mode.MATCH_ANY</code></a></li>
 <li><a href="EnumSource.Mode.html#MATCH_NONE"><code>EnumSource.Mode.MATCH_NONE</code></a></li>
 <li><a href="#names()"><code>names()</code></a></li>
+<li><a href="#from()"><code>from()</code></a></li>
+<li><a href="#to()"><code>to()</code></a></li>
 </ul>
 </dd>
 </dl>

@@ -15373,6 +15373,36 @@ artifacts in the repositories were actually generated from this source code.</p>
 artifacts are deployed to Sonatype&#8217;s <a href="https://oss.sonatype.org/content/repositories/snapshots">snapshots repository</a> under
 <a href="https://oss.sonatype.org/content/repositories/snapshots/org/junit/">/org/junit</a>.</p>
 </div>
+<div class="paragraph">
+<p>The sections below list all artifacts with their versions for the three groups:
+<a href="#dependency-metadata-junit-platform">Platform</a>,
+<a href="#dependency-metadata-junit-jupiter">Jupiter</a>, and
+<a href="#dependency-metadata-junit-vintage">Vintage</a>.
+The <a href="#dependency-metadata-junit-bom">Bill of Materials (BOM)</a> contains a list of all
+of the above artifacts and their versions.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Aligning dependency versions</div>
+<div class="paragraph">
+<p>To ensure that all JUnit artifacts are compatible with each other, their versions should
+be aligned.
+If you rely on <a href="#running-tests-build-spring-boot">Spring Boot</a> for dependency management,
+please see the corresponding section.
+Otherwise, instead of managing individual versions of the JUnit artifacts, it is
+recommended to apply the <a href="#dependency-metadata-junit-bom">BOM</a> to your project.
+Please refer to the corresponding sections for <a href="#running-tests-build-maven-bom">Maven</a> or
+<a href="#running-tests-build-gradle-bom">Gradle</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
 <h4 id="dependency-metadata-junit-platform"><a class="anchor" href="#dependency-metadata-junit-platform"></a>10.2.1. JUnit Platform</h4>
 <div class="ulist">

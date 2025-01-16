@@ -313,6 +313,10 @@ extends <a href="AnnotatedElementContext.html" title="interface in org.junit.jup
  <em>present</em> or <em>meta-present</em> on the <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AnnotatedElement.html" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement</code></a> for
  this context.
 
+ <p><strong>Note:</strong> This method does not find repeatable annotations.
+ To check for repeatable annotations, use <a href="AnnotatedElementContext.html#findRepeatableAnnotations(java.lang.Class)"><code>AnnotatedElementContext.findRepeatableAnnotations(Class)</code></a>
+ and verify that the returned list is not empty.
+
  <h4 id="warning-heading2">WARNING</h4>
  <p>Favor the use of this method over directly invoking
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/reflect/AnnotatedElement.html#isAnnotationPresent(java.lang.Class)" title="class or interface in java.lang.reflect" class="external-link"><code>AnnotatedElement.isAnnotationPresent(Class)</code></a> due to a bug in <code>javac</code>

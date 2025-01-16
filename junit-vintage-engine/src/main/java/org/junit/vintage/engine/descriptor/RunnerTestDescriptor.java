@@ -18,12 +18,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 import java.util.function.Consumer;
 
 import org.apiguardian.api.API;
 import org.junit.platform.commons.JUnitException;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
+import org.junit.platform.commons.util.ExceptionUtils;
 import org.junit.platform.engine.UniqueId;
 import org.junit.platform.engine.support.descriptor.ClassSource;
 import org.junit.runner.Description;
@@ -32,6 +37,8 @@ import org.junit.runner.Runner;
 import org.junit.runner.manipulation.Filter;
 import org.junit.runner.manipulation.Filterable;
 import org.junit.runner.manipulation.NoTestsRemainException;
+import org.junit.runners.ParentRunner;
+import org.junit.runners.model.RunnerScheduler;
 
 /**
  * @since 4.12
@@ -159,6 +166,35 @@ public class RunnerTestDescriptor extends VintageTestDescriptor {
 
 	public boolean isIgnored() {
 		return ignored;
+	}
+
+	public void setExecutorService(ExecutorService executorService) {
+		Runner runner = getRunnerToReport();
+		if (runner instanceof ParentRunner) {
+			((ParentRunner<?>) runner).setScheduler(new RunnerScheduler() {
+
+				private final List<CompletableFuture<Void>> futures = new CopyOnWriteArrayList<>();
+
+				@Override
+				public void schedule(Runnable childStatement) {
+					futures.add(CompletableFuture.runAsync(childStatement, executorService));
+				}
+
+				@Override
+				public void finished() {
+					try {
+						CompletableFuture.allOf(futures.toArray(new CompletableFuture<?>[0])).get();
+					}
+					catch (ExecutionException e) {
+						throw ExceptionUtils.throwAsUncheckedException(e.getCause());
+					}
+					catch (InterruptedException e) {
+						logger.warn(e, () -> "Interrupted while waiting for runner to finish");
+						Thread.currentThread().interrupt();
+					}
+				}
+			});
+		}
 	}
 
 	private static class ExcludeDescriptionFilter extends Filter {

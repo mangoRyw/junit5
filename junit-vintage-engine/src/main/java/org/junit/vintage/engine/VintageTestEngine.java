@@ -54,6 +54,9 @@ public final class VintageTestEngine implements TestEngine {
 	private static final int DEFAULT_THREAD_POOL_SIZE = Runtime.getRuntime().availableProcessors();
 	private static final int SHUTDOWN_TIMEOUT_SECONDS = 30;
 
+	private boolean classes;
+	private boolean methods;
+
 	@Override
 	public String getId() {
 		return ENGINE_ID;
@@ -92,15 +95,23 @@ public final class VintageTestEngine implements TestEngine {
 
 	private void executeAllChildren(VintageEngineDescriptor engineDescriptor,
 			EngineExecutionListener engineExecutionListener, ExecutionRequest request) {
-		boolean parallelExecutionEnabled = getParallelExecutionEnabled(request);
+		initializeParallelExecution(request);
 
-		if (parallelExecutionEnabled) {
-			if (executeInParallel(engineDescriptor, engineExecutionListener, request)) {
-				Thread.currentThread().interrupt();
-			}
-		}
-		else {
+		boolean parallelExecutionEnabled = getParallelExecutionEnabled(request);
+		if (!parallelExecutionEnabled) {
 			executeSequentially(engineDescriptor, engineExecutionListener);
+			return;
+		}
+
+		if (!classes && !methods) {
+			logger.warn(() -> "Parallel execution is enabled but no scope is defined. "
+					+ "Falling back to sequential execution.");
+			executeSequentially(engineDescriptor, engineExecutionListener);
+			return;
+		}
+
+		if (executeInParallel(engineDescriptor, engineExecutionListener, request)) {
+			Thread.currentThread().interrupt();
 		}
 	}
 
@@ -109,15 +120,21 @@ public final class VintageTestEngine implements TestEngine {
 		ExecutorService executorService = Executors.newFixedThreadPool(getThreadPoolSize(request));
 		RunnerExecutor runnerExecutor = new RunnerExecutor(engineExecutionListener);
 
-		List<CompletableFuture<Void>> futures = new ArrayList<>();
-		for (Iterator<TestDescriptor> iterator = engineDescriptor.getModifiableChildren().iterator(); iterator.hasNext();) {
-			TestDescriptor descriptor = iterator.next();
-			CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
-				runnerExecutor.execute((RunnerTestDescriptor) descriptor);
-			}, executorService);
+		List<RunnerTestDescriptor> runnerTestDescriptors = collectRunnerTestDescriptors(engineDescriptor,
+			executorService);
 
+		if (!classes) {
+			for (RunnerTestDescriptor runnerTestDescriptor : runnerTestDescriptors) {
+				runnerExecutor.execute(runnerTestDescriptor);
+			}
+			return false;
+		}
+
+		List<CompletableFuture<Void>> futures = new ArrayList<>();
+		for (RunnerTestDescriptor runnerTestDescriptor : runnerTestDescriptors) {
+			CompletableFuture<Void> future = CompletableFuture.runAsync(
+				() -> runnerExecutor.execute(runnerTestDescriptor), executorService);
 			futures.add(future);
-			iterator.remove();
 		}
 
 		CompletableFuture<Void> allOf = CompletableFuture.allOf(futures.toArray(new CompletableFuture<?>[0]));
@@ -136,6 +153,28 @@ public final class VintageTestEngine implements TestEngine {
 			shutdownExecutorService(executorService);
 		}
 		return wasInterrupted;
+	}
+
+	private RunnerTestDescriptor parallelMethodExecutor(RunnerTestDescriptor runnerTestDescriptor,
+			ExecutorService executorService) {
+		runnerTestDescriptor.setExecutorService(executorService);
+
+		return runnerTestDescriptor;
+	}
+
+	private List<RunnerTestDescriptor> collectRunnerTestDescriptors(VintageEngineDescriptor engineDescriptor,
+			ExecutorService executorService) {
+		List<RunnerTestDescriptor> runnerTestDescriptors = new ArrayList<>();
+		for (TestDescriptor descriptor : engineDescriptor.getModifiableChildren()) {
+			RunnerTestDescriptor runnerTestDescriptor = (RunnerTestDescriptor) descriptor;
+
+			if (methods) {
+				runnerTestDescriptors.add(parallelMethodExecutor(runnerTestDescriptor, executorService));
+				continue;
+			}
+			runnerTestDescriptors.add(runnerTestDescriptor);
+		}
+		return runnerTestDescriptors;
 	}
 
 	private void shutdownExecutorService(ExecutorService executorService) {
@@ -163,6 +202,11 @@ public final class VintageTestEngine implements TestEngine {
 
 	private boolean getParallelExecutionEnabled(ExecutionRequest request) {
 		return request.getConfigurationParameters().getBoolean(PARALLEL_EXECUTION_ENABLED).orElse(false);
+	}
+
+	private void initializeParallelExecution(ExecutionRequest request) {
+		classes = request.getConfigurationParameters().getBoolean(Constants.PARALLEL_CLASS_EXECUTION).orElse(false);
+		methods = request.getConfigurationParameters().getBoolean(Constants.PARALLEL_METHOD_EXECUTION).orElse(false);
 	}
 
 	private int getThreadPoolSize(ExecutionRequest request) {
